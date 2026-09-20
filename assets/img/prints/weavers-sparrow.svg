@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <rect width="800" height="1000" fill="#FFF8F0"/>
+  <rect x="70" y="80" width="660" height="800" fill="#2B2530" rx="6"/>
+  <!-- Relief cuts: Indian sparrow on flowering acacia branch -->
+  <g fill="#FFF8F0" stroke="#FFF8F0">
+    <!-- Gnarled branch cutting across -->
+    <path d="M 80 620 Q 260 630 420 540 Q 560 460 720 480" stroke-width="14" stroke-linecap="round" fill="none"/>
+    <path d="M 420 540 Q 480 640 560 700" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <!-- Sparrow perched -->
+    <!-- Bird body -->
+    <path d="M 360 490 C 350 410 400 340 460 340 C 510 340 540 370 550 420 C 560 480 500 540 430 540 C 390 540 370 520 360 490 Z"/>
+    <!-- Beak -->
+    <path d="M 370 370 L 330 380 L 370 395 Z"/>
+    <!-- Eye cutout -->
+    <circle cx="410" cy="380" r="12" fill="#2B2530"/>
+    <circle cx="412" cy="378" r="4" fill="#FFF8F0"/>
+    <!-- Wing relief feathers -->
+    <path d="M 440 420 C 490 430 550 470 590 560 C 540 550 480 500 440 420 Z" fill="#2B2530" stroke="#FFF8F0" stroke-width="3"/>
+    <!-- Wing feather gouge lines -->
+    <line x1="470" y1="460" x2="550" y2="520" stroke-width="3" stroke-linecap="round"/>
+    <line x1="460" y1="480" x2="530" y2="540" stroke-width="3" stroke-linecap="round"/>
+    <!-- Tail feathers -->
+    <path d="M 520 500 L 630 620 L 610 630 L 490 520 Z"/>
+    <!-- Bird feet clinging to branch -->
+    <path d="M 410 540 L 405 565 M 425 540 L 420 565" stroke-width="5" stroke-linecap="round"/>
+    <!-- Acacia round flower puffs & leaflets -->
+    <circle cx="220" cy="580" r="22"/>
+    <circle cx="280" cy="530" r="18"/>
+    <circle cx="600" cy="450" r="24"/>
+    <circle cx="660" cy="420" r="20"/>
+    <circle cx="500" cy="670" r="20"/>
+    <!-- Foliage leaves -->
+    <path d="M 230 550 C 210 520 220 480 250 490 C 260 520 250 550 230 550 Z"/>
+    <path d="M 620 430 C 650 400 680 420 670 450 C 640 460 620 440 620 430 Z"/>
+  </g>
+  <text x="80" y="930" font-family="'Caveat', cursive" font-size="28" fill="#4A4250">A/P 2/8</text>
+  <text x="310" y="930" font-family="'Caveat', cursive" font-size="28" fill="#4A4250">"THE WEAVER'S SPARROW"</text>
+  <text x="630" y="930" font-family="'Caveat', cursive" font-size="28" fill="#4A4250">AK '26</text>
+</svg>
+

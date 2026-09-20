@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 720" width="600" height="720">
+  <!-- Studio background pastel warmth -->
+  <rect width="600" height="720" fill="#F7D6E0"/>
+  <!-- Sunlight window / studio atmosphere -->
+  <rect x="20" y="20" width="560" height="680" rx="16" fill="#FFF8F0" stroke="#2B2530" stroke-width="3"/>
+  
+  <!-- Inking slab and brayers in background -->
+  <rect x="420" y="80" width="130" height="180" rx="6" fill="#FFF1B8" stroke="#2B2530" stroke-width="2"/>
+  <line x1="435" y1="120" x2="535" y2="120" stroke="#2B2530" stroke-width="2" stroke-dasharray="4 4"/>
+  <circle cx="485" cy="180" r="28" fill="#CDEBDD" stroke="#2B2530" stroke-width="2"/>
+
+  <!-- Drying prints hanging on wire with clothespins in top corner -->
+  <line x1="40" y1="70" x2="360" y2="90" stroke="#2B2530" stroke-width="2"/>
+  <rect x="70" y="80" width="70" height="95" rx="3" fill="#FFFFFF" stroke="#2B2530" stroke-width="2" transform="rotate(-3 70 80)"/>
+  <rect x="170" y="86" width="75" height="100" rx="3" fill="#FFFFFF" stroke="#2B2530" stroke-width="2" transform="rotate(2 170 86)"/>
+  <rect x="275" y="92" width="70" height="95" rx="3" fill="#FFFFFF" stroke="#2B2530" stroke-width="2" transform="rotate(-1 275 92)"/>
+  
+  <!-- Mini linocut prints visible on drying sheets -->
+  <circle cx="105" cy="120" r="14" fill="#2B2530"/>
+  <path d="M 200 120 L 220 150 L 180 150 Z" fill="#2B2530"/>
+  <rect x="295" y="125" width="30" height="30" fill="#2B2530"/>
+
+  <!-- Clothespins -->
+  <rect x="100" y="68" width="8" height="18" rx="2" fill="#D45D48"/>
+  <rect x="200" y="76" width="8" height="18" rx="2" fill="#D45D48"/>
+  <rect x="305" y="84" width="8" height="18" rx="2" fill="#D45D48"/>
+
+  <!-- Artist Figure (Stylized, friendly, artisanal portrait) -->
+  <!-- Torso & Denim Apron -->
+  <path d="M 170 700 L 190 440 C 200 370 400 370 410 440 L 430 700 Z" fill="#CFE4F7" stroke="#2B2530" stroke-width="3"/>
+  <!-- Studio Linen Apron with ink smudge -->
+  <path d="M 220 440 L 380 440 L 395 700 L 205 700 Z" fill="#FFF1B8" stroke="#2B2530" stroke-width="2.5"/>
+  <path d="M 260 380 L 260 440 M 340 380 L 340 440" stroke="#2B2530" stroke-width="3"/>
+  <!-- Apron pocket with carving tool poking out -->
+  <rect x="250" y="520" width="100" height="90" rx="6" fill="#FFFFFF" stroke="#2B2530" stroke-width="2"/>
+  <path d="M 285 520 L 280 470 C 280 460 295 460 295 470 L 290 520" fill="#4A4250" stroke="#2B2530" stroke-width="2"/>
+  <!-- Ink smudge on apron -->
+  <path d="M 315 560 C 330 550 340 570 330 580 C 320 585 310 575 315 560 Z" fill="#2B2530" opacity="0.6"/>
+
+  <!-- Neck & Face -->
+  <rect x="270" y="320" width="60" height="70" rx="8" fill="#FFD9C2" stroke="#2B2530" stroke-width="2.5"/>
+  <path d="M 225 240 C 225 150 375 150 375 240 C 375 330 225 330 225 240 Z" fill="#FFD9C2" stroke="#2B2530" stroke-width="3"/>
+  
+  <!-- Flowing dark hair -->
+  <path d="M 215 230 C 200 120 400 110 385 230 C 405 310 370 360 370 360 C 350 290 360 210 300 200 C 240 210 250 290 230 360 C 230 360 195 310 215 230 Z" fill="#2B2530"/>
+  <!-- Bun / topknot with pencil holding it -->
+  <circle cx="300" cy="115" r="38" fill="#2B2530"/>
+  <line x1="240" y1="130" x2="360" y2="100" stroke="#D45D48" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Expressive warm face details -->
+  <!-- Eyebrows & Eyes -->
+  <path d="M 255 235 Q 270 225 285 235" stroke="#2B2530" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M 315 235 Q 330 225 345 235" stroke="#2B2530" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <circle cx="270" cy="245" r="4" fill="#2B2530"/>
+  <circle cx="330" cy="245" r="4" fill="#2B2530"/>
+  <!-- Blush on cheeks -->
+  <ellipse cx="255" cy="265" rx="14" ry="7" fill="#F7D6E0"/>
+  <ellipse cx="345" cy="265" rx="14" ry="7" fill="#F7D6E0"/>
+  <!-- Smile -->
+  <path d="M 285 280 Q 300 295 315 280" stroke="#2B2530" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- Hands holding a fresh linocut print plate -->
+  <rect x="170" y="580" width="260" height="120" rx="10" fill="#4A4250" stroke="#2B2530" stroke-width="3" transform="rotate(-2 170 580)"/>
+  <path d="M 250 610 Q 300 630 350 610" stroke="#FFF8F0" stroke-width="4" fill="none"/>
+  <circle cx="300" cy="640" r="18" fill="none" stroke="#FFF8F0" stroke-width="4"/>
+
+  <!-- Badge in corner: "In the Studio" -->
+  <g transform="translate(40, 630) rotate(-4)">
+    <rect width="130" height="34" rx="17" fill="#FFF1B8" stroke="#2B2530" stroke-width="2"/>
+    <text x="65" y="22" font-family="'Fraunces', serif" font-size="14" font-weight="bold" fill="#2B2530" text-anchor="middle">AT WORK ✦</text>
+  </g>
+</svg>
+

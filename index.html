@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags -->
+  <title>Anisha Khanduja — Original, Handcrafted Linocut Prints</title>
+  <meta name="title" content="Anisha Khanduja — Original, Handcrafted Linocut Prints">
+  <meta name="description" content="Discover original, limited-edition linocut prints by Anisha Khanduja. Hand-carved and hand-printed one at a time on archival cotton rag paper. Ships plastic-free across India.">
+  <meta name="keywords" content="linocut prints, original art, printmaking, limited edition art, handmade prints, Indian artist, relief printing, art for home">
+  <meta name="author" content="Anisha Khanduja">
+
+  <!-- Open Graph / Facebook / Instagram / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Anisha Khanduja — Original, Handcrafted Linocut Prints">
+  <meta property="og:description" content="Playful, tactile, limited-edition relief prints hand-carved and pressed one at a time in India.">
+  <meta property="og:image" content="assets/img/prints/ordinary-objects-1.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Anisha Khanduja — Original, Handcrafted Linocut Prints">
+  <meta property="twitter:description" content="Hand-carved relief linocut prints on archival cotton rag paper.">
+  <meta property="twitter:image" content="assets/img/prints/ordinary-objects-1.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Stylesheet (Relative Path for GitHub Pages) -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Custom Desktop Cursor (Ink Roller / Stamp) -->
+  <div id="custom-cursor" class="custom-cursor" aria-hidden="true">
+    <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+      <circle cx="16" cy="16" r="12" fill="#FFF1B8" stroke="#2B2530" stroke-width="2.5"/>
+      <path d="M16 8 L16 24 M8 16 L24 16" stroke="#2B2530" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="16" cy="16" r="3" fill="#D45D48"/>
+    </svg>
+  </div>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar" role="region" aria-label="Announcement">
+    <span>✦ Free plastic-free shipping across India on orders over ₹1,999 · Hand-packed with love ✦</span>
+  </div>
+
+  <!-- Sticky Site Header -->
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <!-- Brand Wordmark -->
+      <a href="#" class="brand" aria-label="Anisha Khanduja Studio Home">
+        <span class="brand-name">Anisha Khanduja</span>
+        <span class="brand-tagline">Original, Handcrafted.</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="site-nav" aria-label="Main Navigation">
+        <a href="#shop" class="nav-link">Shop Prints</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#process" class="nav-link">The Process</a>
+        <a href="#commissions" class="nav-link">Commissions</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </nav>
+
+      <!-- Header Actions (Cart & Mobile Menu) -->
+      <div class="header-actions">
+        <button class="cart-trigger" id="cart-trigger-btn" aria-label="Open shopping cart drawer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span>Cart</span>
+          <span class="cart-count" aria-label="0 items in cart">0</span>
+        </button>
+
+        <!-- Mobile Hamburger Button -->
+        <button class="menu-toggle" id="menu-toggle-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Overlay & Slide Panel -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <aside class="mobile-nav-panel" id="mobile-nav-panel" aria-label="Mobile Navigation">
+    <div class="mobile-nav-header">
+      <div class="brand">
+        <span class="brand-name">Anisha Khanduja</span>
+        <span class="brand-tagline">Original, Handcrafted.</span>
+      </div>
+      <button class="modal-close-btn" id="mobile-nav-close" aria-label="Close menu">&times;</button>
+    </div>
+    <nav class="mobile-nav-links">
+      <a href="#shop" class="mobile-nav-link">✦ Shop All Prints</a>
+      <a href="#featured" class="mobile-nav-link">✦ Featured Pieces</a>
+      <a href="#about" class="mobile-nav-link">✦ About the Artist</a>
+      <a href="#process" class="mobile-nav-link">✦ The Process</a>
+      <a href="#commissions" class="mobile-nav-link">✦ Custom Commissions</a>
+      <a href="#faq" class="mobile-nav-link">✦ Questions & Care</a>
+    </nav>
+    <div class="mobile-nav-footer">
+      <p style="font-size:var(--text-xs); color:var(--ink-muted); margin-bottom:1rem;">
+        Questions about an edition or framing?
+      </p>
+      <!-- TODO: Replace phone number with actual WhatsApp contact -->
+      <a href="https://wa.me/919876543210" class="btn btn-whatsapp btn-full" target="_blank" rel="noopener">
+        Chat on WhatsApp
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main Page Content -->
+  <main id="main-content">
+
+    <!-- ================================================================
+         HERO SECTION: Headline, CTAs & Interactive "Carve → Print" Reveal
+         ================================================================ -->
+    <section class="section hero-section" id="hero">
+      <div class="container hero-grid">
+        <!-- Hero Text Content -->
+        <div class="hero-content reveal-on-scroll">
+          <div class="eyebrow hero-eyebrow">
+            <span>✦ Original Limited Edition Linocuts</span>
+          </div>
+          <h1 class="hero-title">
+            Hand-carved stories,<br>
+            <em>pressed one at a time.</em>
+          </h1>
+          <p class="hero-desc lead">
+            Tactile relief art for your walls. Carved slowly by hand, inked with deep oil pigments, and hand-pulled onto heavy cotton rag paper. No two impressions are ever exactly alike.
+          </p>
+          <div class="hero-actions">
+            <a href="#shop" class="btn btn-primary btn-lg">
+              Shop the Prints ✦
+            </a>
+            <a href="#process" class="btn btn-secondary btn-lg">
+              See How They're Made ↓
+            </a>
+          </div>
+
+          <!-- Trust Badges Strip -->
+          <div class="hero-trust-list">
+            <div class="trust-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <span>100% Cotton Rag Paper</span>
+            </div>
+            <div class="trust-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
+              <span>Signed & Editioned</span>
+            </div>
+            <div class="trust-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M12 8V4a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v4"/><path d="M8 8V4a2 2 0 0 0-2-2h0a2 2 0 0 0-2 2v4"/></svg>
+              <span>Plastic-Free Delivery</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- The "Carve → Print" Reveal Component -->
+        <div class="carve-reveal-wrapper reveal-on-scroll stagger-2">
+          <div class="carve-reveal-card">
+            <div class="carve-reveal-container" id="carve-reveal-container" title="Drag slider or tap toggle to switch between carved linoleum plate and inked print">
+              <!-- Layer 1: Final Print -->
+              <img class="carve-reveal-img carve-layer-print" src="assets/img/prints/ordinary-objects-1.jpg" alt="Final hand-pulled linocut print: Ordinary Objects I">
+              
+              <!-- Layer 2: Carved Linoleum Plate -->
+              <div class="carve-layer-block" id="carve-layer-block">
+                <img class="carve-reveal-img" src="assets/img/studio/carved-lino-plate.svg" alt="Hand-carved linoleum block for Ordinary Objects">
+              </div>
+
+              <!-- Interactive Slider Bar & Drag Handle -->
+              <div class="carve-slider-line" id="carve-slider-line"></div>
+              <div class="carve-slider-handle" id="carve-slider-handle" aria-label="Drag to reveal carve vs print">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <path d="M7 16l-4-4 4-4M17 8l4 4-4 4"></path>
+                </svg>
+              </div>
+
+              <!-- Badges on the reveal -->
+              <span class="carve-label carve-label-left">Carved Plate</span>
+              <span class="carve-label carve-label-right">Final Print</span>
+            </div>
+
+            <!-- Caption below reveal card -->
+            <div class="carve-caption">
+              <div class="carve-piece-info">
+                <strong>Ordinary Objects - I</strong>
+                <span>A/P Edition of 8 · Somerset Velvet Paper</span>
+              </div>
+              <button class="carve-toggle-btn" id="carve-toggle-btn" type="button" aria-label="Toggle carve and print view">
+                <span>⇄ Tap to Flip View</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wobbly Divider -->
+    <div class="wobbly-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 40" preserveAspectRatio="none">
+        <path d="M0,20 Q150,0 300,20 T600,20 T900,20 T1200,20 L1200,40 L0,40 Z" fill="#CDEBDD"></path>
+      </svg>
+    </div>
+
+    <!-- ================================================================
+         MARQUEE BANNER STRIP
+         ================================================================ -->
+    <aside class="marquee-wrapper" aria-label="Studio Slogans">
+      <div class="marquee-content">
+        <div class="marquee-item">
+          <span>hand carved</span><span class="marquee-asterisk">✦</span>
+          <span>hand printed</span><span class="marquee-asterisk">✦</span>
+          <span>one at a time</span><span class="marquee-asterisk">✦</span>
+          <span>limited editions</span><span class="marquee-asterisk">✦</span>
+          <span>archival cotton rag</span><span class="marquee-asterisk">✦</span>
+          <span>plastic-free packaging</span><span class="marquee-asterisk">✦</span>
+          <span>signed & numbered</span><span class="marquee-asterisk">✦</span>
+        </div>
+        <div class="marquee-item" aria-hidden="true">
+          <span>hand carved</span><span class="marquee-asterisk">✦</span>
+          <span>hand printed</span><span class="marquee-asterisk">✦</span>
+          <span>one at a time</span><span class="marquee-asterisk">✦</span>
+          <span>limited editions</span><span class="marquee-asterisk">✦</span>
+          <span>archival cotton rag</span><span class="marquee-asterisk">✦</span>
+          <span>plastic-free packaging</span><span class="marquee-asterisk">✦</span>
+          <span>signed & numbered</span><span class="marquee-asterisk">✦</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ================================================================
+         FEATURED / NEW ARRIVALS: Swipeable Row
+         ================================================================ -->
+    <section class="section featured-section" id="featured">
+      <div class="container">
+        <div class="featured-header-row">
+          <div class="section-header" style="margin-bottom:0;">
+            <div class="eyebrow">✦ Fresh from the Press</div>
+            <h2 class="section-title">Featured Editions</h2>
+            <p class="section-subtitle">A curated peek at recent limited impressions available right now.</p>
+          </div>
+          <div class="featured-nav-btns" aria-label="Scroll featured prints">
+            <button class="swipe-btn" id="featured-prev-btn" aria-label="Previous prints">←</button>
+            <button class="swipe-btn" id="featured-next-btn" aria-label="Next prints">→</button>
+          </div>
+        </div>
+
+        <!-- Horizontally scrollable swipe track -->
+        <div class="featured-track" id="featured-track" role="region" aria-label="Featured artworks carousel">
+          <!-- Populated dynamically from products.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Wobbly Divider -->
+    <div class="wobbly-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 40" preserveAspectRatio="none">
+        <path d="M0,0 Q300,40 600,0 T1200,0 L1200,40 L0,40 Z" fill="#FFF8F0"></path>
+      </svg>
+    </div>
+
+    <!-- ================================================================
+         SHOP / GALLERY: Sticky Filter Chips, Sorting & Grid
+         ================================================================ -->
+    <section class="section shop-section" id="shop">
+      <div class="container">
+        <div class="section-header text-center reveal-on-scroll">
+          <div class="eyebrow">✦ The Print Shop</div>
+          <h2 class="section-title">All Original Linocuts</h2>
+          <p class="section-subtitle">
+            Every piece is carved, inked, and pulled by hand in the studio. Once an edition is sold out, it is never reprinted.
+          </p>
+        </div>
+      </div>
+
+      <!-- Sticky Filter Chips & Sort Bar -->
+      <div class="shop-controls-bar">
+        <div class="container shop-controls-inner">
+          <!-- Filter Chips (Sticky & Scrollable on mobile) -->
+          <div class="filter-chips-track" id="filter-chips-track" role="tablist" aria-label="Filter artworks">
+            <!-- Dynamically populated from products.js -->
+          </div>
+
+          <!-- Sort Dropdown -->
+          <div class="shop-sort-wrap">
+            <label for="shop-sort-select" class="shop-sort-label">Sort By:</label>
+            <select id="shop-sort-select" class="shop-sort-select" aria-label="Sort artworks">
+              <option value="newest">Newest Additions</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Artworks Grid -->
+      <div class="container">
+        <div class="artwork-grid" id="shop-artwork-grid">
+          <!-- Populated dynamically from products.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Wobbly Divider -->
+    <div class="wobbly-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 40" preserveAspectRatio="none">
+        <path d="M0,30 Q350,0 700,30 T1200,10 L1200,40 L0,40 Z" fill="#F7D6E0"></path>
+      </svg>
+    </div>
+
+    <!-- ================================================================
+         ABOUT THE ARTIST SECTION
+         ================================================================ -->
+    <section class="section about-section" id="about" style="background-color:#FDF4F6;">
+      <div class="container about-grid">
+        <!-- Artist Photo / Portrait -->
+        <div class="about-image-wrap reveal-on-scroll">
+          <div class="about-frame">
+            <img src="assets/img/studio/artist-anisha.svg" alt="Anisha Khanduja in her printmaking studio" width="500" height="600" loading="lazy">
+          </div>
+          <div class="about-sticker-note">
+            <span>In the studio daily ✦</span>
+          </div>
+        </div>
+
+        <!-- Story Content -->
+        <div class="about-bio reveal-on-scroll stagger-2">
+          <div class="eyebrow" style="background-color:var(--blush);">✦ Meet the Artist</div>
+          <h2 class="section-title">Hi, I'm Anisha Khanduja.</h2>
+          <p class="lead">
+            I fell in love with relief printmaking because in a world of quick clicks and digital screens, it forces you to slow down.
+          </p>
+          <p>
+            Every print starts with a sketch mirrored in reverse onto battleship grey linoleum. From there, it's just my hands, a set of sharp Japanese gouges, and quiet studio hours cutting away everything that isn't the story.
+          </p>
+          <p>
+            When you roll velvety oil ink onto a carved plate and press it into heavy, textured cotton rag paper, there is always an unpredictable moment of magic. The tiny chatter marks of the chisel, the deckled paper edges, the pressure of the hand-burnish—each print holds its own distinct soul.
+          </p>
+          <div class="about-signature">
+            <span class="signature-text">Anisha Khanduja</span>
+            <span class="signature-role">Founder & Printmaker</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wobbly Divider -->
+    <div class="wobbly-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 40" preserveAspectRatio="none">
+        <path d="M0,10 Q250,35 500,10 T1000,25 T1200,15 L1200,40 L0,40 Z" fill="#FFFDF9"></path>
+      </svg>
+    </div>
+
+    <!-- ================================================================
+         THE PROCESS: Step-by-Step Craft Journey
+         ================================================================ -->
+    <section class="section process-section" id="process">
+      <div class="container">
+        <div class="section-header text-center reveal-on-scroll">
+          <div class="eyebrow" style="background-color:var(--butter);">✦ Slow Craftsmanship</div>
+          <h2 class="section-title">How a Print Comes to Life</h2>
+          <p class="section-subtitle">
+            Six deliberate, tactile stages behind every limited-edition impression.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <!-- Step 1 -->
+          <div class="process-card reveal-on-scroll stagger-1">
+            <span class="process-step-num">01</span>
+            <div class="process-badge">✏️</div>
+            <h3 class="process-card-title">Sketch & Reverse</h3>
+            <p class="process-card-desc">
+              Composing the artwork and transferring it onto linoleum in reverse. Because printmaking flips the world horizontally, every detail must be drawn backwards.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="process-card reveal-on-scroll stagger-2">
+            <span class="process-step-num">02</span>
+            <div class="process-badge">🔪</div>
+            <h3 class="process-card-title">Hand-Carving</h3>
+            <p class="process-card-desc">
+              Using fine V-gouges for hairline contours and wide U-gouges to clear negative space. One slip cannot be undone; each cut requires complete focus.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="process-card reveal-on-scroll stagger-3">
+            <span class="process-step-num">03</span>
+            <div class="process-badge">🎨</div>
+            <h3 class="process-card-title">Mixing & Inking</h3>
+            <p class="process-card-desc">
+              Working rich oil-based relief inks on a glass slab with a rubber brayer until it produces a distinctive, tacky hiss—the sign of a flawless ink film.
+            </p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="process-card reveal-on-scroll stagger-4">
+            <span class="process-step-num">04</span>
+            <div class="process-badge">🪵</div>
+            <h3 class="process-card-title">The Press</h3>
+            <p class="process-card-desc">
+              Placing heavy cotton rag paper over the inked plate and burnishing firmly with a bamboo baren and antique cast-iron book press.
+            </p>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="process-card reveal-on-scroll stagger-5">
+            <span class="process-step-num">05</span>
+            <div class="process-badge">🌬️</div>
+            <h3 class="process-card-title">Gentle Hang-Dry</h3>
+            <p class="process-card-desc">
+              Damp prints are pinned to studio lines with wooden clothespins to air-cure naturally for 7 to 10 days until the pigment bonds deep into the paper fibers.
+            </p>
+          </div>
+
+          <!-- Step 6 -->
+          <div class="process-card reveal-on-scroll stagger-6">
+            <span class="process-step-num">06</span>
+            <div class="process-badge">✍️</div>
+            <h3 class="process-card-title">Sign & Number</h3>
+            <p class="process-card-desc">
+              Each print is personally inspected under natural light, hand-numbered (e.g. 2/8), titled, and signed in archival pencil before final packaging.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wobbly Divider -->
+    <div class="wobbly-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 40" preserveAspectRatio="none">
+        <path d="M0,20 Q200,0 400,20 T800,20 T1200,20 L1200,40 L0,40 Z" fill="#DCD3F5"></path>
+      </svg>
+    </div>
+
+    <!-- ================================================================
+         COMMISSIONS CALLOUT
+         ================================================================ -->
+    <section class="section" id="commissions" style="background-color:#EFE9FC;">
+      <div class="container">
+        <div class="commissions-box reveal-on-scroll">
+          <div>
+            <div class="eyebrow" style="background-color:var(--surface-pure);">✦ Custom Work</div>
+            <h2 class="section-title">Looking for a custom print?</h2>
+            <p class="lead" style="margin-bottom:1rem;">
+              Whether it's an architectural portrait of your family home, personalized ex-libris bookplates, or bespoke wedding stationery suites.
+            </p>
+            <p style="font-size:var(--text-sm); margin-bottom:1.5rem;">
+              I take on 3 to 4 bespoke carving commissions each month. Each project receives its own dedicated hand-carved plate that is yours to keep.
+            </p>
+            <div class="commissions-ideas-list">
+              <span class="commission-tag">House & Architectural Portraits</span>
+              <span class="commission-tag">Personalized Bookplates (Ex-Libris)</span>
+              <span class="commission-tag">Botanical Monograms</span>
+              <span class="commission-tag">Wedding Suites & Keepsakes</span>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:1rem; align-items:flex-start;">
+            <!-- TODO: Replace WhatsApp number -->
+            <a href="https://wa.me/919876543210?text=Hi%20Anisha!%20I'd%20love%20to%20discuss%20a%20custom%20linocut%20print%20commission." class="btn btn-whatsapp btn-lg btn-full" target="_blank" rel="noopener">
+              Chat About a Commission 💬
+            </a>
+            <!-- TODO: Replace Email Address -->
+            <a href="mailto:anisha.khanduja@example.com?subject=Custom%20Linocut%20Commission%20Inquiry" class="btn btn-secondary btn-full">
+              Send an Email
+            </a>
+            <span class="hand-note" style="align-self:center; font-size:1.15rem;">Custom slots open for this month! ✦</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wobbly Divider -->
+    <div class="wobbly-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 40" preserveAspectRatio="none">
+        <path d="M0,0 Q400,30 800,0 T1200,0 L1200,40 L0,40 Z" fill="#FFF8F0"></path>
+      </svg>
+    </div>
+
+    <!-- ================================================================
+         FAQ ACCORDION: Common Questions & Print Care
+         ================================================================ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-header text-center reveal-on-scroll">
+          <div class="eyebrow">✦ Clear & Honest</div>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">Everything about packaging, shipping, framing, and print care.</p>
+        </div>
+
+        <div class="faq-accordion reveal-on-scroll stagger-1">
+          <!-- Question 1 -->
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>How are the prints packaged for delivery?</span>
+              <span class="faq-toggle-icon">+</span>
+            </summary>
+            <div class="faq-answer">
+              Every print is wrapped in acid-free glassine tissue and sandwiched between two heavy 4mm corrugated rigid boards inside a water-resistant mailer. Larger works are safely rolled into heavy-walled cardboard postal tubes. We use 100% plastic-free, recyclable packaging materials.
+            </div>
+          </details>
+
+          <!-- Question 2 -->
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>What does "Limited Edition" mean?</span>
+              <span class="faq-toggle-icon">+</span>
+            </summary>
+            <div class="faq-answer">
+              When an artwork is marked "Edition of 8", it means exactly eight numbered impressions will ever be pulled from that block. Once those 8 are sold, the block is permanently retired and will never be printed again, preserving the rarity and value of your piece.
+            </div>
+          </details>
+
+          <!-- Question 3 -->
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>What paper and inks do you use?</span>
+              <span class="faq-toggle-icon">+</span>
+            </summary>
+            <div class="faq-answer">
+              We exclusively use archival, museum-grade fine art papers including 250gsm Somerset Velvet (100% cotton rag made at St Cuthberts Mill in England) and genuine 300gsm Indian Khadi handmade rag papers. Our inks are professional artist-grade Cranfield Caligo and Charbonnel oil-based relief inks renowned for deep, lightfast pigmentation that will not fade for generations.
+            </div>
+          </details>
+
+          <!-- Question 4 -->
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Do prints come framed?</span>
+              <span class="faq-toggle-icon">+</span>
+            </summary>
+            <div class="faq-answer">
+              To keep shipping safe and affordable across India, all prints are sold unframed. However, all our pieces are designed around standard frame sizes (e.g. 10×10", 11×14", 12×16", A4, A3). We recommend framing under UV-protective glass with an acid-free mat board that allows the deckled paper edges to breathe.
+            </div>
+          </details>
+
+          <!-- Question 5 -->
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>How should I care for my original linocut?</span>
+              <span class="faq-toggle-icon">+</span>
+            </summary>
+            <div class="faq-answer">
+              Hang your framed artwork away from prolonged, direct harsh sunlight and damp areas (like unventilated bathrooms). Never touch the inked surface with bare fingers; handle by the edges or wear clean cotton gloves.
+            </div>
+          </details>
+
+          <!-- Question 6 -->
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>What payment methods are supported?</span>
+              <span class="faq-toggle-icon">+</span>
+            </summary>
+            <div class="faq-answer">
+              We accept direct UPI transfers (Google Pay, PhonePe, Paytm, BHIM) with zero gateway commissions, direct bank transfers (NEFT/IMPS), as well as credit/debit cards via secure payment links upon request.
+            </div>
+          </details>
+
+          <!-- Question 7 -->
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>What is your exchange or return policy?</span>
+              <span class="faq-toggle-icon">+</span>
+            </summary>
+            <div class="faq-answer">
+              In the extremely rare event that your package arrives damaged in transit, simply take a photo within 48 hours of delivery and message us on WhatsApp. We will immediately arrange a replacement or full refund without hassle.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wobbly Divider -->
+    <div class="wobbly-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 40" preserveAspectRatio="none">
+        <path d="M0,25 Q300,0 600,25 T1200,20 L1200,40 L0,40 Z" fill="#FFF1B8"></path>
+      </svg>
+    </div>
+
+    <!-- ================================================================
+         INSTAGRAM FEED STRIP
+         ================================================================ -->
+    <section class="section insta-strip-section" id="instagram" style="background-color:#FFFDF4;">
+      <div class="container">
+        <div class="section-header text-center reveal-on-scroll">
+          <div class="eyebrow" style="background-color:var(--butter);">✦ Follow Along</div>
+          <h2 class="section-title">Behind the Scenes on Instagram</h2>
+          <!-- TODO: Replace with your actual Instagram handle -->
+          <p class="section-subtitle">
+            Follow <a href="https://instagram.com" target="_blank" rel="noopener" style="font-weight:700; text-decoration:underline;">@anishakhanduja.studio</a> for daily carving clips and fresh pulls.
+          </p>
+        </div>
+
+        <div class="insta-grid reveal-on-scroll stagger-1">
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="insta-card" aria-label="View on Instagram">
+            <img src="assets/img/prints/ordinary-objects-1.jpg" alt="Ordinary objects linocut" loading="lazy">
+            <div class="insta-overlay"><span>Instagram ↗</span></div>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="insta-card" aria-label="View on Instagram">
+            <img src="assets/img/prints/moon.jpg" alt="Moon crescent print" loading="lazy">
+            <div class="insta-overlay"><span>Instagram ↗</span></div>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="insta-card" aria-label="View on Instagram">
+            <img src="assets/img/prints/ordinary-objects-3.png" alt="Ordinary objects 3 print" loading="lazy">
+            <div class="insta-overlay"><span>Instagram ↗</span></div>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="insta-card" aria-label="View on Instagram">
+            <img src="assets/img/prints/shelter.png" alt="Shelter diptych print" loading="lazy">
+            <div class="insta-overlay"><span>Instagram ↗</span></div>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="insta-card" aria-label="View on Instagram">
+            <img src="assets/img/prints/midnight-flora.svg" alt="Midnight flora linocut" loading="lazy">
+            <div class="insta-overlay"><span>Instagram ↗</span></div>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="insta-card" aria-label="View on Instagram">
+            <img src="assets/img/prints/chai-at-twilight.svg" alt="Chai at twilight print" loading="lazy">
+            <div class="insta-overlay"><span>Instagram ↗</span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================================================================
+       SITE FOOTER
+       ==================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand & Tagline -->
+        <div class="footer-brand">
+          <a href="#" class="brand">
+            <span class="brand-name">Anisha Khanduja</span>
+            <span class="brand-tagline">Original, Handcrafted.</span>
+          </a>
+          <p class="footer-bio">
+            An independent printmaking studio dedicated to slow, handcrafted original linocut editions. Hand-pulled in India.
+          </p>
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div>
+          <h4 class="footer-col-title">Studio Links</h4>
+          <div class="footer-links">
+            <a href="#shop">Shop All Editions</a>
+            <a href="#featured">Featured Works</a>
+            <a href="#about">About Anisha</a>
+            <a href="#process">The Craft Process</a>
+            <a href="#commissions">Custom Inquiries</a>
+            <a href="#faq">FAQ & Framing Care</a>
+          </div>
+        </div>
+
+        <!-- Col 3: Direct Inquiries -->
+        <div>
+          <h4 class="footer-col-title">Get in Touch</h4>
+          <div class="footer-links">
+            <!-- TODO: Replace WhatsApp and Email with actual accounts -->
+            <a href="https://wa.me/919876543210" target="_blank" rel="noopener">WhatsApp Studio Chat ↗</a>
+            <a href="mailto:anisha.khanduja@example.com">anisha.khanduja@example.com</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener">Instagram: @anishakhanduja.studio</a>
+            <span style="font-size:var(--text-xs); color:var(--ink-muted); margin-top:0.5rem;">
+              Studio visits by prior appointment only.
+            </span>
+          </div>
+        </div>
+
+        <!-- Col 4: Newsletter -->
+        <div>
+          <h4 class="footer-col-title">The Print Club</h4>
+          <p style="font-size:var(--text-xs); color:var(--ink-light); margin-bottom:0.5rem;">
+            Be first in line when new editions drop. No spam, only quiet studio dispatches.
+          </p>
+          <form class="newsletter-form" id="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Your email address..." required aria-label="Your email address">
+            <button type="submit" class="btn btn-sm btn-primary">Join ✦</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div>
+          © <span id="copyright-year">2026</span> Anisha Khanduja. All rights reserved.
+        </div>
+        <div>
+          Hand-carved with love · Hosted on GitHub Pages · Relative & Zero Build
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====================================================================
+       SLIDE-IN CART DRAWER & OVERLAY
+       ==================================================================== -->
+  <div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
+  <aside class="cart-drawer" id="cart-drawer" role="dialog" aria-label="Shopping Cart">
+    <!-- Drawer Header -->
+    <div class="cart-drawer-header">
+      <h3 class="cart-drawer-title">
+        <span>Your Print Bag</span>
+        <span class="cart-count">0</span>
+      </h3>
+      <button class="cart-close-btn" id="cart-close-btn" aria-label="Close cart">&times;</button>
+    </div>
+
+    <!-- Free Shipping Progress Tracker -->
+    <div class="cart-shipping-banner">
+      <span id="shipping-note-text">Add items for Free Shipping across India!</span>
+      <div class="shipping-progress-track">
+        <div class="shipping-progress-fill" id="shipping-bar-fill" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <!-- Cart Line Items -->
+    <div class="cart-items-list" id="cart-items-container">
+      <!-- Injected by cart.js -->
+    </div>
+
+    <!-- Empty State -->
+    <div class="cart-empty-state" id="cart-empty-state">
+      <svg class="cart-empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M8 12h8"></path>
+      </svg>
+      <h4 class="cart-empty-title">Your bag is empty</h4>
+      <p style="font-size:var(--text-xs); color:var(--ink-muted);">
+        Take your time browsing our hand-carved limited editions.
+      </p>
+      <a href="#shop" class="btn btn-sm btn-primary" onclick="window.studioCart.close();">
+        Explore Artworks ✦
+      </a>
+    </div>
+
+    <!-- Drawer Footer / Checkout -->
+    <div class="cart-drawer-footer" id="cart-drawer-footer">
+      <div class="cart-subtotal-row">
+        <span>Subtotal</span>
+        <span class="cart-subtotal-val" id="cart-subtotal-val">₹0</span>
+      </div>
+
+      <div class="cart-checkout-actions">
+        <!-- Option A: WhatsApp Instant Order -->
+        <button class="btn btn-whatsapp btn-full btn-lg" id="whatsapp-checkout-btn">
+          <span>Order on WhatsApp 💬</span>
+        </button>
+
+        <!-- Option B: Direct Pay / UPI -->
+        <button class="btn btn-ink btn-full" id="pay-now-checkout-btn">
+          <span>Pay via Direct UPI / QR ⚡</span>
+        </button>
+      </div>
+
+      <div class="cart-trust-note">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        <span>Insured flat-pack delivery · Plastic-free packaging</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ====================================================================
+       ARTWORK DETAIL MODAL (LIGHTBOX)
+       ==================================================================== -->
+  <div class="modal-overlay" id="artwork-modal-overlay" role="dialog" aria-modal="true" aria-label="Artwork Details">
+    <div class="modal-dialog" id="artwork-modal-dialog"></div>
+  </div>
+
+  <!-- ====================================================================
+       SCRIPTS (Plain Vanilla JS, Zero Build Step, Zero CORS Issues)
+       ==================================================================== -->
+  <script src="assets/data/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

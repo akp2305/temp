@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <!-- Raw un-inked / carved linoleum block (warm grey linoleum surface) -->
+  <rect width="800" height="1000" fill="#4B474D"/>
+  <!-- Gouged relief carving incisions in white/cream linoleum burlap depth -->
+  <g stroke="#E8E4DB" fill="#E8E4DB" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Frame border gouged lines -->
+    <rect x="60" y="70" width="680" height="840" fill="none" stroke="#E8E4DB" stroke-width="10"/>
+    <rect x="75" y="85" width="650" height="810" fill="none" stroke="#E8E4DB" stroke-width="3"/>
+    
+    <!-- Table ledge -->
+    <rect x="90" y="650" width="620" height="14" fill="#E8E4DB"/>
+
+    <!-- Lamp carving -->
+    <path d="M 520 250 L 680 250 L 650 420 L 550 420 Z" fill="none" stroke-width="12"/>
+    <!-- Stripes carved out of lampshade -->
+    <path d="M 530 290 L 670 290" stroke-width="14"/>
+    <path d="M 540 350 L 660 350" stroke-width="16"/>
+    <path d="M 550 400 L 650 400" stroke-width="14"/>
+    <!-- Lamp base -->
+    <path d="M 600 420 L 600 540" stroke-width="18"/>
+    <circle cx="600" cy="500" r="28" fill="#E8E4DB"/>
+    <path d="M 560 560 L 640 560" stroke-width="14"/>
+
+    <!-- Mugs and Cups -->
+    <path d="M 280 540 L 410 540 L 390 650 L 300 650 Z" fill="none" stroke-width="12"/>
+    <path d="M 280 560 C 240 570 240 620 285 630" fill="none" stroke-width="8"/>
+    <path d="M 440 520 L 540 535 L 515 650 L 445 640 Z" fill="none" stroke-width="10"/>
+    <path d="M 535 550 C 575 565 565 620 520 630" fill="none" stroke-width="8"/>
+
+    <!-- Folded umbrella -->
+    <path d="M 120 250 L 230 250 L 210 650 L 140 650 Z" fill="none" stroke-width="10"/>
+    <path d="M 175 250 L 175 200 C 175 170 145 170 145 195" fill="none" stroke-width="10"/>
+    <line x1="140" y1="320" x2="210" y2="320" stroke-width="10"/>
+    <line x1="145" y1="390" x2="205" y2="390" stroke-width="10"/>
+    <line x1="150" y1="460" x2="200" y2="460" stroke-width="10"/>
+    <line x1="155" y1="530" x2="195" y2="530" stroke-width="10"/>
+
+    <!-- Heavy V-gouge chatter marks across empty background -->
+    <path d="M 90 120 L 130 135 M 100 160 L 150 175 M 120 190 L 170 205" stroke-width="5"/>
+    <path d="M 260 110 L 320 130 M 280 150 L 340 170 M 270 190 L 330 210" stroke-width="5"/>
+    <path d="M 420 100 L 480 125 M 440 140 L 500 165 M 430 180 L 490 205" stroke-width="5"/>
+    <path d="M 90 700 L 150 720 M 110 740 L 180 760 M 130 780 L 200 800" stroke-width="6"/>
+    <path d="M 300 700 L 370 720 M 320 740 L 390 760 M 340 780 L 410 800" stroke-width="6"/>
+    <path d="M 520 700 L 590 720 M 540 740 L 610 760 M 560 780 L 630 800" stroke-width="6"/>
+  </g>
+  <!-- Carving tool in bottom corner watermark -->
+  <text x="90" y="870" font-family="monospace" font-size="18" fill="#A49FA8">GREY LINOLEUM MATRIX · HAND-CARVED WITH PFEIL V-GOUGES</text>
+</svg>
+
