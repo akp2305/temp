@@ -45,12 +45,12 @@ Designed with a playful, modern art-zine aesthetic crossed with a boutique print
 │   ├── main.js                 # App initialization, dynamic year, JSON-LD schema
 │   ├── cart.js                 # LocalStorage cart, drawer UI, WhatsApp & UPI checkout
 │   ├── gallery.js              # Shop cards, filter chips, sort, hash modal (#piece-id)
-│   └── ui.js                   # Carve/print slider, mobile nav, custom cursor, scroll reveal
+│   └── ui.js                   # Hero exhibition loupe inspector, mobile nav, custom cursor, scroll reveal
 └── assets/
     ├── data/
-    │   └── products.js         # Single source of truth for all artworks
+    │   └── products.js         # Single source of truth for all artworks (4 authentic prints)
     └── img/
-        ├── prints/             # Photos and illustrations of original linocuts
+        ├── prints/             # Photos of original linocuts
         └── studio/             # Studio textures and artist portrait
 ```
 
@@ -59,7 +59,7 @@ Designed with a playful, modern art-zine aesthetic crossed with a boutique print
 ## 🛠️ Step-by-Step Customization Guide
 
 ### 1. How to Add a New Artwork
-You never need to touch `index.html` to add, edit, or remove artworks! The entire gallery, filters, featured row, and detail modal render dynamically from `assets/data/products.js`.
+You never need to touch `index.html` to add, edit, or remove artworks! The entire gallery, filters, and detail modal render dynamically from `assets/data/products.js`.
 
 1. Place your artwork photo in `assets/img/prints/` (e.g. `assets/img/prints/my-new-print.jpg`).
 2. Open `assets/data/products.js`.
@@ -67,7 +67,7 @@ You never need to touch `index.html` to add, edit, or remove artworks! The entir
 
 ```javascript
 {
-  id: "piece-09",
+  id: "piece-05",
   title: "Morning Garden",
   slug: "morning-garden",
   collection: "Botanicals & Nature",
@@ -80,7 +80,6 @@ You never need to touch `index.html` to add, edit, or remove artworks! The entir
   price: 3200,
   currency: "₹",
   status: "available", // or "sold"
-  featured: true,       // set to true to display in the top "Featured Editions" row
   dateAdded: "2026-10-01",
   paymentLink: "",      // Optional direct Razorpay/Stripe link
   images: [
@@ -109,13 +108,18 @@ All visual tokens are defined in **`css/tokens.css`**:
 
 ---
 
-### 3. How to Change the WhatsApp Number & UPI ID
-Open **`js/cart.js`** and look at the top configuration block:
+### 3. Studio Contacts & Checkout Configuration
+The studio contact details are integrated across the site:
+- **WhatsApp:** `+91 98974 55555` (`https://wa.me/919897455555`)
+- **Email:** `printmakingpainting@gmail.com`
+- **Instagram:** `@printed.painted_` (`https://www.instagram.com/printed.painted_/`)
+
+To update WhatsApp checkout settings, open **`js/cart.js`**:
 
 ```javascript
 const CART_CONFIG = {
-  // Replace with your actual WhatsApp phone number with country code (no + or spaces)
-  whatsappNumber: "919876543210",
+  // Studio WhatsApp contact (with country code, no + or spaces)
+  whatsappNumber: "919897455555",
   
   // Replace with your UPI ID (Google Pay / PhonePe / BHIM)
   upiId: "anisha@upi",

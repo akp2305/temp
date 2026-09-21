@@ -517,165 +517,154 @@
   flex-shrink: 0;
 }
 
-/* --- THE CARVE → PRINT REVEAL COMPONENT --- */
-.carve-reveal-wrapper {
+/* --- HERO ARTWORK SHOWCASE & CRAFT LOUPE INSPECTOR --- */
+.hero-showcase-wrap {
   position: relative;
   width: 100%;
   max-width: 480px;
   margin-inline: auto;
 }
 
-.carve-reveal-card {
+.hero-showcase-frame {
   position: relative;
   background-color: var(--surface-pure);
   border: var(--border-thick);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 8px 10px 0 var(--ink);
   padding: 1.25rem;
-  transform: rotate(1deg);
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  transform: rotate(0.8deg);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
 }
 
-.carve-reveal-card:hover {
+.hero-showcase-frame:hover {
   transform: rotate(0deg) translateY(-4px);
-  box-shadow: var(--shadow-hover);
+  box-shadow: 12px 14px 0 var(--ink);
 }
 
-.carve-reveal-container {
+.hero-showcase-stage {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 4.8;
-  overflow: hidden;
+  aspect-ratio: 1 / 1.1;
+  background-color: var(--surface-warm);
   border: var(--border-thin);
   border-radius: var(--radius-sm);
-  background-color: var(--surface-warm);
-  user-select: none;
+  overflow: hidden;
+  cursor: crosshair;
   touch-action: none;
 }
 
-.carve-reveal-img {
-  position: absolute;
-  inset: 0;
+.hero-showcase-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+  transition: opacity 0.3s ease, transform 0.4s ease;
 }
 
-/* Layer 1: Final Print (Underneath) */
-.carve-layer-print {
-  z-index: 1;
+.hero-showcase-img.fade-out {
+  opacity: 0;
+  transform: scale(0.97);
 }
 
-/* Layer 2: Carved Block / Inked Matrix (Clipped on top) */
-.carve-layer-block {
-  z-index: 2;
-  width: 100%;
-  height: 100%;
+/* Texture & Ink Inspection Magnifier Loupe */
+.hero-loupe-lens {
   position: absolute;
-  top: 0;
-  left: 0;
-  clip-path: inset(0 50% 0 0);
-  background-color: #3b3137;
-  filter: contrast(1.15) brightness(0.95);
-  transition: clip-path 0.05s linear;
-}
-
-/* Slider Handle */
-.carve-slider-line {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 3px;
-  background-color: var(--butter);
-  z-index: 3;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
-  transform: translateX(-50%);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid var(--butter);
+  box-shadow: 0 10px 30px rgba(43, 37, 48, 0.45), inset 0 0 12px rgba(0, 0, 0, 0.25);
   pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.8);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 10;
+  background-repeat: no-repeat;
+  background-color: #ffffff;
 }
 
-.carve-slider-handle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 42px;
-  height: 42px;
-  background-color: var(--butter);
-  border: var(--border-thick);
-  border-radius: var(--radius-pill);
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--ink);
-  cursor: ew-resize;
-  pointer-events: auto;
-  z-index: 4;
+.hero-loupe-lens.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
 }
 
-/* Labels on Reveal */
-.carve-label {
+.hero-loupe-badge {
   position: absolute;
-  bottom: 12px;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(43, 37, 48, 0.9);
+  color: var(--bg-cream);
   font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 800;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 0.25rem 0.6rem;
+  padding: 0.3rem 0.65rem;
   border-radius: var(--radius-pill);
-  border: var(--border-thin);
   pointer-events: none;
   z-index: 5;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 2px 2px 0 var(--ink);
 }
 
-.carve-label-left {
-  left: 12px;
-  background-color: var(--ink);
-  color: var(--bg-cream);
-}
-
-.carve-label-right {
-  right: 12px;
-  background-color: var(--surface-pure);
-  color: var(--ink);
-}
-
-.carve-caption {
+.hero-showcase-caption {
+  margin-top: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 1rem;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
-.carve-piece-info {
-  font-size: var(--text-sm);
+.hero-showcase-meta {
+  display: flex;
+  flex-direction: column;
 }
 
-.carve-piece-info strong {
-  display: block;
+.hero-showcase-meta h3 {
   font-family: var(--font-display);
-  font-size: var(--text-base);
+  font-size: var(--text-md);
+  margin-bottom: 2px;
 }
 
-/* Tap Toggle Button for Mobile Accessibility */
-.carve-toggle-btn {
-  font-family: var(--font-hand);
-  font-size: 1.15rem;
+.hero-showcase-meta span {
+  font-size: var(--text-xs);
+  color: var(--ink-muted);
+}
+
+/* 4 Artwork Switcher Tabs / Pills */
+.hero-showcase-pills {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.85rem;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.showcase-pill {
+  flex: 1;
+  padding: 0.45rem 0.5rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  color: var(--terracotta);
-  background: none;
-  border: none;
+  background-color: var(--surface-warm);
+  border: var(--border-thin);
+  border-radius: var(--radius-pill);
+  box-shadow: 2px 2px 0 var(--ink);
+  color: var(--ink);
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  text-align: center;
 }
 
-.carve-toggle-btn:hover {
-  text-decoration: underline;
+.showcase-pill:hover {
+  background-color: var(--butter);
+  transform: translateY(-1px);
+}
+
+.showcase-pill.active {
+  background-color: var(--ink);
+  color: var(--bg-cream);
+  box-shadow: 2px 2px 0 var(--terracotta);
 }
 
 
@@ -726,83 +715,6 @@
 
 .marquee-wrapper:hover .marquee-content {
   animation-play-state: paused;
-}
-
-
-/* ====================================================================
-   6. FEATURED / NEW ARRIVALS HORIZONTAL SWIPE ROW
-   ==================================================================== */
-.featured-section {
-  background-color: #FAF4EB;
-  border-bottom: var(--border-thick);
-}
-
-.featured-header-row {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 2rem;
-}
-
-.featured-nav-btns {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.swipe-btn {
-  width: 42px;
-  height: 42px;
-  border: var(--border-thick);
-  border-radius: var(--radius-pill);
-  background-color: var(--surface-pure);
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
-
-.swipe-btn:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: var(--shadow-md);
-  background-color: var(--butter);
-}
-
-.swipe-btn:active {
-  transform: translate(1px, 1px);
-  box-shadow: var(--shadow-active);
-}
-
-.featured-track {
-  display: flex;
-  gap: 1.5rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  padding-bottom: 1.5rem;
-  padding-inline: 4px;
-  -webkit-overflow-scrolling: touch;
-}
-
-.featured-track::-webkit-scrollbar {
-  height: 6px;
-}
-
-.featured-track::-webkit-scrollbar-track {
-  background: rgba(43, 37, 48, 0.05);
-  border-radius: var(--radius-pill);
-}
-
-.featured-track::-webkit-scrollbar-thumb {
-  background: var(--ink-muted);
-  border-radius: var(--radius-pill);
-}
-
-.featured-track .artwork-card {
-  flex: 0 0 280px;
-  scroll-snap-align: start;
 }
 
 
@@ -1885,7 +1797,7 @@
 
 .insta-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 }
 

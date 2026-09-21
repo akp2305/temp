@@ -16,7 +16,6 @@ class StudioGallery {
 
     this.initElements();
     this.renderFilters();
-    this.renderFeatured();
     this.renderShop();
     this.bindEvents();
     this.checkUrlHashForModal();
@@ -63,12 +62,9 @@ class StudioGallery {
   }
 
   initElements() {
-    this.featuredContainer = document.getElementById("featured-track");
     this.galleryContainer = document.getElementById("shop-artwork-grid");
     this.filterChipsContainer = document.getElementById("filter-chips-track");
     this.sortSelect = document.getElementById("shop-sort-select");
-    this.featuredPrevBtn = document.getElementById("featured-prev-btn");
-    this.featuredNextBtn = document.getElementById("featured-next-btn");
     
     // Modal elements
     this.modalOverlay = document.getElementById("artwork-modal-overlay");
@@ -81,19 +77,6 @@ class StudioGallery {
       this.sortSelect.addEventListener("change", (e) => {
         this.currentSort = e.target.value;
         this.renderShop();
-      });
-    }
-
-    // Featured horizontal scroll buttons
-    if (this.featuredPrevBtn && this.featuredContainer) {
-      this.featuredPrevBtn.addEventListener("click", () => {
-        this.featuredContainer.scrollBy({ left: -300, behavior: "smooth" });
-      });
-    }
-
-    if (this.featuredNextBtn && this.featuredContainer) {
-      this.featuredNextBtn.addEventListener("click", () => {
-        this.featuredContainer.scrollBy({ left: 300, behavior: "smooth" });
       });
     }
 
@@ -227,13 +210,6 @@ class StudioGallery {
     `;
   }
 
-  renderFeatured() {
-    if (!this.featuredContainer) return;
-    const featuredItems = this.products.filter(p => p.featured);
-    this.featuredContainer.innerHTML = featuredItems.map(p => this.renderCardHtml(p, true)).join("");
-    this.attachCardEventListeners(this.featuredContainer);
-  }
-
   renderShop() {
     if (!this.galleryContainer) return;
     const items = this.getFilteredAndSortedProducts();
@@ -300,7 +276,7 @@ class StudioGallery {
         const product = this.products.find(p => p.id === id);
         if (product) {
           const msg = encodeURIComponent(`Hi Anisha! I saw that your linocut print "${product.title}" is sold out. Could you let me know if a similar edition or custom variation is possible?`);
-          const phone = (window.studioCart && window.studioCart.constructor.name) ? "919876543210" : "919876543210";
+          const phone = "919897455555";
           window.open(`https://wa.me/${phone}?text=${msg}`, "_blank");
         }
       });
@@ -493,7 +469,7 @@ class StudioGallery {
     if (askBtn) {
       askBtn.addEventListener("click", () => {
         const msg = encodeURIComponent(`Hi Anisha! I'm looking at your print "${product.title}" (${product.currency}${product.price}) and had a quick question: `);
-        window.open(`https://wa.me/919876543210?text=${msg}`, "_blank");
+        window.open(`https://wa.me/919897455555?text=${msg}`, "_blank");
       });
     }
 
@@ -502,7 +478,7 @@ class StudioGallery {
     if (reprintBtn) {
       reprintBtn.addEventListener("click", () => {
         const msg = encodeURIComponent(`Hi Anisha! I saw that "${product.title}" is sold out. Could you please let me know if a reprint, new edition, or commission is possible?`);
-        window.open(`https://wa.me/919876543210?text=${msg}`, "_blank");
+        window.open(`https://wa.me/919897455555?text=${msg}`, "_blank");
       });
     }
 

@@ -9,7 +9,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   initStickyHeader();
   initMobileNav();
-  initCarveReveal();
+  initHeroShowcase();
   initCustomCursor();
   initScrollReveal();
   initSmoothScroll();
@@ -68,70 +68,170 @@ function initMobileNav() {
   });
 }
 
-// 3. Interactive Carve → Print Reveal Component
-function initCarveReveal() {
-  const container = document.getElementById("carve-reveal-container");
-  const blockLayer = document.getElementById("carve-layer-block");
-  const sliderLine = document.getElementById("carve-slider-line");
-  const sliderHandle = document.getElementById("carve-slider-handle");
-  const toggleBtn = document.getElementById("carve-toggle-btn");
+// 3. Interactive Hero Artwork Spotlight & Craft Loupe Inspector
+function initHeroShowcase() {
+  const stage = document.getElementById("hero-showcase-stage");
+  const img = document.getElementById("hero-showcase-img");
+  const lens = document.getElementById("hero-loupe-lens");
+  const titleEl = document.getElementById("hero-showcase-title");
+  const metaEl = document.getElementById("hero-showcase-meta-text");
+  const detailsBtn = document.getElementById("hero-view-details-btn");
+  const pills = document.querySelectorAll(".showcase-pill");
 
-  if (!container || !blockLayer || !sliderLine || !sliderHandle) return;
+  if (!stage || !img) return;
 
-  let isDragging = false;
-  let currentPercent = 50;
-  let isToggled = false;
+  const artworks = [
+    {
+      id: "piece-01",
+      title: "Ordinary Objects - I",
+      meta: "A/P Edition of 8 · Somerset Velvet Paper",
+      price: "₹3,400",
+      image: "assets/img/prints/ordinary-objects-1.jpg"
+    },
+    {
+      id: "piece-02",
+      title: "Moon",
+      meta: "A/P Edition of 6 · Indian Khadi Cotton Rag",
+      price: "₹2,600",
+      image: "assets/img/prints/moon.jpg"
+    },
+    {
+      id: "piece-03",
+      title: "Ordinary Objects - III",
+      meta: "A/P Edition of 7 · Fabriano Rosaspina Paper",
+      price: "₹3,800",
+      image: "assets/img/prints/ordinary-objects-3.png"
+    },
+    {
+      id: "piece-04",
+      title: "Shelter",
+      meta: "A/P Edition of 6 · Somerset Satin Paper",
+      price: "₹3,200",
+      image: "assets/img/prints/shelter.png"
+    }
+  ];
 
-  function updatePosition(percent) {
-    percent = Math.max(0, Math.min(100, percent));
-    currentPercent = percent;
-    // clip-path: inset(top right bottom left) -> reveal block layer on the left
-    blockLayer.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
-    sliderLine.style.left = `${percent}%`;
-    sliderHandle.style.left = `${percent}%`;
-  }
+  let currentIndex = 0;
+  let autoTimer = null;
+  let isHovered = false;
 
-  function onPointerMove(e) {
-    if (!isDragging) return;
-    const rect = container.getBoundingClientRect();
-    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-    const offset = clientX - rect.left;
-    const percent = (offset / rect.width) * 100;
-    updatePosition(percent);
-  }
+  function switchArtwork(index) {
+    if (index < 0 || index >= artworks.length) return;
+    currentIndex = index;
+    const art = artworks[currentIndex];
 
-  function startDrag(e) {
-    isDragging = true;
-    onPointerMove(e);
-  }
+    // Fade transition
+    img.classList.add("fade-out");
+    setTimeout(() => {
+      img.src = art.image;
+      img.alt = `${art.title} - original linocut print`;
+      if (titleEl) titleEl.textContent = art.title;
+      if (metaEl) metaEl.textContent = `${art.meta} · ${art.price}`;
+      if (detailsBtn) detailsBtn.dataset.openModal = art.id;
+      
+      // Update loupe background if lens exists
+      if (lens) {
+        lens.style.backgroundImage = `url('${art.image}')`;
+      }
 
-  function stopDrag() {
-    isDragging = false;
-  }
+      img.classList.remove("fade-out");
+    }, 180);
 
-  // Pointer & Touch drag events
-  container.addEventListener("mousedown", startDrag);
-  window.addEventListener("mousemove", onPointerMove);
-  window.addEventListener("mouseup", stopDrag);
-
-  container.addEventListener("touchstart", startDrag, { passive: true });
-  window.addEventListener("touchmove", onPointerMove, { passive: true });
-  window.addEventListener("touchend", stopDrag);
-
-  // Accessible Tap Toggle Button
-  if (toggleBtn) {
-    toggleBtn.addEventListener("click", () => {
-      isToggled = !isToggled;
-      const targetPercent = isToggled ? 95 : 5;
-      updatePosition(targetPercent);
-      toggleBtn.innerHTML = isToggled 
-        ? `<span>⇄ Switch to Inked Print</span>` 
-        : `<span>⇄ Switch to Carved Block</span>`;
+    // Update active pill
+    pills.forEach((p, idx) => {
+      if (idx === currentIndex) {
+        p.classList.add("active");
+      } else {
+        p.classList.remove("active");
+      }
     });
   }
 
-  // Initial position
-  updatePosition(50);
+  // Pill click handlers
+  pills.forEach((pill, idx) => {
+    pill.addEventListener("click", () => {
+      switchArtwork(idx);
+      resetAutoPlay();
+    });
+  });
+
+  // Open modal when clicking details button or stage
+  if (detailsBtn) {
+    detailsBtn.addEventListener("click", () => {
+      const art = artworks[currentIndex];
+      if (window.studioGallery) {
+        const prod = window.studioGallery.products.find(p => p.id === art.id);
+        if (prod) window.studioGallery.openModal(prod);
+      }
+    });
+  }
+
+  // Magnifier Loupe: Craft & Ink Texture Inspector
+  if (lens) {
+    const zoomFactor = 2.4;
+
+    function moveLoupe(e) {
+      const rect = stage.getBoundingClientRect();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+      const x = clientX - rect.left;
+      const y = clientY - rect.top;
+
+      if (x < 0 || x > rect.width || y < 0 || y > rect.height) {
+        lens.classList.remove("active");
+        return;
+      }
+
+      lens.classList.add("active");
+      lens.style.left = `${x}px`;
+      lens.style.top = `${y}px`;
+
+      // Position zoomed image inside lens
+      const bgW = rect.width * zoomFactor;
+      const bgH = rect.height * zoomFactor;
+      const bgX = -(x * zoomFactor - 75);
+      const bgY = -(y * zoomFactor - 75);
+
+      lens.style.backgroundSize = `${bgW}px ${bgH}px`;
+      lens.style.backgroundPosition = `${bgX}px ${bgY}px`;
+    }
+
+    stage.addEventListener("mousemove", moveLoupe);
+    stage.addEventListener("mouseenter", (e) => {
+      isHovered = true;
+      lens.style.backgroundImage = `url('${artworks[currentIndex].image}')`;
+      moveLoupe(e);
+    });
+    stage.addEventListener("mouseleave", () => {
+      isHovered = false;
+      lens.classList.remove("active");
+    });
+
+    stage.addEventListener("touchmove", moveLoupe, { passive: true });
+    stage.addEventListener("touchend", () => {
+      lens.classList.remove("active");
+    });
+  }
+
+  // Gentle auto-rotation every 6s
+  function startAutoPlay() {
+    autoTimer = setInterval(() => {
+      if (!isHovered && !document.hidden) {
+        const next = (currentIndex + 1) % artworks.length;
+        switchArtwork(next);
+      }
+    }, 6000);
+  }
+
+  function resetAutoPlay() {
+    if (autoTimer) clearInterval(autoTimer);
+    startAutoPlay();
+  }
+
+  startAutoPlay();
+  // Initial setup
+  switchArtwork(0);
 }
 
 // 4. Custom Desktop Ink Cursor (Fine pointers only)

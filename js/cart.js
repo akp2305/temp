@@ -10,10 +10,10 @@
  */
 
 const CART_CONFIG = {
-  // TODO: Replace with your actual WhatsApp phone number (with country code, no '+' or spaces)
-  whatsappNumber: "919876543210",
+  // Studio WhatsApp contact
+  whatsappNumber: "919897455555",
   
-  // TODO: Replace with your UPI ID (e.g. yourname@okaxis, yourname@upi)
+  // UPI ID (e.g. yourname@okaxis, yourname@upi)
   upiId: "anisha@upi",
   
   // Free shipping threshold in INR (₹)
