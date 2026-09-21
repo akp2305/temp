@@ -234,36 +234,346 @@ function initHeroShowcase() {
   switchArtwork(0);
 }
 
-// 4. Custom Desktop Ink Cursor (Fine pointers only)
+// 4. Interactive Drawing Cursor Effect (Skiper UI skiper59 style)
+// Canvas-based line drawing with smooth quadratic Bézier curves,
+// dynamic velocity tapering, fading decay trail, and spring follower cursor.
+const SKIPER_CURSOR_CONFIG = {
+  type: "drawAlways",           // "drawAlways" (draws on mouse movement) | "drawOnHold" (draws only on mouse down)
+  strokeColor: "#2B2530",       // Authentic relief ink color
+  strokeWidth: 2.8,             // Base stroke width in pixels
+  minWidth: 1.2,                // Minimum stroke thickness
+  maxWidth: 4.8,                // Peak stroke thickness
+  fadeDuration: 1100,           // Trail fade-out duration in milliseconds (1.1s)
+  followEffect: true,           // Smooth quadratic spline curve interpolation
+  customCursor: true,           // Custom precision dot & spring follower ring
+  springDelay: 0.18,            // Lerp factor for follower ring
+  hoverSelector: "a, button, input, textarea, select, summary, [role='button'], .btn, .chip, .card-pressable, .insta-item, .cart-item-remove, .modal-close"
+};
+
+// Expose on window for easy developer inspection and customization
+window.SKIPER_CURSOR_CONFIG = SKIPER_CURSOR_CONFIG;
+
 function initCustomCursor() {
+  // Only enable for desktop mice/trackpads
   if (!window.matchMedia("(pointer: fine)").matches) return;
+  // Respect reduced motion accessibility setting
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  const cursor = document.getElementById("custom-cursor");
-  if (!cursor) return;
+  const canvas = document.getElementById("cursor-drawing-canvas");
+  const cursorContainer = document.getElementById("custom-cursor");
+  if (!canvas || !cursorContainer) return;
 
-  let mouseX = -100;
-  let mouseY = -100;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
 
+  const dotEl = cursorContainer.querySelector(".cursor-dot");
+  const ringEl = cursorContainer.querySelector(".cursor-ring");
+
+  let width = window.innerWidth;
+  let height = window.innerHeight;
+  let dpr = window.devicePixelRatio || 1;
+
+  let mouseX = -200;
+  let mouseY = -200;
+  let ringX = -200;
+  let ringY = -200;
+  let isMouseDown = false;
+  let isVisible = false;
+  let isDrawing = false;
+  let animId = null;
+
+  // Track active strokes: array of point arrays
+  let strokes = [];
+  let currentStroke = null;
+  let lastPointTime = 0;
+
+  // Helper: parse Hex / RGB color string into { r, g, b }
+  function parseColor(colorStr) {
+    if (colorStr.startsWith("#")) {
+      let hex = colorStr.slice(1);
+      if (hex.length === 3) hex = hex.split("").map(c => c + c).join("");
+      const num = parseInt(hex, 16);
+      return { r: (num >> 16) & 255, g: (num >> 8) & 255, b: num & 255 };
+    }
+    return { r: 43, g: 37, b: 48 };
+  }
+
+  let rgb = parseColor(SKIPER_CURSOR_CONFIG.strokeColor);
+
+  // Resize canvas to match window & DPI
+  function resizeCanvas() {
+    dpr = window.devicePixelRatio || 1;
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = Math.floor(width * dpr);
+    canvas.height = Math.floor(height * dpr);
+    ctx.scale(dpr, dpr);
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+  }
+
+  resizeCanvas();
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(resizeCanvas, 150);
+  }, { passive: true });
+
+  // Start a new stroke path
+  function startNewStroke(x, y, now) {
+    currentStroke = [];
+    strokes.push(currentStroke);
+    addPointToStroke(x, y, now);
+  }
+
+  // Append a point to the active stroke with dynamic thickness
+  function addPointToStroke(x, y, now) {
+    if (!currentStroke) {
+      currentStroke = [];
+      strokes.push(currentStroke);
+    }
+
+    const cfg = SKIPER_CURSOR_CONFIG;
+    let strokeW = cfg.strokeWidth;
+
+    if (currentStroke.length > 0) {
+      const prev = currentStroke[currentStroke.length - 1];
+      const dist = Math.hypot(x - prev.x, y - prev.y);
+      const dt = Math.max(1, now - prev.time);
+      const velocity = dist / dt;
+
+      // Dynamic width: slightly thicker on hold, slightly tapered on fast movement
+      const holdBoost = isMouseDown ? 1.5 : 0;
+      const speedTaper = Math.min(velocity * 0.25, 1.2);
+      strokeW = Math.max(cfg.minWidth, Math.min(cfg.maxWidth, cfg.strokeWidth + holdBoost - speedTaper));
+    }
+
+    currentStroke.push({
+      x,
+      y,
+      time: now,
+      width: strokeW
+    });
+
+    lastPointTime = now;
+  }
+
+  // Animation render loop
+  function loop() {
+    const now = performance.now();
+    const cfg = SKIPER_CURSOR_CONFIG;
+
+    // 1. Follower ring spring lerp
+    if (cfg.customCursor && ringEl) {
+      const dx = mouseX - ringX;
+      const dy = mouseY - ringY;
+      ringX += dx * cfg.springDelay;
+      ringY += dy * cfg.springDelay;
+      ringEl.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
+    }
+
+    // 2. Clear canvas
+    ctx.clearRect(0, 0, width, height);
+
+    // 3. Prune expired points from strokes
+    let hasLivePoints = false;
+
+    for (let s = 0; s < strokes.length; s++) {
+      const stroke = strokes[s];
+      while (stroke.length > 0 && (now - stroke[0].time) >= cfg.fadeDuration) {
+        stroke.shift();
+      }
+
+      if (stroke.length === 0) continue;
+      hasLivePoints = true;
+
+      // Draw stroke
+      if (stroke.length === 1) {
+        const p = stroke[0];
+        const alpha = Math.max(0, 1 - (now - p.time) / cfg.fadeDuration);
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.width / 2, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${alpha.toFixed(3)})`;
+        ctx.fill();
+      } else if (cfg.followEffect) {
+        // Draw smooth quadratic spline curves segment by segment
+        for (let i = 0; i < stroke.length - 1; i++) {
+          const p0 = stroke[i];
+          const p1 = stroke[i + 1];
+          const midX = (p0.x + p1.x) / 2;
+          const midY = (p0.y + p1.y) / 2;
+
+          const age = now - p0.time;
+          const alpha = Math.max(0, 1 - (age / cfg.fadeDuration));
+          const segWidth = p0.width * (0.35 + 0.65 * alpha);
+
+          ctx.beginPath();
+          if (i === 0) {
+            ctx.moveTo(p0.x, p0.y);
+            ctx.lineTo(midX, midY);
+          } else {
+            const prevP = stroke[i - 1];
+            const prevMidX = (prevP.x + p0.x) / 2;
+            const prevMidY = (prevP.y + p0.y) / 2;
+            ctx.moveTo(prevMidX, prevMidY);
+            ctx.quadraticCurveTo(p0.x, p0.y, midX, midY);
+          }
+
+          ctx.strokeStyle = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${alpha.toFixed(3)})`;
+          ctx.lineWidth = segWidth;
+          ctx.lineCap = "round";
+          ctx.lineJoin = "round";
+          ctx.stroke();
+
+          // Connect smoothly to the last point
+          if (i === stroke.length - 2) {
+            ctx.beginPath();
+            ctx.moveTo(midX, midY);
+            ctx.lineTo(p1.x, p1.y);
+            const p1Alpha = Math.max(0, 1 - ((now - p1.time) / cfg.fadeDuration));
+            ctx.strokeStyle = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${p1Alpha.toFixed(3)})`;
+            ctx.lineWidth = p1.width * (0.35 + 0.65 * p1Alpha);
+            ctx.stroke();
+          }
+        }
+      } else {
+        // Straight line fallback
+        for (let i = 0; i < stroke.length - 1; i++) {
+          const p0 = stroke[i];
+          const p1 = stroke[i + 1];
+          const alpha = Math.max(0, 1 - ((now - p0.time) / cfg.fadeDuration));
+          ctx.beginPath();
+          ctx.moveTo(p0.x, p0.y);
+          ctx.lineTo(p1.x, p1.y);
+          ctx.strokeStyle = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${alpha.toFixed(3)})`;
+          ctx.lineWidth = p0.width;
+          ctx.lineCap = "round";
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Remove empty strokes
+    strokes = strokes.filter(s => s.length > 0);
+
+    // If there are points to render or the follower ring is still catching up, keep looping
+    const ringSettling = Math.hypot(mouseX - ringX, mouseY - ringY) > 0.4;
+
+    if (hasLivePoints || ringSettling || isDrawing) {
+      animId = requestAnimationFrame(loop);
+    } else {
+      animId = null;
+    }
+  }
+
+  function startLoopIfNeeded() {
+    if (!animId) {
+      animId = requestAnimationFrame(loop);
+    }
+  }
+
+  // Mouse movement handler
   window.addEventListener("mousemove", (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
-    cursor.style.left = `${mouseX}px`;
-    cursor.style.top = `${mouseY}px`;
-    cursor.classList.add("visible");
+    const now = performance.now();
+
+    if (!isVisible) {
+      isVisible = true;
+      cursorContainer.classList.add("visible");
+      ringX = mouseX;
+      ringY = mouseY;
+    }
+
+    // Direct dot tracking
+    if (dotEl) {
+      dotEl.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+    }
+
+    const cfg = SKIPER_CURSOR_CONFIG;
+    const canDraw = cfg.type === "drawAlways" || (cfg.type === "drawOnHold" && isMouseDown);
+
+    if (canDraw) {
+      isDrawing = true;
+      if (!currentStroke || (now - lastPointTime > 120) || (currentStroke.length > 0 && Math.hypot(mouseX - currentStroke[currentStroke.length - 1].x, mouseY - currentStroke[currentStroke.length - 1].y) > 75)) {
+        startNewStroke(mouseX, mouseY, now);
+      } else {
+        const lastP = currentStroke[currentStroke.length - 1];
+        if (Math.hypot(mouseX - lastP.x, mouseY - lastP.y) >= 3) {
+          addPointToStroke(mouseX, mouseY, now);
+        }
+      }
+    }
+
+    startLoopIfNeeded();
   }, { passive: true });
 
-  window.addEventListener("mousedown", () => {
-    cursor.classList.add("active");
+  // Mouse down / up handlers
+  window.addEventListener("mousedown", (e) => {
+    isMouseDown = true;
+    cursorContainer.classList.add("is-active");
+
+    const cfg = SKIPER_CURSOR_CONFIG;
+    if (cfg.type === "drawOnHold") {
+      isDrawing = true;
+      startNewStroke(e.clientX, e.clientY, performance.now());
+    } else {
+      addPointToStroke(e.clientX, e.clientY, performance.now());
+    }
+
+    startLoopIfNeeded();
   });
 
   window.addEventListener("mouseup", () => {
-    cursor.classList.remove("active");
+    isMouseDown = false;
+    cursorContainer.classList.remove("is-active");
+    if (SKIPER_CURSOR_CONFIG.type === "drawOnHold") {
+      isDrawing = false;
+      currentStroke = null;
+    }
   });
 
+  // Window enter / leave handlers
   document.addEventListener("mouseleave", () => {
-    cursor.classList.remove("visible");
+    isVisible = false;
+    cursorContainer.classList.remove("visible");
+    currentStroke = null;
   });
+
+  document.addEventListener("mouseenter", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    ringX = mouseX;
+    ringY = mouseY;
+    isVisible = true;
+    cursorContainer.classList.add("visible");
+  });
+
+  // Interactive element hover detection
+  document.addEventListener("mouseover", (e) => {
+    const cfg = SKIPER_CURSOR_CONFIG;
+    if (!cfg.customCursor) return;
+    const hit = e.target.closest(cfg.hoverSelector);
+    if (hit) {
+      cursorContainer.classList.add("is-hovering");
+    } else {
+      cursorContainer.classList.remove("is-hovering");
+    }
+  });
+
+  // Re-sync stroke color if dynamically updated
+  try {
+    Object.defineProperty(SKIPER_CURSOR_CONFIG, "strokeColor", {
+      get() { return this._strokeColor || "#2B2530"; },
+      set(val) {
+        this._strokeColor = val;
+        rgb = parseColor(val);
+      }
+    });
+    SKIPER_CURSOR_CONFIG.strokeColor = "#2B2530";
+  } catch (err) {
+    // Silent catch if already defined
+  }
 }
 
 // 5. Scroll Reveal with IntersectionObserver
