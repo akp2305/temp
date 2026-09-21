@@ -2,80 +2,106 @@
  * ====================================================================
  * Anisha Khanduja Studio - Design Tokens (tokens.css)
  * ====================================================================
- * Brand: Anisha Khanduja | "Original, Handcrafted."
- * Feel: Playful modern art-zine meets boutique print shop.
- *
- * NOTE FOR ARTIST / DEVELOPER:
- * You can tweak brand colors, font choices, or spacing in one place
- * right below. All changes will cascade across the entire site.
+ * Brand: Anisha Khanduja | Original, Handcrafted Linocuts
+ * Feel: High-End Fine Art Atelier & Prestige Gallery.
+ * Palette: Heritage Dark Forest Green + Warm Champagne Gold + Archival Ivory.
+ * Typography: Cormorant Garamond (Classical Display) + Plus Jakarta Sans (Modernist Body).
  */
 
 :root {
-  /* --- PALETTE (Soft, pastel, tactile, handmade) --- */
-  --bg-cream: #FFF8F0;
-  --blush: #F7D6E0;
-  --butter: #FFF1B8;
-  --mint: #CDEBDD;
-  --lavender: #DCD3F5;
-  --peach: #FFD9C2;
-  --sky: #CFE4F7;
-  
-  /* Ink: soft near-black for authentic relief print text and bold outlines */
-  --ink: #2B2530;
-  --ink-light: #4A4250;
-  --ink-muted: #7A7280;
-  --ink-faint: rgba(43, 37, 48, 0.08);
+  /* --- LUXURY PALETTE --- */
+  /* Primary Heritage Dark Forest Green */
+  --forest-deep: #12231A;         /* Velvet midnight forest (footer, headers, deep contrast) */
+  --forest-primary: #1A3528;      /* British racing / atelier green (primary brand shade) */
+  --forest-mid: #264C39;          /* Deep forest midtone (hover states, focused outlines) */
+  --forest-light: #3D6A53;        /* Muted botanical emerald (subtle badges, accents) */
+  --forest-ink: #0E1A14;          /* High-contrast archival ink text (WCAG AAA compliant) */
+  --forest-faint: rgba(26, 53, 40, 0.06); /* Soft green mist for card highlights */
 
-  /* Card and surface whites */
-  --surface-pure: #FFFFFF;
-  --surface-warm: #FAF4EB;
+  /* Complementary Warm Champagne Gold & Burnished Brass */
+  --gold-primary: #C5A476;        /* Warm Champagne Gold (delicate borders, buttons, badge rings) */
+  --gold-light: #DFCAAB;          /* Pale gold shimmer (subtle rules, button text on dark) */
+  --gold-dark: #9E7D4C;           /* Burnished antique brass (high-contrast gold text) */
+  --gold-tint: rgba(197, 164, 118, 0.12); /* Ambient gold aura */
 
-  /* Accent highlights */
-  --terracotta: #D45D48;
-  --moss: #4A7A61;
-  --ochre: #C8862B;
+  /* Archival Museum Paper & Gallery Surfaces */
+  --surface-canvas: #FAF8F5;      /* Archival Somerset Cotton Ivory (body canvas background) */
+  --surface-pure: #FFFFFF;        /* Pure museum mount-board white (artwork cards, modal surface) */
+  --surface-subtle: #F3EFE9;      /* Warm stone / fine linen (secondary sections, panels) */
+  --surface-sage: #EDF3EE;        /* Serene sage mist (filter chips, edition pills, progress meter) */
+  --surface-warm: #F6F3ED;        /* Warm studio paper tone */
+
+  /* Editorial Typography Tones */
+  --text-primary: var(--forest-ink);
+  --text-muted: #58685E;          /* Slate botanical grey for specs, descriptions, captions */
+  --text-faint: #8E9B93;          /* Subtle silver-sage for copyright, secondary metadata */
+  --text-inverse: #FAF8F5;        /* Warm ivory text on dark green surfaces */
+
+  /* Status Accents */
+  --accent-terracotta: #A84D38;   /* Tuscan terracotta (sold out notices, archive badges) */
+  --moss: var(--forest-light);
+  --ochre: var(--gold-primary);
+
+  /* --- BACKWARD COMPATIBILITY ALIASES --- */
+  --bg-cream: var(--surface-canvas);
+  --ink: var(--forest-ink);
+  --ink-light: var(--text-muted);
+  --ink-muted: var(--text-faint);
+  --ink-faint: var(--forest-faint);
+  --blush: var(--surface-subtle);
+  --butter: var(--surface-sage);
+  --mint: var(--surface-sage);
+  --lavender: var(--surface-subtle);
+  --peach: var(--surface-subtle);
+  --sky: var(--surface-sage);
+  --terracotta: var(--accent-terracotta);
 
   /* --- TYPOGRAPHY (Google Fonts) --- */
-  --font-display: 'Fraunces', 'DM Serif Display', Georgia, serif;
-  --font-body: 'DM Sans', 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-hand: 'Caveat', 'Gaegu', cursive;
+  --font-display: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-hand: 'Pinyon Script', 'Cormorant Garamond', cursive;
 
   /* Fluid typography scale via clamp() */
-  --text-xs: clamp(0.75rem, 0.72rem + 0.15vw, 0.85rem);
-  --text-sm: clamp(0.85rem, 0.8rem + 0.25vw, 0.95rem);
-  --text-base: clamp(1rem, 0.96rem + 0.3vw, 1.125rem);
-  --text-md: clamp(1.125rem, 1.05rem + 0.4vw, 1.25rem);
-  --text-lg: clamp(1.25rem, 1.15rem + 0.6vw, 1.5rem);
-  --text-xl: clamp(1.5rem, 1.35rem + 0.9vw, 1.85rem);
-  --text-2xl: clamp(1.85rem, 1.6rem + 1.4vw, 2.4rem);
-  --text-3xl: clamp(2.35rem, 2rem + 2.2vw, 3.4rem);
-  --text-hero: clamp(2.75rem, 2.2rem + 3.5vw, 4.6rem);
+  --text-xs: clamp(0.72rem, 0.7rem + 0.12vw, 0.8rem);
+  --text-sm: clamp(0.82rem, 0.8rem + 0.18vw, 0.92rem);
+  --text-base: clamp(0.95rem, 0.92rem + 0.22vw, 1.05rem);
+  --text-md: clamp(1.08rem, 1.02rem + 0.32vw, 1.2rem);
+  --text-lg: clamp(1.22rem, 1.15rem + 0.45vw, 1.42rem);
+  --text-xl: clamp(1.45rem, 1.32rem + 0.75vw, 1.75rem);
+  --text-2xl: clamp(1.8rem, 1.55rem + 1.2vw, 2.25rem);
+  --text-3xl: clamp(2.25rem, 1.9rem + 1.8vw, 3.1rem);
+  --text-hero: clamp(2.6rem, 2.1rem + 2.8vw, 4.2rem);
 
   /* Line Heights */
-  --leading-tight: 1.1;
-  --leading-snug: 1.25;
-  --leading-normal: 1.55;
-  --leading-relaxed: 1.7;
+  --leading-tight: 1.12;
+  --leading-snug: 1.28;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.75;
 
-  /* --- SIGNATURE PRINT SHADOWS & OUTLINES --- */
-  --border-thick: 2.5px solid var(--ink);
-  --border-thin: 1.5px solid var(--ink);
-  --border-wobbly-line: 2px dashed var(--ink-light);
+  /* --- GALLERY ELEVATION & BORDERS --- */
+  --border-hairline: 1px solid rgba(26, 53, 40, 0.10);
+  --border-subtle: 1px solid rgba(26, 53, 40, 0.08);
+  --border-gold: 1px solid var(--gold-primary);
+  --border-gold-faint: 1px solid rgba(197, 164, 118, 0.35);
+  --border-thick: 1.5px solid var(--forest-primary);
+  --border-thin: 1px solid rgba(26, 53, 40, 0.15);
+  --border-wobbly-line: 1px solid rgba(197, 164, 118, 0.4);
 
-  --shadow-sm: 2px 2px 0 var(--ink);
-  --shadow-md: 4px 4px 0 var(--ink);
-  --shadow-lg: 6px 6px 0 var(--ink);
-  --shadow-hover: 7px 7px 0 var(--ink);
-  --shadow-active: 1px 1px 0 var(--ink);
+  /* Diffuse luxury gallery shadows */
+  --shadow-sm: 0 2px 8px rgba(18, 35, 26, 0.04);
+  --shadow-md: 0 4px 20px -2px rgba(18, 35, 26, 0.06), 0 2px 6px -1px rgba(18, 35, 26, 0.03);
+  --shadow-lg: 0 12px 32px -4px rgba(18, 35, 26, 0.08), 0 4px 12px -2px rgba(18, 35, 26, 0.04);
+  --shadow-hover: 0 16px 36px -4px rgba(18, 35, 26, 0.12), 0 4px 12px -2px rgba(18, 35, 26, 0.05);
+  --shadow-active: 0 1px 3px rgba(18, 35, 26, 0.10);
 
-  /* Soft organic / hand-carved border radii */
-  --radius-xs: 4px;
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 24px;
+  /* Clean architectural border radii */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
   --radius-pill: 9999px;
-  --radius-wobbly: 255px 15px 225px 15px/15px 225px 15px 255px;
-  --radius-wobbly-alt: 18px 255px 18px 255px/255px 18px 255px 18px;
+  --radius-wobbly: 4px;
+  --radius-wobbly-alt: 4px;
 
   /* Layout and Spacing */
   --container-max: 1240px;
@@ -88,10 +114,9 @@
   --cursor-z: 99999;
 
   /* Animations & Transitions */
-  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
   --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.3, 0.64, 1);
   --transition-fast: 150ms var(--ease-smooth);
   --transition-normal: 250ms var(--ease-smooth);
   --transition-bounce: 350ms var(--ease-bounce);
 }
-

@@ -239,7 +239,7 @@ function initHeroShowcase() {
 // dynamic velocity tapering, fading decay trail, and spring follower cursor.
 const SKIPER_CURSOR_CONFIG = {
   type: "drawAlways",           // "drawAlways" (draws on mouse movement) | "drawOnHold" (draws only on mouse down)
-  strokeColor: "#2B2530",       // Authentic relief ink color
+  strokeColor: "#14281D",       // Authentic relief forest ink color
   strokeWidth: 2.8,             // Base stroke width in pixels
   minWidth: 1.2,                // Minimum stroke thickness
   maxWidth: 4.8,                // Peak stroke thickness
@@ -564,13 +564,13 @@ function initCustomCursor() {
   // Re-sync stroke color if dynamically updated
   try {
     Object.defineProperty(SKIPER_CURSOR_CONFIG, "strokeColor", {
-      get() { return this._strokeColor || "#2B2530"; },
+      get() { return this._strokeColor || "#14281D"; },
       set(val) {
         this._strokeColor = val;
         rgb = parseColor(val);
       }
     });
-    SKIPER_CURSOR_CONFIG.strokeColor = "#2B2530";
+    SKIPER_CURSOR_CONFIG.strokeColor = "#14281D";
   } catch (err) {
     // Silent catch if already defined
   }

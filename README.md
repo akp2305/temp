@@ -2,7 +2,7 @@
 
 A production-ready, static website built for **Anisha Khanduja**, showcasing original, limited-edition linocut relief prints.
 
-Designed with a playful, modern art-zine aesthetic crossed with a boutique print shop. Lightweight, fast, mobile-first, zero-build (plain HTML, CSS, vanilla JS), and fully compatible with **GitHub Pages** and local browsing without CORS errors.
+Designed with a high-end, luxury fine art atelier aesthetic. Refined, tactile, archival, mobile-first, zero-build (plain HTML, CSS, vanilla JS), and fully compatible with **GitHub Pages** and local browsing without CORS errors.
 
 ---
 
@@ -10,20 +10,17 @@ Designed with a playful, modern art-zine aesthetic crossed with a boutique print
 
 - **Brand Name:** Anisha Khanduja
 - **Tagline:** *"Original, Handcrafted."*
-- **Aesthetic:** Tactile, pastel, hand-carved, and playful.
+- **Aesthetic:** Prestigious fine art atelier, tactile archival elegance, gallery-grade craftsmanship.
 - **Color Palette (defined in `css/tokens.css`):**
-  - Background Cream: `#FFF8F0`
-  - Blush Pink: `#F7D6E0`
-  - Butter Yellow: `#FFF1B8`
-  - Mint: `#CDEBDD`
-  - Lavender: `#DCD3F5`
-  - Peach: `#FFD9C2`
-  - Sky: `#CFE4F7`
-  - Ink (Text & Outlines): `#2B2530`
+  - Heritage Dark Forest Green (Dominant Brand): `#14281D` / `#1A3528` / `#264C39`
+  - Champagne Gold / Burnished Brass (Prestige Accent): `#C5A476` / `#DFCAAB` / `#9E7D4C`
+  - Archival Cotton Ivory (Canvas Surface): `#FAF8F5`
+  - Studio Sage (Subtle Elevation): `#EDF3EE`
+  - Forest Ink (Typography & Outlines): `#0E1A14`
 - **Typography:**
-  - Display / Headings: `Fraunces`
-  - Body / UI: `DM Sans`
-  - Handwritten Accents: `Caveat`
+  - Display / Headings: `Cormorant Garamond` (classic high-contrast editorial serif)
+  - Body / UI: `Plus Jakarta Sans` (clean, contemporary luxury geometric sans)
+  - Handwritten Accents: `Pinyon Script` (refined calligraphic signature)
 
 ---
 
@@ -96,11 +93,12 @@ All visual tokens are defined in **`css/tokens.css`**:
 - **To adjust colors:**
   ```css
   :root {
-    --bg-cream: #FFF8F0;
-    --blush: #F7D6E0;
-    --butter: #FFF1B8;
-    --mint: #CDEBDD;
-    --ink: #2B2530; /* Your near-black relief ink outline color */
+    --forest-primary: #1A3528; /* Heritage British Racing / Pine Green */
+    --forest-deep:    #12231A; /* Midnight Atelier Ink */
+    --gold-primary:   #C5A476; /* Champagne Burnished Brass */
+    --surface-canvas: #FAF8F5; /* Archival Somerset Cotton Ivory */
+    --surface-sage:   #EDF3EE; /* Subtle Atelier Elevation */
+    --forest-ink:     #0E1A14; /* Deep Forest Text & Border */
   }
   ```
 - **To change fonts:**
