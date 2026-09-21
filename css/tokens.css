@@ -111,7 +111,6 @@
   --nav-z: 1000;
   --drawer-z: 2000;
   --modal-z: 3000;
-  --cursor-z: 99999;
 
   /* Animations & Transitions */
   --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);

@@ -217,10 +217,5 @@
   .carve-reveal-card {
     transform: none !important;
   }
-
-  .cursor-drawing-canvas,
-  .custom-cursor {
-    display: none !important;
-  }
 }
 

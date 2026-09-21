@@ -42,7 +42,7 @@ Designed with a high-end, luxury fine art atelier aesthetic. Refined, tactile, a
 │   ├── main.js                 # App initialization, dynamic year, JSON-LD schema
 │   ├── cart.js                 # LocalStorage cart, drawer UI, WhatsApp & UPI checkout
 │   ├── gallery.js              # Shop cards, filter chips, sort, hash modal (#piece-id)
-│   └── ui.js                   # Hero loupe inspector, skiper59 drawing cursor, mobile nav, scroll reveal
+│   └── ui.js                   # Hero loupe inspector, mobile nav, scroll reveal
 └── assets/
     ├── data/
     │   └── products.js         # Single source of truth for all artworks (4 authentic prints)
@@ -143,30 +143,7 @@ If you have payment links generated from Razorpay or Stripe for specific prints:
    ```
 3. When a buyer clicks **"Buy Now"** on that artwork's detail modal, it will directly open your secure payment link in a new tab!
 
----
-
-### 5. Interactive Drawing Cursor Effect (`@skiper-ui/skiper59` style)
-The site includes a canvas-based interactive drawing cursor effect inspired by `@skiper-ui/skiper59`.
-As visitors browse on desktop, the custom pen/nib draws smooth, organic relief-ink strokes that fluidly fade away like ink drying on paper.
-
-To customize stroke properties, open **`js/ui.js`** and modify `SKIPER_CURSOR_CONFIG`:
-```javascript
-const SKIPER_CURSOR_CONFIG = {
-  type: "drawAlways",           // "drawAlways" (draws on move) or "drawOnHold" (draws on click & drag)
-  strokeColor: "#2B2530",       // Relief ink color (any hex/rgb)
-  strokeWidth: 2.8,             // Base stroke thickness
-  minWidth: 1.2,                // Minimum stroke thickness
-  maxWidth: 4.8,                // Peak stroke thickness
-  fadeDuration: 1100,           // Trail fade-out duration in milliseconds
-  followEffect: true,           // Smooth quadratic Bézier curves
-  customCursor: true,           // Custom dot & spring follower ring
-  springDelay: 0.18             // Follower ring lerp factor
-};
-```
-
----
-
-### 6. How to Deploy to GitHub Pages (Step by Step)
+### 5. How to Deploy to GitHub Pages (Step by Step)
 
 Because this website uses **pure relative paths** (`./`, `css/...`, `assets/...`), it runs seamlessly under repository subpaths such as `https://username.github.io/anisha-khanduja/`.
 
