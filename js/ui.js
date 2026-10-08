@@ -207,30 +207,19 @@ function initHeroShowcase() {
       lens.style.backgroundPosition = `${bgX}px ${bgY}px`;
     }
 
-    stage.addEventListener("mousemove", moveLoupe);
-    stage.addEventListener("mouseenter", (e) => {
-      isHovered = true;
-      lens.style.backgroundImage = `url('${artworks[currentIndex].image}')`;
-      moveLoupe(e);
-    });
-    stage.addEventListener("mouseleave", () => {
-      isHovered = false;
-      lens.classList.remove("active");
-    });
-
-    stage.addEventListener("touchmove", moveLoupe, { passive: true });
-    stage.addEventListener("touchend", () => {
-      setTimeout(() => lens.classList.remove("active"), 400);
-    });
-
-    // Clicking/tapping the stage opens details directly on mobile/tablet
-    stage.addEventListener("click", () => {
-      const art = artworks[currentIndex];
-      if (window.studioGallery) {
-        const prod = window.studioGallery.products.find(p => p.id === art.id);
-        if (prod) window.studioGallery.openModal(prod);
-      }
-    });
+    // Desktop hover inspection (only on devices with a mouse/pointer)
+    if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      stage.addEventListener("mousemove", moveLoupe);
+      stage.addEventListener("mouseenter", (e) => {
+        isHovered = true;
+        lens.style.backgroundImage = `url('${artworks[currentIndex].image}')`;
+        moveLoupe(e);
+      });
+      stage.addEventListener("mouseleave", () => {
+        isHovered = false;
+        lens.classList.remove("active");
+      });
+    }
   }
 
   // Gentle auto-rotation every 6s

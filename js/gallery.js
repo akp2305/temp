@@ -404,6 +404,9 @@ class StudioGallery {
             <button class="btn btn-secondary btn-sm" id="modal-ask-btn" style="margin-top:0.25rem;">
               💬 Ask a Question About This Print
             </button>
+            <button class="btn btn-secondary btn-sm" id="modal-bottom-close-btn" style="margin-top:0.25rem;">
+              ✕ Close Preview & Return to Gallery
+            </button>
           </div>
 
           <!-- Recommendations in modal -->
@@ -428,8 +431,11 @@ class StudioGallery {
     modalOverlay.classList.add("open");
     document.body.style.overflow = "hidden";
 
-    // Close button event
-    dialog.querySelector("#modal-close-btn").addEventListener("click", () => this.closeModal());
+    // Close button events
+    const closeBtn = dialog.querySelector("#modal-close-btn");
+    if (closeBtn) closeBtn.addEventListener("click", () => this.closeModal());
+    const bottomClose = dialog.querySelector("#modal-bottom-close-btn");
+    if (bottomClose) bottomClose.addEventListener("click", () => this.closeModal());
 
     // Thumbnail switcher
     dialog.querySelectorAll(".modal-thumb").forEach(thumb => {
