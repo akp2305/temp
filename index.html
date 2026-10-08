@@ -26,6 +26,11 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
   <!-- Stylesheet (Relative Path for GitHub Pages) -->
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -87,11 +92,11 @@
       <button class="modal-close-btn" id="mobile-nav-close" aria-label="Close menu">&times;</button>
     </div>
     <nav class="mobile-nav-links">
-      <a href="#shop" class="mobile-nav-link">✦ Shop All Prints</a>
-      <a href="#about" class="mobile-nav-link">✦ About the Artist</a>
-      <a href="#process" class="mobile-nav-link">✦ The Process</a>
-      <a href="#commissions" class="mobile-nav-link">✦ Custom Commissions</a>
-      <a href="#faq" class="mobile-nav-link">✦ Questions & Care</a>
+      <a href="#shop" class="mobile-nav-link">Shop All Prints</a>
+      <a href="#about" class="mobile-nav-link">About the Artist</a>
+      <a href="#process" class="mobile-nav-link">The Craft Process</a>
+      <a href="#commissions" class="mobile-nav-link">Custom Commissions</a>
+      <a href="#faq" class="mobile-nav-link">FAQ & Care</a>
     </nav>
     <div class="mobile-nav-footer">
       <p style="font-size:var(--text-xs); color:var(--ink-muted); margin-bottom:1rem;">
@@ -161,20 +166,35 @@
             <!-- Showcase Caption & Action -->
             <div class="hero-showcase-caption">
               <div class="hero-showcase-meta">
-                <h3 id="hero-showcase-title">Ordinary Objects - I</h3>
-                <span id="hero-showcase-meta-text">A/P Edition of 8 · Somerset Velvet Paper · ₹3,400</span>
+                <div class="hero-meta-top">
+                  <h3 id="hero-showcase-title">Ordinary Objects - I</h3>
+                  <span class="hero-showcase-price" id="hero-showcase-price">₹3,400</span>
+                </div>
+                <span class="hero-showcase-specs" id="hero-showcase-meta-text">A/P Edition of 8 · Somerset Velvet Paper</span>
               </div>
-              <button class="btn btn-sm btn-primary" id="hero-view-details-btn" data-open-modal="piece-01" type="button">
-                View Print Details ↗
+              <button class="btn btn-primary hero-details-btn" id="hero-view-details-btn" data-open-modal="piece-01" type="button">
+                View Details ↗
               </button>
             </div>
 
             <!-- 4 Artwork Selection Pills -->
             <div class="hero-showcase-pills" role="tablist" aria-label="Select artwork to preview">
-              <button class="showcase-pill active" data-index="0" type="button">01 · Ordinary Objects I</button>
-              <button class="showcase-pill" data-index="1" type="button">02 · Moon</button>
-              <button class="showcase-pill" data-index="2" type="button">03 · Ordinary Objects III</button>
-              <button class="showcase-pill" data-index="3" type="button">04 · Shelter</button>
+              <button class="showcase-pill active" data-index="0" type="button">
+                <span class="pill-idx">01</span>
+                <span class="pill-title">Objects I</span>
+              </button>
+              <button class="showcase-pill" data-index="1" type="button">
+                <span class="pill-idx">02</span>
+                <span class="pill-title">Moon</span>
+              </button>
+              <button class="showcase-pill" data-index="2" type="button">
+                <span class="pill-idx">03</span>
+                <span class="pill-title">Objects III</span>
+              </button>
+              <button class="showcase-pill" data-index="3" type="button">
+                <span class="pill-idx">04</span>
+                <span class="pill-title">Shelter</span>
+              </button>
             </div>
           </div>
         </div>
@@ -404,14 +424,14 @@
               <span class="commission-tag">Wedding Suites & Keepsakes</span>
             </div>
           </div>
-          <div style="display:flex; flex-direction:column; gap:1rem; align-items:flex-start;">
-            <a href="https://wa.me/919897455555?text=Hi%20Anisha!%20I'd%20love%20to%20discuss%20a%20custom%20linocut%20print%20commission." class="btn btn-whatsapp btn-lg btn-full" target="_blank" rel="noopener">
+          <div class="commissions-actions">
+            <a href="https://wa.me/919897455555?text=Hi%20Anisha!%20I'd%20love%20to%20discuss%20a%20custom%20linocut%20print%20commission." class="btn btn-whatsapp btn-full" target="_blank" rel="noopener" id="commission-wa-btn">
               Chat About a Commission 💬
             </a>
-            <a href="mailto:printmakingpainting@gmail.com?subject=Custom%20Linocut%20Commission%20Inquiry" class="btn btn-secondary btn-full">
+            <a href="mailto:printmakingpainting@gmail.com?subject=Custom%20Linocut%20Commission%20Inquiry" class="btn btn-secondary btn-full" style="color:var(--gold-light); border-color:rgba(197, 164, 118, 0.4);">
               Send an Email
             </a>
-            <span class="hand-note" style="align-self:center; font-size:1.15rem;">Custom slots open for this month! ✦</span>
+            <span class="commission-note">✦ Custom slots open for this month</span>
           </div>
         </div>
       </div>

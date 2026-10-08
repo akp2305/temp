@@ -83,6 +83,7 @@ function initHeroShowcase() {
   const lens = document.getElementById("hero-loupe-lens");
   const titleEl = document.getElementById("hero-showcase-title");
   const metaEl = document.getElementById("hero-showcase-meta-text");
+  const priceEl = document.getElementById("hero-showcase-price");
   const detailsBtn = document.getElementById("hero-view-details-btn");
   const pills = document.querySelectorAll(".showcase-pill");
 
@@ -134,7 +135,8 @@ function initHeroShowcase() {
       img.src = art.image;
       img.alt = `${art.title} - original linocut print`;
       if (titleEl) titleEl.textContent = art.title;
-      if (metaEl) metaEl.textContent = `${art.meta} · ${art.price}`;
+      if (metaEl) metaEl.textContent = art.meta;
+      if (priceEl) priceEl.textContent = art.price;
       if (detailsBtn) detailsBtn.dataset.openModal = art.id;
       
       // Update loupe background if lens exists
