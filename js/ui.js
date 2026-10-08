@@ -44,6 +44,7 @@ function initMobileNav() {
     mobileOverlay.classList.add("open");
     mobilePanel.classList.add("open");
     document.body.style.overflow = "hidden";
+    if (mobileClose) mobileClose.focus();
   }
 
   function closeMenu() {
@@ -52,6 +53,7 @@ function initMobileNav() {
     mobileOverlay.classList.remove("open");
     mobilePanel.classList.remove("open");
     document.body.style.overflow = "";
+    menuToggle.focus();
   }
 
   menuToggle.addEventListener("click", () => {
@@ -64,6 +66,13 @@ function initMobileNav() {
 
   mobileLinks.forEach(link => {
     link.addEventListener("click", closeMenu);
+  });
+
+  // Close menu on Escape key for keyboard & assistive devices
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && mobilePanel.classList.contains("open")) {
+      closeMenu();
+    }
   });
 }
 
@@ -171,20 +180,22 @@ function initHeroShowcase() {
 
     function moveLoupe(e) {
       const rect = stage.getBoundingClientRect();
-      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      const isTouch = !!e.touches;
+      const clientX = isTouch ? e.touches[0].clientX : e.clientX;
+      const clientY = isTouch ? e.touches[0].clientY : e.clientY;
 
       const x = clientX - rect.left;
-      const y = clientY - rect.top;
+      // On touch devices, position lens slightly above finger so thumb doesn't obstruct view
+      const y = isTouch ? (clientY - rect.top - 70) : (clientY - rect.top);
 
-      if (x < 0 || x > rect.width || y < 0 || y > rect.height) {
+      if (x < 0 || x > rect.width || y < -40 || y > rect.height + 40) {
         lens.classList.remove("active");
         return;
       }
 
       lens.classList.add("active");
-      lens.style.left = `${x}px`;
-      lens.style.top = `${y}px`;
+      lens.style.left = `${Math.max(20, Math.min(rect.width - 20, x))}px`;
+      lens.style.top = `${Math.max(20, Math.min(rect.height - 20, y))}px`;
 
       // Position zoomed image inside lens
       const bgW = rect.width * zoomFactor;
@@ -209,7 +220,16 @@ function initHeroShowcase() {
 
     stage.addEventListener("touchmove", moveLoupe, { passive: true });
     stage.addEventListener("touchend", () => {
-      lens.classList.remove("active");
+      setTimeout(() => lens.classList.remove("active"), 400);
+    });
+
+    // Clicking/tapping the stage opens details directly on mobile/tablet
+    stage.addEventListener("click", () => {
+      const art = artworks[currentIndex];
+      if (window.studioGallery) {
+        const prod = window.studioGallery.products.find(p => p.id === art.id);
+        if (prod) window.studioGallery.openModal(prod);
+      }
     });
   }
 

@@ -18,6 +18,8 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -195,8 +197,12 @@ p.lead {
   padding-inline: clamp(1.25rem, 5vw, 2.5rem);
 }
 
+section[id] {
+  scroll-margin-top: calc(var(--header-height) + var(--announcement-height) + 14px);
+}
+
 .section {
-  padding-block: clamp(4rem, 8vw, 7.5rem);
+  padding-block: clamp(3.5rem, 7vw, 7rem);
   position: relative;
 }
 

@@ -580,7 +580,7 @@
   border-radius: var(--radius-xs);
   overflow: hidden;
   cursor: crosshair;
-  touch-action: none;
+  touch-action: pan-y;
 }
 
 .hero-showcase-img {
