@@ -12,4 +12,5 @@ desktop.ini
 *.njsproj
 *.sln
 *.sw?
-
+# Raw upload source photos (optimized versions placed in assets/img/)
+Photos/

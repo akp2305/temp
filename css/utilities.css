@@ -750,6 +750,41 @@ section[id] {
     gap: 1rem !important;
   }
 
+  /* Parallel About on Mobile */
+  .home-about-parallel-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.75rem;
+  }
+
+  .home-about-media {
+    max-width: 280px;
+    margin-inline: auto;
+  }
+
+  .home-about-content {
+    align-items: center;
+  }
+
+  /* Horizon Commissions on Mobile */
+  .home-commissions-horizon-wrap {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.25rem;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .home-commissions-thumb {
+    width: 120px;
+    height: 120px;
+  }
+
+  .home-commissions-horizon-content {
+    flex-direction: column;
+    gap: 1.25rem;
+    text-align: center;
+  }
+
   .home-commissions-grid {
     grid-template-columns: 1fr !important;
     gap: 1.5rem !important;

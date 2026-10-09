@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initStickyHeader();
   initMobileNav();
   initHeroShowcase();
+  initMiniSlideshows();
   initInstaCarousel();
   initScrollReveal();
   initSmoothScroll();
@@ -368,6 +369,48 @@ function initInstaCarousel() {
   renderDots();
   updateSlidePosition();
   startAutoplay();
+}
+
+// 8. Automated Mini-Slideshows (Micro Spaces & Cyanotype)
+function initMiniSlideshows() {
+  const slideshows = document.querySelectorAll("[data-mini-slideshow]");
+  if (!slideshows.length) return;
+
+  slideshows.forEach((container) => {
+    const slides = Array.from(container.querySelectorAll(".mini-slide"));
+    const dots = Array.from(container.querySelectorAll(".mini-slide-dot"));
+    if (slides.length <= 1) return;
+
+    let current = 0;
+    const intervalTime = parseInt(container.getAttribute("data-interval"), 10) || 3200;
+
+    function showSlide(index) {
+      slides.forEach((slide, idx) => {
+        slide.classList.toggle("active", idx === index);
+      });
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle("active", idx === index);
+      });
+      current = index;
+    }
+
+    let timer = setInterval(() => {
+      const next = (current + 1) % slides.length;
+      showSlide(next);
+    }, intervalTime);
+
+    container.addEventListener("mouseenter", () => {
+      if (timer) clearInterval(timer);
+    });
+
+    container.addEventListener("mouseleave", () => {
+      if (timer) clearInterval(timer);
+      timer = setInterval(() => {
+        const next = (current + 1) % slides.length;
+        showSlide(next);
+      }, intervalTime);
+    });
+  });
 }
 
 

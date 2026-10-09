@@ -24,7 +24,7 @@
   <meta property="twitter:image" content="assets/img/prints/ordinary-objects-1.jpg">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/jpeg" href="assets/img/branding/logo.jpg">
 
   <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,8 +46,11 @@
     <div class="container header-inner">
       <!-- Brand Wordmark -->
       <a href="index.html" class="brand" aria-label="Anisha Khanduja Studio Home">
-        <span class="brand-name">Anisha Khanduja</span>
-        <span class="brand-tagline">Contemporary Artist · Printmaker · Painter</span>
+        <img src="assets/img/branding/logo.jpg" alt="Anisha Khanduja Logo" class="brand-logo-img">
+        <div class="brand-text">
+          <span class="brand-name">Anisha Khanduja</span>
+          <span class="brand-tagline">Contemporary Artist · Printmaker · Painter</span>
+        </div>
       </a>
 
       <!-- Desktop Navigation -->
@@ -84,8 +87,11 @@
   <aside class="mobile-nav-panel" id="mobile-nav-panel" aria-label="Mobile Navigation">
     <div class="mobile-nav-header">
       <div class="brand">
-        <span class="brand-name">Anisha Khanduja</span>
-        <span class="brand-tagline">Contemporary Artist · Printmaker · Painter</span>
+        <img src="assets/img/branding/logo.jpg" alt="Anisha Khanduja Logo" class="brand-logo-img">
+        <div class="brand-text">
+          <span class="brand-name">Anisha Khanduja</span>
+          <span class="brand-tagline">Contemporary Artist · Printmaker · Painter</span>
+        </div>
       </div>
       <button class="modal-close-btn" id="mobile-nav-close" aria-label="Close menu">&times;</button>
     </div>
@@ -147,6 +153,10 @@
     <section class="section selected-works-section" id="selected-works">
       <div class="container">
         
+        <div class="section-header text-center reveal-on-scroll">
+          <h2 class="section-title">Selected Work</h2>
+        </div>
+
         <div class="selected-works-grid reveal-on-scroll">
           
           <!-- 1. SHIVA (Moon print) -->
@@ -159,38 +169,41 @@
             </a>
           </div>
 
-          <!-- 2. MICRO SPACES IN MACRO ENVIRONMENT (Ordinary Objects 1 & 3) -->
+          <!-- 2. MICRO SPACES IN MACRO ENVIRONMENT (Ordinary Objects 1 & 3 Slideshow) -->
           <div class="selected-work-item">
             <a href="prints.html" class="selected-work-card">
-              <div class="selected-work-media selected-work-diptych">
-                <img src="assets/img/prints/ordinary-objects-1.jpg" alt="Ordinary Objects I" loading="lazy">
-                <img src="assets/img/prints/ordinary-objects-3.png" alt="Ordinary Objects III" loading="lazy">
+              <div class="selected-work-media mini-slideshow" data-mini-slideshow data-interval="3400">
+                <img class="mini-slide active" src="assets/img/prints/ordinary-objects-1.jpg" alt="Ordinary Objects I" loading="lazy">
+                <img class="mini-slide" src="assets/img/prints/ordinary-objects-3.png" alt="Ordinary Objects III" loading="lazy">
+                <div class="mini-slide-indicators" aria-hidden="true">
+                  <span class="mini-slide-dot active"></span>
+                  <span class="mini-slide-dot"></span>
+                </div>
               </div>
               <h3 class="selected-work-title">MICRO SPACES IN MACRO ENVIRONMENT</h3>
             </a>
           </div>
 
-          <!-- 3. CYANOTYPE (Image coming soon) -->
+          <!-- 3. CYANOTYPE (Circle 1 & Circle 2 Slideshow) -->
           <div class="selected-work-item">
-            <div class="selected-work-card">
-              <div class="selected-work-media selected-work-placeholder cyanotype-placeholder">
-                <div class="placeholder-content">
-                  <span class="placeholder-glyph">✦</span>
-                  <span class="placeholder-status">ARCHIVE</span>
+            <a href="prints.html" class="selected-work-card">
+              <div class="selected-work-media mini-slideshow" data-mini-slideshow data-interval="3400">
+                <img class="mini-slide active" src="assets/img/cyanotype/cyanotype-circle-1.jpg" alt="Cyanotype Circle 1" loading="lazy">
+                <img class="mini-slide" src="assets/img/cyanotype/cyanotype-circle-2.jpg" alt="Cyanotype Circle 2" loading="lazy">
+                <div class="mini-slide-indicators" aria-hidden="true">
+                  <span class="mini-slide-dot active"></span>
+                  <span class="mini-slide-dot"></span>
                 </div>
               </div>
               <h3 class="selected-work-title">CYANOTYPE</h3>
-            </div>
+            </a>
           </div>
 
-          <!-- 4. PAINTING (Image coming soon) -->
+          <!-- 4. PAINTING (Fish Painting) -->
           <div class="selected-work-item">
             <a href="paintings.html" class="selected-work-card">
-              <div class="selected-work-media selected-work-placeholder painting-placeholder">
-                <div class="placeholder-content">
-                  <span class="placeholder-glyph">✦</span>
-                  <span class="placeholder-status">STUDIO CANVASES</span>
-                </div>
+              <div class="selected-work-media">
+                <img src="assets/img/paintings/fish-painting.jpg" alt="Fish Painting by Anisha Khanduja" loading="lazy">
               </div>
               <h3 class="selected-work-title">PAINTING</h3>
             </a>
@@ -207,11 +220,14 @@
     </div>
 
     <!-- ================================================================
-         ABOUT THE ARTIST (Short statement & link to about.html)
+         ABOUT THE ARTIST (Short statement & photo parallel to text)
          ================================================================ -->
     <section class="section home-about-section" id="about-intro">
       <div class="container">
-        <div class="home-about-layout reveal-on-scroll">
+        <div class="home-about-parallel-grid reveal-on-scroll">
+          <div class="home-about-media">
+            <img src="assets/img/studio/anisha-khanduja.jpg" alt="Anisha Khanduja in the studio" loading="lazy">
+          </div>
           <div class="home-about-content">
             <p class="home-about-text">
               My practice moves between printmaking and painting, exploring memory, symbolism, place and fragments of everyday life. I am drawn to repetition, ritual and the transformation of familiar forms into something slightly unfamiliar. Across different series, I work with images and symbols that carry personal, cultural and architectural memory.
@@ -232,17 +248,17 @@
     </div>
 
     <!-- ================================================================
-         COMMISSIONS SECTION (Object 3 image parallel to text & button)
+         COMMISSIONS SECTION (Object 3 image reduced, adjacent in same horizon)
          ================================================================ -->
     <section class="section home-commissions-section" id="commissions-intro">
       <div class="container">
-        <div class="home-commissions-grid reveal-on-scroll">
-          <!-- Parallel Image: Object 3 Art Piece -->
-          <div class="home-commissions-media">
+        <div class="home-commissions-horizon-wrap reveal-on-scroll">
+          <!-- Reduced Compact Image: Object 3 Art Piece -->
+          <div class="home-commissions-thumb">
             <img src="assets/img/prints/ordinary-objects-3.png" alt="Ordinary Objects III linocut print by Anisha Khanduja" loading="lazy">
           </div>
-          <!-- Parallel Content: Text & CTA -->
-          <div class="home-commissions-content">
+          <!-- Adjacent in Same Horizon: Text & CTA -->
+          <div class="home-commissions-horizon-content">
             <p class="home-commissions-text">
               Selected commissions are available for personal, architectural and bespoke works.
             </p>
@@ -269,9 +285,6 @@
         <div class="section-header text-center reveal-on-scroll">
           <div class="eyebrow">✦ Follow Along · @printed.painted_</div>
           <h2 class="section-title">Behind the Scenes: Posts &amp; Reels</h2>
-          <p class="section-subtitle">
-            Explore daily studio carvings, fresh edition pulls, and mindful process reels from the studio. Follow <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" style="font-weight:700; text-decoration:underline; color:var(--forest-ink);">@printed.painted_</a> on Instagram.
-          </p>
         </div>
 
         <!-- Carousel Container -->
@@ -418,27 +431,6 @@
                   </div>
                 </a>
               </div>
-
-              <!-- Slide 6: Post -->
-              <div class="insta-slide" data-type="post">
-                <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" class="insta-slide-card" aria-label="View Studio Practice notes on Instagram">
-                  <div class="insta-slide-media">
-                    <img src="assets/img/studio/artist-anisha.svg" alt="Anisha Khanduja studio portrait and workbench" loading="lazy">
-                    <span class="insta-badge insta-badge-post">
-                      ✦ Studio Notes
-                    </span>
-                  </div>
-                  <div class="insta-slide-meta">
-                    <div class="insta-account-row">
-                      <span class="insta-avatar">✦</span>
-                      <span class="insta-username">printed.painted_</span>
-                      <span class="insta-icon-glyph">↗</span>
-                    </div>
-                    <p class="insta-caption">From sketchbook studies to wood blocks and raw linen canvas. Work in progress from the studio.</p>
-                    <span class="insta-view-cta">View Profile on Instagram ↗</span>
-                  </div>
-                </a>
-              </div>
             </div>
           </div>
 
@@ -474,8 +466,11 @@
         <!-- Col 1: Brand & Tagline -->
         <div class="footer-brand">
           <a href="index.html" class="brand">
-            <span class="brand-name">Anisha Khanduja</span>
-            <span class="brand-tagline">Contemporary Artist · Printmaker · Painter</span>
+            <img src="assets/img/branding/logo.jpg" alt="Anisha Khanduja Logo" class="brand-logo-img">
+            <div class="brand-text">
+              <span class="brand-name">Anisha Khanduja</span>
+              <span class="brand-tagline">Contemporary Artist · Printmaker · Painter</span>
+            </div>
           </a>
         </div>
 
