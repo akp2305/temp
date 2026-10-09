@@ -55,7 +55,7 @@ const STUDIO_PRODUCTS = [
     status: "available",
     dateAdded: "2026-09-08",
     images: [
-      "assets/img/prints/ordinary-objects-3.png"
+      "assets/img/prints/ordinary-objects-3.jpg"
     ]
   },
   {

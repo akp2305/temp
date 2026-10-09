@@ -245,21 +245,24 @@ section[id] {
     display: none; /* Hide hover hint on mobile touch devices */
   }
 
+  .hero-fullwidth-spread,
   .hero-artwork-spread {
     margin-bottom: 1.25rem;
+    width: 100%;
+    max-width: 100vw;
   }
 
   .hero-artwork-stage {
-    min-height: 280px;
-    max-height: 50vh;
-    padding: 0.65rem;
+    min-height: 240px;
+    max-height: 70vh;
+    padding: 0;
     aspect-ratio: auto;
   }
 
   .hero-showcase-img {
-    max-height: 46vh;
+    max-height: 70vh;
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
     padding: 0;
   }
 
@@ -775,8 +778,9 @@ section[id] {
   }
 
   .home-commissions-thumb {
-    width: 120px;
+    width: 160px;
     height: 120px;
+    aspect-ratio: 4 / 3;
   }
 
   .home-commissions-horizon-content {

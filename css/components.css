@@ -63,14 +63,14 @@
 }
 
 .brand-logo-img {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  object-fit: cover;
-  border: 1.5px solid var(--gold-primary);
-  box-shadow: 0 2px 8px rgba(18, 35, 26, 0.12);
+  object-fit: contain;
   flex-shrink: 0;
   transition: transform var(--transition-fast);
+  background-color: transparent;
+  display: block;
 }
 
 .brand:hover .brand-logo-img {
@@ -670,53 +670,55 @@
   color: var(--gold-dark);
 }
 
-/* Large Horizontal Artwork Presentation (Object 1 Dominates the Page) */
-.hero-artwork-spread {
+/* Full Horizontal Hero Artwork Presentation (Object 1 Covers Full Horizontal Width) */
+.hero-portfolio-section {
+  padding-top: 0;
+  padding-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.hero-fullwidth-spread {
   position: relative;
   width: 100%;
-  max-width: 1120px;
-  margin-inline: auto;
-  margin-bottom: 2rem;
+  max-width: 100%;
+  margin: 0;
+  overflow: hidden;
 }
 
 .hero-artwork-stage {
   position: relative;
   width: 100%;
-  min-height: 480px;
-  max-height: 72vh;
-  background: radial-gradient(circle at center, #FFFFFF 0%, #F5F1E8 100%);
-  border: 1px solid rgba(197, 164, 118, 0.35);
-  border-radius: var(--radius-sm);
-  box-shadow: 0 16px 45px -12px rgba(18, 35, 26, 0.12), 0 0 0 1px rgba(26, 53, 40, 0.06);
+  max-width: 100%;
+  margin: 0;
+  background-color: var(--surface-canvas);
+  border-bottom: 1px solid rgba(26, 53, 40, 0.08);
   overflow: hidden;
   cursor: crosshair;
   touch-action: pan-y;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(1rem, 3vw, 2.5rem);
+  padding: 0;
 }
 
 .hero-artwork-mat {
   position: relative;
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .hero-showcase-img {
-  max-height: 64vh;
-  width: auto;
-  max-width: 100%;
-  object-fit: contain;
+  width: 100%;
+  height: auto;
+  max-height: 86vh;
+  object-fit: cover;
+  object-position: center;
   display: block;
-  margin: 0 auto;
-  box-shadow: 0 8px 30px rgba(18, 35, 26, 0.08);
+  margin: 0;
+  box-shadow: none;
   transition: opacity 0.28s ease, transform 0.35s ease;
 }
-
 .hero-showcase-img.fade-out {
   opacity: 0;
   transform: scale(0.98);
@@ -3272,8 +3274,8 @@
 .selected-work-media {
   position: relative;
   width: 100%;
-  aspect-ratio: 3 / 4;
-  background-color: var(--surface-pure);
+  aspect-ratio: 4 / 3;
+  background-color: var(--surface-canvas);
   border: 1px solid rgba(26, 53, 40, 0.1);
   border-radius: var(--radius-sm);
   overflow: hidden;
@@ -3292,20 +3294,20 @@
 .selected-work-media img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   transition: transform var(--transition-normal);
 }
 
 .selected-work-card:hover .selected-work-media img {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 /* Mini Slideshow (Micro Spaces & Cyanotype) */
 .mini-slideshow {
   position: relative;
   overflow: hidden;
-  background-color: var(--surface-pure);
+  background-color: var(--surface-canvas);
 }
 
 .mini-slideshow .mini-slide {
@@ -3313,10 +3315,10 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   opacity: 0;
   transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s ease;
-  transform: scale(1.03);
+  transform: scale(1);
   pointer-events: none;
 }
 
@@ -3399,7 +3401,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 25%;
+  object-position: top center;
   display: block;
 }
 
@@ -3412,11 +3414,18 @@
 
 .home-about-text {
   font-family: var(--font-display);
-  font-size: clamp(1.15rem, 2.2vw, 1.34rem);
-  line-height: 1.7;
+  font-size: clamp(1.02rem, 1.6vw, 1.18rem);
+  line-height: 1.65;
   color: var(--forest-ink);
   margin: 0;
   letter-spacing: -0.01em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.home-about-text p {
+  margin: 0;
 }
 
 .home-about-action {
@@ -3443,19 +3452,21 @@
 }
 
 .home-commissions-thumb {
-  width: 135px;
+  width: 180px;
   height: 135px;
+  aspect-ratio: 4 / 3;
   flex-shrink: 0;
   border-radius: var(--radius-xs);
   overflow: hidden;
   box-shadow: 0 6px 18px rgba(18, 35, 26, 0.09);
   border: 1px solid rgba(26, 53, 40, 0.1);
+  background-color: var(--surface-canvas);
 }
 
 .home-commissions-thumb img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
