@@ -416,70 +416,72 @@ function initMiniSlideshows() {
   });
 }
 
-// 10. Prints Page Full Horizontal Hero Carousel
+// 10. Full Horizontal Hero Carousel (Prints & Paintings Pages)
 function initPrintsHeroCarousel() {
-  const carousel = document.getElementById("prints-hero-carousel");
-  if (!carousel) return;
+  const carousels = document.querySelectorAll(".prints-hero-carousel");
+  if (!carousels.length) return;
 
-  const slides = Array.from(carousel.querySelectorAll(".prints-hero-slide"));
-  const dots = Array.from(carousel.querySelectorAll(".prints-hero-dot"));
-  const prevBtn = document.getElementById("prints-hero-prev");
-  const nextBtn = document.getElementById("prints-hero-next");
-  if (slides.length <= 1) return;
+  carousels.forEach((carousel) => {
+    const slides = Array.from(carousel.querySelectorAll(".prints-hero-slide"));
+    const dots = Array.from(carousel.querySelectorAll(".prints-hero-dot"));
+    const prevBtn = carousel.querySelector(".prints-hero-prev") || document.getElementById("prints-hero-prev");
+    const nextBtn = carousel.querySelector(".prints-hero-next") || document.getElementById("prints-hero-next");
+    if (slides.length <= 1) return;
 
-  let current = 0;
-  let timer = null;
-  const interval = 5000;
+    let current = 0;
+    let timer = null;
+    const interval = 5000;
 
-  function show(index) {
-    if (index < 0) index = slides.length - 1;
-    if (index >= slides.length) index = 0;
-    slides.forEach((s, idx) => s.classList.toggle("active", idx === index));
-    dots.forEach((d, idx) => d.classList.toggle("active", idx === index));
-    current = index;
-  }
-
-  function startTimer() {
-    stopTimer();
-    timer = setInterval(() => {
-      show(current + 1);
-    }, interval);
-  }
-
-  function stopTimer() {
-    if (timer) {
-      clearInterval(timer);
-      timer = null;
+    function show(index) {
+      if (index < 0) index = slides.length - 1;
+      if (index >= slides.length) index = 0;
+      slides.forEach((s, idx) => s.classList.toggle("active", idx === index));
+      dots.forEach((d, idx) => d.classList.toggle("active", idx === index));
+      current = index;
     }
-  }
 
-  if (prevBtn) {
-    prevBtn.addEventListener("click", () => {
-      show(current - 1);
-      startTimer();
-    });
-  }
+    function startTimer() {
+      stopTimer();
+      timer = setInterval(() => {
+        show(current + 1);
+      }, interval);
+    }
 
-  if (nextBtn) {
-    nextBtn.addEventListener("click", () => {
-      show(current + 1);
-      startTimer();
-    });
-  }
+    function stopTimer() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
 
-  dots.forEach((dot, idx) => {
-    dot.addEventListener("click", () => {
-      show(idx);
-      startTimer();
-    });
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => {
+        show(current - 1);
+        startTimer();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        show(current + 1);
+        startTimer();
+      });
+    }
+
+    dots.forEach((dot, idx) => {
+      dot.addEventListener("click", () => {
+        show(idx);
+        startTimer();
+      });
+    } );
+
+    carousel.addEventListener("mouseenter", stopTimer);
+    carousel.addEventListener("mouseleave", startTimer);
+    carousel.addEventListener("touchstart", stopTimer, { passive: true });
+    carousel.addEventListener("touchend", startTimer, { passive: true });
+
+    startTimer();
   });
-
-  carousel.addEventListener("mouseenter", stopTimer);
-  carousel.addEventListener("mouseleave", startTimer);
-  carousel.addEventListener("touchstart", stopTimer, { passive: true });
-  carousel.addEventListener("touchend", startTimer, { passive: true });
-
-  startTimer();
 }
 
 // 11. Prints Page Medium Profile Category Drilldown
