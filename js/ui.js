@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initInstaCarousel();
   initScrollReveal();
   initSmoothScroll();
+  initPrintsHeroCarousel();
+  initPrintsMediumDrilldown();
 });
 
 // 1. Sticky Header
@@ -412,6 +414,110 @@ function initMiniSlideshows() {
       }, intervalTime);
     });
   });
+}
+
+// 10. Prints Page Full Horizontal Hero Carousel
+function initPrintsHeroCarousel() {
+  const carousel = document.getElementById("prints-hero-carousel");
+  if (!carousel) return;
+
+  const slides = Array.from(carousel.querySelectorAll(".prints-hero-slide"));
+  const dots = Array.from(carousel.querySelectorAll(".prints-hero-dot"));
+  const prevBtn = document.getElementById("prints-hero-prev");
+  const nextBtn = document.getElementById("prints-hero-next");
+  if (slides.length <= 1) return;
+
+  let current = 0;
+  let timer = null;
+  const interval = 5000;
+
+  function show(index) {
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
+    slides.forEach((s, idx) => s.classList.toggle("active", idx === index));
+    dots.forEach((d, idx) => d.classList.toggle("active", idx === index));
+    current = index;
+  }
+
+  function startTimer() {
+    stopTimer();
+    timer = setInterval(() => {
+      show(current + 1);
+    }, interval);
+  }
+
+  function stopTimer() {
+    if (timer) {
+      clearInterval(timer);
+      timer = null;
+    }
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      show(current - 1);
+      startTimer();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      show(current + 1);
+      startTimer();
+    });
+  }
+
+  dots.forEach((dot, idx) => {
+    dot.addEventListener("click", () => {
+      show(idx);
+      startTimer();
+    });
+  });
+
+  carousel.addEventListener("mouseenter", stopTimer);
+  carousel.addEventListener("mouseleave", startTimer);
+  carousel.addEventListener("touchstart", stopTimer, { passive: true });
+  carousel.addEventListener("touchend", startTimer, { passive: true });
+
+  startTimer();
+}
+
+// 11. Prints Page Medium Profile Category Drilldown
+function initPrintsMediumDrilldown() {
+  const profileCards = Array.from(document.querySelectorAll(".print-profile-card"));
+  const panels = Array.from(document.querySelectorAll(".prints-medium-panel"));
+  if (profileCards.length === 0 || panels.length === 0) return;
+
+  function activateMedium(mediumName, shouldScroll = false) {
+    profileCards.forEach(card => {
+      const match = card.getAttribute("data-medium") === mediumName;
+      card.classList.toggle("active", match);
+      card.setAttribute("aria-selected", match ? "true" : "false");
+    });
+
+    panels.forEach(panel => {
+      const match = panel.getAttribute("data-medium-panel") === mediumName;
+      panel.classList.toggle("active", match);
+    });
+
+    if (shouldScroll) {
+      const targetPanel = panels.find(p => p.getAttribute("data-medium-panel") === mediumName);
+      if (targetPanel) {
+        targetPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  }
+
+  profileCards.forEach(card => {
+    card.addEventListener("click", (e) => {
+      e.preventDefault();
+      const medium = card.getAttribute("data-medium");
+      activateMedium(medium, true);
+    });
+  });
+
+  // Default: activate linocut
+  activateMedium("linocut", false);
 }
 
 

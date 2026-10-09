@@ -366,21 +366,37 @@ class StudioGallery {
 
           <div class="modal-specs-list">
             <div class="modal-spec-item">
-              <span class="spec-label">Print Medium</span>
+              <span class="spec-label">Medium</span>
               <span class="spec-val">${product.medium}</span>
             </div>
-            <div class="modal-spec-item">
-              <span class="spec-label">Paper Stock</span>
-              <span class="spec-val">${product.paper}</span>
-            </div>
+            ${product.year ? `
+              <div class="modal-spec-item">
+                <span class="spec-label">Year</span>
+                <span class="spec-val">${product.year}</span>
+              </div>
+            ` : ''}
+            ${product.edition ? `
+              <div class="modal-spec-item">
+                <span class="spec-label">Edition</span>
+                <span class="spec-val">${product.edition}</span>
+              </div>
+            ` : ''}
             <div class="modal-spec-item">
               <span class="spec-label">Dimensions</span>
               <span class="spec-val">${product.dimensions}</span>
             </div>
-            <div class="modal-spec-item">
-              <span class="spec-label">Framing</span>
-              <span class="spec-val">Sold unframed (standard frame sizes)</span>
-            </div>
+            ${product.theme ? `
+              <div class="modal-spec-item">
+                <span class="spec-label">Theme</span>
+                <span class="spec-val">${product.theme}</span>
+              </div>
+            ` : ''}
+            ${product.timeTaken ? `
+              <div class="modal-spec-item">
+                <span class="spec-label">Studio Time</span>
+                <span class="spec-val">${product.timeTaken}</span>
+              </div>
+            ` : ''}
           </div>
 
           <div class="modal-actions">
@@ -451,12 +467,19 @@ class StudioGallery {
     dialog.querySelectorAll(".rec-item").forEach(item => {
       item.addEventListener("click", () => {
         const recId = item.dataset.recId;
-        const target = this.products.find(p => p.id === recId);
+        const target = this.products.find(p => p.id === recId || p.slug === recId);
         if (target) {
           this.openModal(target, true);
         }
       });
     });
+  }
+
+  openModalById(idOrSlug) {
+    const product = this.products.find(p => p.id === idOrSlug || p.slug === idOrSlug);
+    if (product) {
+      this.openModal(product, true);
+    }
   }
 
   closeModal(clearHash = true) {
@@ -472,6 +495,18 @@ class StudioGallery {
     }
   }
 }
+
+// Global delegated listener for any data-artwork-id trigger across all pages
+document.addEventListener("click", (e) => {
+  const trigger = e.target.closest("[data-artwork-id]");
+  if (trigger) {
+    const artworkId = trigger.getAttribute("data-artwork-id");
+    if (artworkId && window.studioGallery) {
+      e.preventDefault();
+      window.studioGallery.openModalById(artworkId);
+    }
+  }
+});
 
 // Instantiate once DOM and products are ready
 let studioGallery;

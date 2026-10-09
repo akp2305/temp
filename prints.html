@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Selected Works & Prints — Anisha Khanduja | Contemporary Artist · Printmaker · Painter</title>
-  <meta name="description" content="Catalogue Raisonné of original limited-edition relief linocut prints by contemporary artist Anisha Khanduja. Hand-pulled on archival cotton rag paper in New Delhi, India.">
+  <meta name="description" content="Limited edition works in Linocut, Cyanotype, Screen Printing, and Painting by contemporary artist Anisha Khanduja. Hand-pulled relief prints and sun-developed works on archival cotton paper in New Delhi, India.">
   <meta name="author" content="Anisha Khanduja">
   <link rel="canonical" href="https://anishakhanduja.com/prints.html">
 
   <!-- Open Graph / Meta -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Selected Works & Prints — Anisha Khanduja">
-  <meta property="og:description" content="Explore hand-carved limited-edition relief linocut prints on archival cotton rag paper.">
+  <meta property="og:description" content="Limited edition works in Linocut, Cyanotype, Screen Printing, and Painting art work.">
   <meta property="og:image" content="assets/img/prints/ordinary-objects-1.jpg">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/jpeg" href="assets/img/branding/logo.png">
+  <link rel="icon" type="image/png" href="assets/img/branding/logo.png">
 
   <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,14 +33,14 @@
   <!-- Atmospheric Film Grain Overlay -->
   <div class="film-grain" aria-hidden="true"></div>
 
-  <!-- Announcement Bar -->
+  <!-- Announcement Bar (Matching Home Page) -->
   <div class="announcement-bar" role="region" aria-label="Announcement">
     <div class="container announcement-inner">
       <span>Free shipping across India · Hand-made and Hand packed with love</span>
     </div>
   </div>
 
-  <!-- Site Header -->
+  <!-- Sticky Site Header (Matching Home Page) -->
   <header class="site-header" id="header">
     <div class="container header-inner">
       <!-- Brand Wordmark -->
@@ -115,82 +115,70 @@
   <!-- Main Page Content -->
   <main id="main-content">
 
-    <!-- Subpage Chapter Header -->
-    <section class="page-header-section">
-      <div class="container">
-        <div class="eyebrow">✦ Catalogue Raisonné</div>
-        <h1 class="page-header-title">Selected Works & Prints</h1>
-        <p class="page-header-subtitle">
-          Limited-edition relief linocut prints hand-carved in battleship linoleum and hand-pulled on archival 250gsm Somerset Velvet and 300gsm Indian Khadi cotton rag paper.
-        </p>
-      </div>
-    </section>
-
-    <!-- Selected Works Gallery & Filter Controls -->
-    <section class="section selected-works-section" id="prints-gallery" style="padding-top: 1.5rem;">
-      <div class="container">
-
-        <!-- Understated Filter & Sort Controls -->
-        <div class="shop-controls-bar">
-          <div class="container shop-controls-inner">
-            <div class="filter-chips-track" id="filter-chips-track" role="tablist" aria-label="Filter selected works">
-              <!-- Dynamically populated from products.js -->
-            </div>
-            <div class="shop-sort-wrap">
-              <label for="shop-sort-select" class="shop-sort-label">Sort:</label>
-              <select id="shop-sort-select" class="shop-sort-select" aria-label="Sort selected works">
-                <option value="newest">Chronological</option>
-                <option value="title-asc">Title: A to Z</option>
-              </select>
+    <!-- ================================================================
+         1. FULL HORIZONTAL HERO SLIDESHOW (Moon, Object 1, Object 3, Shelter)
+         ================================================================ -->
+    <section class="prints-hero-section" id="hero">
+      <div class="prints-hero-fullwidth-spread reveal-on-scroll">
+        <div class="prints-hero-carousel" id="prints-hero-carousel" aria-label="Featured Print Editions Slideshow">
+          
+          <!-- Slide 1: Moon -->
+          <div class="prints-hero-slide active" data-index="0">
+            <div class="prints-hero-stage">
+              <img class="prints-hero-img" src="assets/img/prints/moon.jpg" alt="Moon — Relief linocut print by Anisha Khanduja" width="1448" height="1086">
             </div>
           </div>
-        </div>
 
-        <!-- Editorial Grid: Artworks with small captions underneath -->
-        <div class="portfolio-grid" id="shop-artwork-grid">
-          <!-- Rendered as .portfolio-plate from products.js via gallery.js -->
-        </div>
+          <!-- Slide 2: Ordinary Objects 1 -->
+          <div class="prints-hero-slide" data-index="1">
+            <div class="prints-hero-stage">
+              <img class="prints-hero-img" src="assets/img/prints/ordinary-objects-1.jpg" alt="Ordinary Objects 1 — Relief linocut print by Anisha Khanduja" width="1086" height="841">
+            </div>
+          </div>
 
+          <!-- Slide 3: Ordinary Objects 3 -->
+          <div class="prints-hero-slide" data-index="2">
+            <div class="prints-hero-stage">
+              <img class="prints-hero-img" src="assets/img/prints/ordinary-objects-3.jpg" alt="Ordinary Objects 3 — Relief linocut print by Anisha Khanduja" width="1448" height="1086">
+            </div>
+          </div>
+
+          <!-- Slide 4: Shelter -->
+          <div class="prints-hero-slide" data-index="3">
+            <div class="prints-hero-stage">
+              <img class="prints-hero-img" src="assets/img/prints/shelter.jpg" alt="Shelter — Relief linocut print by Anisha Khanduja" width="1346" height="1168">
+            </div>
+          </div>
+
+          <!-- Prev / Next Navigation Arrows -->
+          <button class="prints-hero-nav-btn prints-hero-prev" id="prints-hero-prev" aria-label="Previous print" type="button">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <button class="prints-hero-nav-btn prints-hero-next" id="prints-hero-next" aria-label="Next print" type="button">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+
+          <!-- Slide Pagination Dots -->
+          <div class="prints-hero-dots" id="prints-hero-dots">
+            <button class="prints-hero-dot active" data-slide="0" aria-label="Slide 1: Moon" type="button"></button>
+            <button class="prints-hero-dot" data-slide="1" aria-label="Slide 2: Ordinary Objects 1" type="button"></button>
+            <button class="prints-hero-dot" data-slide="2" aria-label="Slide 3: Ordinary Objects 3" type="button"></button>
+            <button class="prints-hero-dot" data-slide="3" aria-label="Slide 4: Shelter" type="button"></button>
+          </div>
+
+        </div>
       </div>
-    </section>
 
-    <!-- Studio Editioning Standards / Archival Reassurance -->
-    <section class="section" style="background-color: var(--surface-canvas); border-top: 1px solid rgba(26, 53, 40, 0.08); padding-block: clamp(2.5rem, 4vw, 4rem);">
+      <!-- Statement Below Hero Slideshow -->
       <div class="container">
-        <div class="section-header text-center reveal-on-scroll" style="margin-bottom: 2rem;">
-          <div class="eyebrow">✦ Studio Standards</div>
-          <h2 class="section-title">Archival Craftsmanship</h2>
-          <p class="section-subtitle">Every impression is treated with the highest museum-grade respect.</p>
-        </div>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; max-width: 1040px; margin-inline: auto;">
-          <div style="background: var(--surface-pure); border: 1px solid rgba(26, 53, 40, 0.1); border-radius: var(--radius-sm); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.4rem;">
-            <span style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--forest-ink);">100% Cotton Rag</span>
-            <p style="font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; margin: 0;">
-              Acid-free Somerset Velvet (UK) and handmade Indian Khadi rag. Deckled natural paper edges with rich tactile tooth.
-            </p>
-          </div>
-
-          <div style="background: var(--surface-pure); border: 1px solid rgba(26, 53, 40, 0.1); border-radius: var(--radius-sm); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.4rem;">
-            <span style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--forest-ink);">Lightfast Oil Inks</span>
-            <p style="font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; margin: 0;">
-              Artist-grade Charbonnel & Cranfield Caligo relief inks. Deep, non-fading pigments formulated to endure for generations.
-            </p>
-          </div>
-
-          <div style="background: var(--surface-pure); border: 1px solid rgba(26, 53, 40, 0.1); border-radius: var(--radius-sm); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.4rem;">
-            <span style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--forest-ink);">Finite Editions</span>
-            <p style="font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; margin: 0;">
-              Strict small runs of 6 to 8 impressions. Each print is hand-titled, numbered, and signed in archival graphite pencil.
-            </p>
-          </div>
-
-          <div style="background: var(--surface-pure); border: 1px solid rgba(26, 53, 40, 0.1); border-radius: var(--radius-sm); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.4rem;">
-            <span style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--forest-ink);">Plastic-Free Transit</span>
-            <p style="font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; margin: 0;">
-              Acid-free glassine wrapping and heavy corrugated backing boards. Insured safe delivery across all states in India.
-            </p>
-          </div>
+        <div class="prints-hero-statement-wrap reveal-on-scroll stagger-1">
+          <p class="prints-hero-statement">
+            Limited edition works in Linocut, Cyanotype, Screen Printing, and Painting art work.
+          </p>
         </div>
       </div>
     </section>
@@ -201,18 +189,822 @@
     </div>
 
     <!-- ================================================================
-         INSTAGRAM FEEDS & REELS SLIDESHOW
+         2. SELECTED EDITIONS (Linocut, Cyanotype, Screen Printing)
+         ================================================================ -->
+    <section class="section selected-editions-section" id="selected-editions">
+      <div class="container">
+        
+        <div class="section-header text-center reveal-on-scroll">
+          <h2 class="section-title">Selected Editions</h2>
+        </div>
+
+        <div class="selected-editions-grid reveal-on-scroll">
+          
+          <!-- 1. LINOCUT: The Ordinary Objects (Object 3) -->
+          <div class="selected-edition-card" data-artwork-id="ordinary-objects-3" tabindex="0" role="button" aria-label="View details for The Ordinary Objects">
+            <div class="selected-edition-media">
+              <img src="assets/img/prints/ordinary-objects-3.jpg" alt="The Ordinary Objects — Linocut on Archival Art Paper" width="1448" height="1086" loading="lazy">
+              <span class="selected-edition-inspect-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                View Details
+              </span>
+            </div>
+            <div class="selected-edition-caption">
+              <span class="selected-edition-tag">Linocut</span>
+              <h3 class="selected-edition-title">The Ordinary Objects</h3>
+              <span class="selected-edition-meta">Linocut on Archival Art Paper · 2026</span>
+            </div>
+          </div>
+
+          <!-- 2. CYANOTYPE: Circle (Mini-Slideshow of Circle 1 & Circle 2) -->
+          <div class="selected-edition-card" data-artwork-id="cyanotype-circle" tabindex="0" role="button" aria-label="View details for Circle Cyanotype">
+            <div class="selected-edition-media mini-slideshow" data-mini-slideshow data-interval="3400">
+              <img class="mini-slide active" src="assets/img/prints/cyanotype-circle-1.jpg" alt="Circle I — Cyanotype on Archival Art Paper" loading="lazy">
+              <img class="mini-slide" src="assets/img/prints/cyanotype-circle-2.jpg" alt="Circle II — Cyanotype on Archival Art Paper" loading="lazy">
+              <div class="mini-slide-indicators" aria-hidden="true">
+                <span class="mini-slide-dot active"></span>
+                <span class="mini-slide-dot"></span>
+              </div>
+              <span class="selected-edition-inspect-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                View Details
+              </span>
+            </div>
+            <div class="selected-edition-caption">
+              <span class="selected-edition-tag">Cyanotype</span>
+              <h3 class="selected-edition-title">Circle</h3>
+              <span class="selected-edition-meta">Cyanotype on Archival Art Paper · 2026</span>
+            </div>
+          </div>
+
+          <!-- 3. SCREEN PRINTING: Screen Printing (Draft) -->
+          <div class="selected-edition-card" data-artwork-id="screen-printing" tabindex="0" role="button" aria-label="View details for Screen Printing">
+            <div class="selected-edition-media">
+              <img src="assets/img/prints/screenprint-draft.jpg" alt="Screen Printing — Serigraph on Archival Art Paper" width="1200" height="900" loading="lazy">
+              <span class="selected-edition-inspect-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                View Details
+              </span>
+            </div>
+            <div class="selected-edition-caption">
+              <span class="selected-edition-tag">Screen Printing</span>
+              <h3 class="selected-edition-title">Screen Printing</h3>
+              <span class="selected-edition-meta">Screen Print on Archival Art Paper · 2026</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Gallery Architectural Divider -->
+    <div class="gallery-divider" aria-hidden="true">
+      <span class="divider-diamond">✦</span>
+    </div>
+
+    <!-- ================================================================
+         3. ALL PRINT WORK (Profiles: Linocut, Cyanotype, Screen Printing)
+         ================================================================ -->
+    <section class="section all-prints-section" id="all-prints">
+      <div class="container">
+        
+        <div class="section-header text-center reveal-on-scroll">
+          <h2 class="section-title">All Print Work</h2>
+          <p class="section-subtitle">Select a medium below to view complete studio editions and archival plates.</p>
+        </div>
+
+        <!-- 3 Medium Profile Cards -->
+        <div class="all-prints-profiles-grid reveal-on-scroll">
+          
+          <!-- Profile 1: Linocut (Cover: Shelter) -->
+          <div class="print-profile-card active" data-medium="linocut" tabindex="0" role="button" aria-label="View all Linocut prints">
+            <div class="print-profile-media">
+              <img src="assets/img/prints/shelter.jpg" alt="Linocut printmaking — Shelter by Anisha Khanduja" width="1346" height="1168" loading="lazy">
+            </div>
+            <div class="print-profile-info">
+              <h3 class="print-profile-title">Linocut</h3>
+              <p class="print-profile-desc">
+                Relief printmaking technique where images are hand-carved into linoleum blocks, ink rolled onto raised surfaces, and transferred to archival paper with intense hand-burnished pressure.
+              </p>
+              <div class="print-profile-cta">
+                <span>Explore Linocut (4 Works)</span>
+                <span>↓</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Profile 2: Cyanotype (Cover: Cyanotype Series 1) -->
+          <div class="print-profile-card" data-medium="cyanotype" tabindex="0" role="button" aria-label="View all Cyanotype prints">
+            <div class="print-profile-media">
+              <img src="assets/img/prints/cyanotype-series-1.jpg" alt="Cyanotype sun printing — Series I by Anisha Khanduja" width="1071" height="1428" loading="lazy">
+            </div>
+            <div class="print-profile-info">
+              <h3 class="print-profile-title">Cyanotype</h3>
+              <p class="print-profile-desc">
+                19th-century alternative photographic process using natural ultraviolet sunlight and iron salts to create characteristic Prussian blue impressions on archival cotton rag.
+              </p>
+              <div class="print-profile-cta">
+                <span>Explore Cyanotype (7 Works)</span>
+                <span>↓</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Profile 3: Screen Printing (Cover: Draft Image) -->
+          <div class="print-profile-card" data-medium="screenprinting" tabindex="0" role="button" aria-label="View all Screen Printing works">
+            <div class="print-profile-media">
+              <img src="assets/img/prints/screenprint-draft.jpg" alt="Screen Printing technique by Anisha Khanduja" width="1200" height="900" loading="lazy">
+            </div>
+            <div class="print-profile-info">
+              <h3 class="print-profile-title">Screen Printing</h3>
+              <p class="print-profile-desc">
+                Fine art silkscreen method using woven mesh stencils to pull distinct layers of artist-grade ink onto heavy paper, creating flat color planes and rich register depth.
+              </p>
+              <div class="print-profile-cta">
+                <span>Explore Screen Printing</span>
+                <span>↓</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ============================================================
+             DRILLDOWN SECTIONS (Open respectively upon clicking profile)
+             ============================================================ -->
+        <div class="prints-drilldown-wrap">
+          
+          <!-- ----------------------------------------------------------
+               PANEL 1: LINOCUT (All 4 Linocut Prints)
+               ---------------------------------------------------------- -->
+          <div class="prints-medium-panel active" data-medium-panel="linocut">
+            <div class="medium-panel-header">
+              <h3 class="medium-panel-title">Linocut Relief Editions</h3>
+              <span class="medium-panel-count">4 Authentic Studio Works</span>
+            </div>
+
+            <div class="print-catalogue-grid">
+              
+              <!-- 1. Moon -->
+              <article class="print-catalogue-card" id="plate-moon">
+                <div class="print-catalogue-media" data-artwork-id="moon" title="Click to view details in box overlay">
+                  <img src="assets/img/prints/moon.jpg" alt="Moon — Linocut by Anisha Khanduja" width="1448" height="1086" loading="lazy">
+                </div>
+                <div class="print-catalogue-details">
+                  <h4 class="print-catalogue-title">Moon</h4>
+                  <div class="print-specs-list">
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Theme</span>
+                      <span class="print-spec-val">Shiva element</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Year</span>
+                      <span class="print-spec-val">2026</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Frame Dimensions</span>
+                      <span class="print-spec-val">20 × 17 cm</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Print Dimensions</span>
+                      <span class="print-spec-val">8.2 × 6.7 cm</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Edition</span>
+                      <span class="print-spec-val">Limited Edition of 8</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Time Taken</span>
+                      <span class="print-spec-val">~14 hours hand-carving &amp; proofing</span>
+                    </div>
+                  </div>
+                  <p class="print-catalogue-story">
+                    Moon is a small linocut print that began as a rough idea carved into a block. It is the first piece in a series made for Shiva, and the moon was chosen as the softest way in. Small in scale, it carries the whole series.
+                  </p>
+                  <div class="print-catalogue-actions">
+                    <a href="https://wa.me/919897455555?text=Hi%20Anisha!%20I'd%20love%20to%20inquire%20about%20the%20price%20of%20the%20Moon%20print." class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener">
+                      Inquire on WhatsApp 💬
+                    </a>
+                    <button class="btn btn-secondary btn-sm" data-artwork-id="moon" type="button">
+                      View Frame Details ↗
+                    </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 2. Ordinary Objects 1 -->
+              <article class="print-catalogue-card" id="plate-ordinary-objects-1">
+                <div class="print-catalogue-media" data-artwork-id="ordinary-objects-1" title="Click to view details in box overlay">
+                  <img src="assets/img/prints/ordinary-objects-1.jpg" alt="Ordinary Objects 1 — Linocut by Anisha Khanduja" width="1086" height="841" loading="lazy">
+                </div>
+                <div class="print-catalogue-details">
+                  <h4 class="print-catalogue-title">Ordinary Objects 1</h4>
+                  <div class="print-specs-list">
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Theme</span>
+                      <span class="print-spec-val">Micro spaces in macro environment</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Year</span>
+                      <span class="print-spec-val">2026</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Frame Dimensions</span>
+                      <span class="print-spec-val">61 × 52 cm</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Print Dimensions</span>
+                      <span class="print-spec-val">44.2 × 29.2 cm</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Edition</span>
+                      <span class="print-spec-val">Limited Edition of 8 (A/P 2/8)</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Time Taken</span>
+                      <span class="print-spec-val">~45 hours hand carving &amp; multi-stage proofing</span>
+                    </div>
+                  </div>
+                  <p class="print-catalogue-story">
+                    Ordinary Objects 1 is a linocut that grew out of the Covid period, when being homebound changed the way familiar surroundings were seen. Objects passed countless times began to occupy the small spaces of home, micro spaces within a macro environment. The piece observes a lamp and a few mismatched mugs closely, and honours the printmaking process itself, where the final image comes through adjustments and unsuccessful impressions rather than one perfect attempt.
+                  </p>
+                  <div class="print-catalogue-actions">
+                    <a href="https://wa.me/919897455555?text=Hi%20Anisha!%20I'd%20love%20to%20inquire%20about%20the%20price%20of%20Ordinary%20Objects%201." class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener">
+                      Inquire on WhatsApp 💬
+                    </a>
+                    <button class="btn btn-secondary btn-sm" data-artwork-id="ordinary-objects-1" type="button">
+                      View Frame Details ↗
+                    </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 3. Ordinary Objects 3 -->
+              <article class="print-catalogue-card" id="plate-ordinary-objects-3">
+                <div class="print-catalogue-media" data-artwork-id="ordinary-objects-3" title="Click to view details in box overlay">
+                  <img src="assets/img/prints/ordinary-objects-3.jpg" alt="Ordinary Objects 3 — Linocut by Anisha Khanduja" width="1448" height="1086" loading="lazy">
+                </div>
+                <div class="print-catalogue-details">
+                  <h4 class="print-catalogue-title">Ordinary Objects 3</h4>
+                  <div class="print-specs-list">
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Theme</span>
+                      <span class="print-spec-val">Micro spaces in macro environment</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Year</span>
+                      <span class="print-spec-val">2026</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Frame Dimensions</span>
+                      <span class="print-spec-val">61 × 52 cm</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Print Dimensions</span>
+                      <span class="print-spec-val">44.2 × 29.2 cm</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Edition</span>
+                      <span class="print-spec-val">Limited Edition of 8</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Time Taken</span>
+                      <span class="print-spec-val">~52 hours intricate hand-carving</span>
+                    </div>
+                  </div>
+                  <p class="print-catalogue-story">
+                    Ordinary Objects 3 continues the Micro Spaces in Macro Environment series, looking closely at the familiar spaces and objects that usually pass unnoticed: a candle, a flower, a few bottles on a shelf, a checkered floor. Documenting them reveals the ordinary things that make a home a home. Every texture, line of hatching and shade was carved by hand, one cut at a time, with no undo once the block is cut. The closer you look, the less ordinary it becomes.
+                  </p>
+                  <div class="print-catalogue-actions">
+                    <a href="https://wa.me/919897455555?text=Hi%20Anisha!%20I'd%20love%20to%20inquire%20about%20the%20price%20of%20Ordinary%20Objects%203." class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener">
+                      Inquire on WhatsApp 💬
+                    </a>
+                    <button class="btn btn-secondary btn-sm" data-artwork-id="ordinary-objects-3" type="button">
+                      View Frame Details ↗
+                    </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 4. Shelter -->
+              <article class="print-catalogue-card" id="plate-shelter">
+                <div class="print-catalogue-media" data-artwork-id="shelter" title="Click to view details in box overlay">
+                  <img src="assets/img/prints/shelter.jpg" alt="Shelter — Linocut by Anisha Khanduja" width="1346" height="1168" loading="lazy">
+                </div>
+                <div class="print-catalogue-details">
+                  <h4 class="print-catalogue-title">Shelter</h4>
+                  <div class="print-specs-list">
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Theme</span>
+                      <span class="print-spec-val">Father's love</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Year</span>
+                      <span class="print-spec-val">2026</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Frame Dimensions</span>
+                      <span class="print-spec-val">31.5 × 23 cm</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Print Dimensions</span>
+                      <span class="print-spec-val">21 × 15 cm</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Edition</span>
+                      <span class="print-spec-val">Edition of 6</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Time Taken</span>
+                      <span class="print-spec-val">~28 hours hand-carving &amp; burnishing</span>
+                    </div>
+                  </div>
+                  <p class="print-catalogue-story">
+                    Shelter looks at fatherhood through the ordinary things fathers carry: a shirt pocket, always full, and an umbrella held over. Brought together in one print, these two forms speak of protection, provision and the quiet things that often go unnoticed. It is also an expression of gratitude for everything received while standing under someone's shelter. Each print is given a name before it leaves the studio, and the edition was made in six.
+                  </p>
+                  <div class="print-catalogue-actions">
+                    <a href="https://wa.me/919897455555?text=Hi%20Anisha!%20I'd%20love%20to%20inquire%20about%20the%20price%20of%20Shelter." class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener">
+                      Inquire on WhatsApp 💬
+                    </a>
+                    <button class="btn btn-secondary btn-sm" data-artwork-id="shelter" type="button">
+                      View Frame Details ↗
+                    </button>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </div>
+
+          <!-- ----------------------------------------------------------
+               PANEL 2: CYANOTYPE (Both Circles & All 5 Series Prints)
+               ---------------------------------------------------------- -->
+          <div class="prints-medium-panel" data-medium-panel="cyanotype">
+            <div class="medium-panel-header">
+              <h3 class="medium-panel-title">Cyanotype Editions</h3>
+              <span class="medium-panel-count">7 Solar Impressions (Template Ready)</span>
+            </div>
+
+            <div class="print-catalogue-grid">
+              
+              <!-- 1. Circle I -->
+              <article class="print-catalogue-card" id="plate-cyanotype-circle-1">
+                <div class="print-catalogue-media" data-artwork-id="cyanotype-circle-1" title="Click to view details in box overlay">
+                  <img src="assets/img/prints/cyanotype-circle-1.jpg" alt="Circle I — Cyanotype by Anisha Khanduja" width="1386" height="1600" loading="lazy">
+                </div>
+                <div class="print-catalogue-details">
+                  <h4 class="print-catalogue-title">Circle I</h4>
+                  <div class="print-specs-list">
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Theme</span>
+                      <span class="print-spec-val">Celestial &amp; Botanical Geometry</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Year</span>
+                      <span class="print-spec-val">2026</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Frame Dimensions</span>
+                      <span class="print-spec-val">30 × 30 cm</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Print Dimensions</span>
+                      <span class="print-spec-val">20 cm diameter</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Edition</span>
+                      <span class="print-spec-val">Variable Edition of 5</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Time Taken</span>
+                      <span class="print-spec-val">~8 hours solar exposure</span>
+                    </div>
+                  </div>
+                  <p class="print-catalogue-story">
+                    Hand-coated light-sensitive emulsion exposed under direct solar rays on archival cotton paper, capturing organic shadows in deep Prussian blue.
+                  </p>
+                  <div class="print-catalogue-actions">
+                    <a href="https://wa.me/919897455555?text=Hi%20Anisha!%20I'd%20love%20to%20inquire%20about%20the%20price%20of%20Circle%20I." class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener">
+                      Inquire on WhatsApp 💬
+                    </a>
+                    <button class="btn btn-secondary btn-sm" data-artwork-id="cyanotype-circle-1" type="button">
+                      View Frame Details ↗
+                    </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 2. Circle II -->
+              <article class="print-catalogue-card" id="plate-cyanotype-circle-2">
+                <div class="print-catalogue-media" data-artwork-id="cyanotype-circle-2" title="Click to view details in box overlay">
+                  <img src="assets/img/prints/cyanotype-circle-2.jpg" alt="Circle II — Cyanotype by Anisha Khanduja" width="1436" height="1600" loading="lazy">
+                </div>
+                <div class="print-catalogue-details">
+                  <h4 class="print-catalogue-title">Circle II</h4>
+                  <div class="print-specs-list">
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Theme</span>
+                      <span class="print-spec-val">Celestial &amp; Botanical Geometry</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Year</span>
+                      <span class="print-spec-val">2026</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Frame Dimensions</span>
+                      <span class="print-spec-val">30 × 30 cm</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Print Dimensions</span>
+                      <span class="print-spec-val">20 cm diameter</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Edition</span>
+                      <span class="print-spec-val">Variable Edition of 5</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Time Taken</span>
+                      <span class="print-spec-val">~8 hours solar exposure</span>
+                    </div>
+                  </div>
+                  <p class="print-catalogue-story">
+                    Complementary circular celestial study developed with sun exposure and pure water wash, balancing geometric restraint with natural variation.
+                  </p>
+                  <div class="print-catalogue-actions">
+                    <a href="https://wa.me/919897455555?text=Hi%20Anisha!%20I'd%20love%20to%20inquire%20about%20the%20price%20of%20Circle%20II." class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener">
+                      Inquire on WhatsApp 💬
+                    </a>
+                    <button class="btn btn-secondary btn-sm" data-artwork-id="cyanotype-circle-2" type="button">
+                      View Frame Details ↗
+                    </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 3. Cyanotype Series 1 -->
+              <article class="print-catalogue-card" id="plate-cyanotype-series-1">
+                <div class="print-catalogue-media" data-artwork-id="cyanotype-series-1" title="Click to view details in box overlay">
+                  <img src="assets/img/prints/cyanotype-series-1.jpg" alt="Cyanotype Series I by Anisha Khanduja" width="1071" height="1428" loading="lazy">
+                </div>
+                <div class="print-catalogue-details">
+                  <h4 class="print-catalogue-title">Cyanotype Series I</h4>
+                  <div class="print-specs-list">
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Theme</span>
+                      <span class="print-spec-val">Botanical impression &amp; shadow play</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Year</span>
+                      <span class="print-spec-val">2026</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Frame Dimensions</span>
+                      <span class="print-spec-val">35 × 28 cm</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Print Dimensions</span>
+                      <span class="print-spec-val">25 × 18 cm</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Edition</span>
+                      <span class="print-spec-val">Studio Proof Edition</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Time Taken</span>
+                      <span class="print-spec-val">~6 hours solar exposure</span>
+                    </div>
+                  </div>
+                  <p class="print-catalogue-story">
+                    Natural botanical specimens pressed in sunlight, revealing intricate organic silhouettes and delicate leaf textures in Prussian blue.
+                  </p>
+                  <div class="print-catalogue-actions">
+                    <a href="https://wa.me/919897455555?text=Hi%20Anisha!%20I'd%20love%20to%20inquire%20about%20Cyanotype%20Series%20I." class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener">
+                      Inquire on WhatsApp 💬
+                    </a>
+                    <button class="btn btn-secondary btn-sm" data-artwork-id="cyanotype-series-1" type="button">
+                      View Frame Details ↗
+                    </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 4. Cyanotype Series 2 -->
+              <article class="print-catalogue-card" id="plate-cyanotype-series-2">
+                <div class="print-catalogue-media" data-artwork-id="cyanotype-series-2" title="Click to view details in box overlay">
+                  <img src="assets/img/prints/cyanotype-series-2.jpg" alt="Cyanotype Series II by Anisha Khanduja" width="1071" height="1428" loading="lazy">
+                </div>
+                <div class="print-catalogue-details">
+                  <h4 class="print-catalogue-title">Cyanotype Series II</h4>
+                  <div class="print-specs-list">
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Theme</span>
+                      <span class="print-spec-val">Botanical impression &amp; shadow play</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Year</span>
+                      <span class="print-spec-val">2026</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Frame Dimensions</span>
+                      <span class="print-spec-val">35 × 28 cm</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Print Dimensions</span>
+                      <span class="print-spec-val">25 × 18 cm</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Edition</span>
+                      <span class="print-spec-val">Studio Proof Edition</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Time Taken</span>
+                      <span class="print-spec-val">~6 hours solar exposure</span>
+                    </div>
+                  </div>
+                  <p class="print-catalogue-story">
+                    Sun-exposed botanical composition on heavyweight archival paper, exploring the rhythm of natural foliage against sunlight.
+                  </p>
+                  <div class="print-catalogue-actions">
+                    <a href="https://wa.me/919897455555?text=Hi%20Anisha!%20I'd%20love%20to%20inquire%20about%20Cyanotype%20Series%20II." class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener">
+                      Inquire on WhatsApp 💬
+                    </a>
+                    <button class="btn btn-secondary btn-sm" data-artwork-id="cyanotype-series-2" type="button">
+                      View Frame Details ↗
+                    </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 5. Cyanotype Series 3 -->
+              <article class="print-catalogue-card" id="plate-cyanotype-series-3">
+                <div class="print-catalogue-media" data-artwork-id="cyanotype-series-3" title="Click to view details in box overlay">
+                  <img src="assets/img/prints/cyanotype-series-3.jpg" alt="Cyanotype Series III by Anisha Khanduja" width="1071" height="1428" loading="lazy">
+                </div>
+                <div class="print-catalogue-details">
+                  <h4 class="print-catalogue-title">Cyanotype Series III</h4>
+                  <div class="print-specs-list">
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Theme</span>
+                      <span class="print-spec-val">Botanical impression &amp; shadow play</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Year</span>
+                      <span class="print-spec-val">2026</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Frame Dimensions</span>
+                      <span class="print-spec-val">35 × 28 cm</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Print Dimensions</span>
+                      <span class="print-spec-val">25 × 18 cm</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Edition</span>
+                      <span class="print-spec-val">Studio Proof Edition</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Time Taken</span>
+                      <span class="print-spec-val">~6 hours solar exposure</span>
+                    </div>
+                  </div>
+                  <p class="print-catalogue-story">
+                    Exploration of translucent leaf structures and rich Prussian blue gradients captured during midday solar exposure.
+                  </p>
+                  <div class="print-catalogue-actions">
+                    <a href="https://wa.me/919897455555?text=Hi%20Anisha!%20I'd%20love%20to%20inquire%20about%20Cyanotype%20Series%20III." class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener">
+                      Inquire on WhatsApp 💬
+                    </a>
+                    <button class="btn btn-secondary btn-sm" data-artwork-id="cyanotype-series-3" type="button">
+                      View Frame Details ↗
+                    </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 6. Cyanotype Series 4 -->
+              <article class="print-catalogue-card" id="plate-cyanotype-series-4">
+                <div class="print-catalogue-media" data-artwork-id="cyanotype-series-4" title="Click to view details in box overlay">
+                  <img src="assets/img/prints/cyanotype-series-4.jpg" alt="Cyanotype Series IV by Anisha Khanduja" width="1071" height="1428" loading="lazy">
+                </div>
+                <div class="print-catalogue-details">
+                  <h4 class="print-catalogue-title">Cyanotype Series IV</h4>
+                  <div class="print-specs-list">
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Theme</span>
+                      <span class="print-spec-val">Botanical impression &amp; shadow play</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Year</span>
+                      <span class="print-spec-val">2026</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Frame Dimensions</span>
+                      <span class="print-spec-val">35 × 28 cm</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Print Dimensions</span>
+                      <span class="print-spec-val">25 × 18 cm</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Edition</span>
+                      <span class="print-spec-val">Studio Proof Edition</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Time Taken</span>
+                      <span class="print-spec-val">~6 hours solar exposure</span>
+                    </div>
+                  </div>
+                  <p class="print-catalogue-story">
+                    Direct contact solar photogram capturing fleeting botanical memory with delicate feathering and edge contrast.
+                  </p>
+                  <div class="print-catalogue-actions">
+                    <a href="https://wa.me/919897455555?text=Hi%20Anisha!%20I'd%20love%20to%20inquire%20about%20Cyanotype%20Series%20IV." class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener">
+                      Inquire on WhatsApp 💬
+                    </a>
+                    <button class="btn btn-secondary btn-sm" data-artwork-id="cyanotype-series-4" type="button">
+                      View Frame Details ↗
+                    </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 7. Cyanotype Series 5 -->
+              <article class="print-catalogue-card" id="plate-cyanotype-series-5">
+                <div class="print-catalogue-media" data-artwork-id="cyanotype-series-5" title="Click to view details in box overlay">
+                  <img src="assets/img/prints/cyanotype-series-5.jpg" alt="Cyanotype Series V by Anisha Khanduja" width="1071" height="1428" loading="lazy">
+                </div>
+                <div class="print-catalogue-details">
+                  <h4 class="print-catalogue-title">Cyanotype Series V</h4>
+                  <div class="print-specs-list">
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Theme</span>
+                      <span class="print-spec-val">Botanical impression &amp; shadow play</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Year</span>
+                      <span class="print-spec-val">2026</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Frame Dimensions</span>
+                      <span class="print-spec-val">35 × 28 cm</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Print Dimensions</span>
+                      <span class="print-spec-val">25 × 18 cm</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Edition</span>
+                      <span class="print-spec-val">Studio Proof Edition</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Time Taken</span>
+                      <span class="print-spec-val">~6 hours solar exposure</span>
+                    </div>
+                  </div>
+                  <p class="print-catalogue-story">
+                    Concluding plate in the five-part botanical sun series, embodying the quiet transformation of light into deep indigo tone.
+                  </p>
+                  <div class="print-catalogue-actions">
+                    <a href="https://wa.me/919897455555?text=Hi%20Anisha!%20I'd%20love%20to%20inquire%20about%20Cyanotype%20Series%20V." class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener">
+                      Inquire on WhatsApp 💬
+                    </a>
+                    <button class="btn btn-secondary btn-sm" data-artwork-id="cyanotype-series-5" type="button">
+                      View Frame Details ↗
+                    </button>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </div>
+
+          <!-- ----------------------------------------------------------
+               PANEL 3: SCREEN PRINTING (Draft Template)
+               ---------------------------------------------------------- -->
+          <div class="prints-medium-panel" data-medium-panel="screenprinting">
+            <div class="medium-panel-header">
+              <h3 class="medium-panel-title">Screen Printing Editions</h3>
+              <span class="medium-panel-count">Silkscreen Proofs (Template Ready)</span>
+            </div>
+
+            <div class="print-catalogue-grid">
+              
+              <!-- Screen Printing I (Draft) -->
+              <article class="print-catalogue-card" id="plate-screen-printing-1">
+                <div class="print-catalogue-media" data-artwork-id="screen-printing" title="Click to view details in box overlay">
+                  <img src="assets/img/prints/screenprint-draft.jpg" alt="Screen Printing Draft Proof by Anisha Khanduja" width="1200" height="900" loading="lazy">
+                </div>
+                <div class="print-catalogue-details">
+                  <h4 class="print-catalogue-title">Screen Printing I (Draft)</h4>
+                  <div class="print-specs-list">
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Theme</span>
+                      <span class="print-spec-val">Architectural planes &amp; color fields</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Year</span>
+                      <span class="print-spec-val">2026</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Frame Dimensions</span>
+                      <span class="print-spec-val">45 × 35 cm</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Print Dimensions</span>
+                      <span class="print-spec-val">30 × 20 cm</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Edition</span>
+                      <span class="print-spec-val">Limited Edition of 10</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Time Taken</span>
+                      <span class="print-spec-val">~20 hours registration &amp; multi-pull printing</span>
+                    </div>
+                  </div>
+                  <p class="print-catalogue-story">
+                    Multi-layered serigraph impression exploring flat color planes, hand-pulled register precision, and the interaction of translucent artist pigments on heavy archival cotton rag paper. (Draft edition — details and photography to be finalized).
+                  </p>
+                  <div class="print-catalogue-actions">
+                    <a href="https://wa.me/919897455555?text=Hi%20Anisha!%20I'd%20love%20to%20inquire%20about%20the%20Screen%20Printing%20editions." class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener">
+                      Inquire on WhatsApp 💬
+                    </a>
+                    <button class="btn btn-secondary btn-sm" data-artwork-id="screen-printing" type="button">
+                      View Frame Details ↗
+                    </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Screen Printing II (Placeholder Template) -->
+              <article class="print-catalogue-card" style="opacity: 0.85;">
+                <div class="print-catalogue-media" style="background: repeating-linear-gradient(45deg, var(--surface-canvas), var(--surface-canvas) 12px, var(--surface-pure) 12px, var(--surface-pure) 24px);">
+                  <div style="text-align: center; padding: 2rem; color: var(--text-muted);">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">✦</div>
+                    <div style="font-family: var(--font-display); font-size: 1.2rem; color: var(--forest-ink);">Forthcoming Edition</div>
+                    <div style="font-size: 0.75rem; margin-top: 0.25rem;">Artwork &amp; photography to be added</div>
+                  </div>
+                </div>
+                <div class="print-catalogue-details">
+                  <h4 class="print-catalogue-title">Screen Printing II (Template)</h4>
+                  <div class="print-specs-list">
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Theme</span>
+                      <span class="print-spec-val">To be announced</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Year</span>
+                      <span class="print-spec-val">2026</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Frame Dimensions</span>
+                      <span class="print-spec-val">Custom frame dimensions</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Print Dimensions</span>
+                      <span class="print-spec-val">Custom print dimensions</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Edition</span>
+                      <span class="print-spec-val">Studio edition run</span>
+                    </div>
+                    <div class="print-spec-item">
+                      <span class="print-spec-label">Time Taken</span>
+                      <span class="print-spec-val">In studio progress</span>
+                    </div>
+                  </div>
+                  <p class="print-catalogue-story">
+                    Template plate prepared for upcoming silkscreen suite. Editable with custom writeups, plate dimensions, and photographic scans when available.
+                  </p>
+                  <div class="print-catalogue-actions">
+                    <a href="https://wa.me/919897455555?text=Hi%20Anisha!%20I'd%20love%20to%20know%20more%20about%20upcoming%20screen%20prints." class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener">
+                      Inquire on WhatsApp 💬
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Gallery Architectural Divider -->
+    <div class="gallery-divider" aria-hidden="true">
+      <span class="divider-diamond">✦</span>
+    </div>
+
+    <!-- ================================================================
+         4. INSTAGRAM POSTS & REELS SLIDESHOW
          ================================================================ -->
     <section class="section insta-strip-section" id="instagram">
       <div class="container">
-        <div class="section-header text-center reveal-on-scroll">
-          <div class="eyebrow">✦ Follow Along · @printed.painted_</div>
-          <h2 class="section-title">Behind the Scenes: Posts &amp; Reels</h2>
-          <p class="section-subtitle">
-            Explore daily studio carvings, fresh edition pulls, and mindful process reels from the studio. Follow <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" style="font-weight:700; text-decoration:underline; color:var(--forest-ink);">@printed.painted_</a> on Instagram.
-          </p>
-        </div>
-
+        
         <!-- Carousel Container -->
         <div class="insta-carousel-wrap reveal-on-scroll stagger-1" id="insta-carousel" aria-roledescription="carousel" aria-label="Instagram posts and reels">
           
@@ -234,7 +1026,7 @@
             <div class="insta-carousel-track" id="insta-track">
               <!-- Slide 1: Reel -->
               <div class="insta-slide" data-type="reel">
-                <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" class="insta-slide-card" aria-label="Watch Carving Ordinary Objects I on Instagram Reel">
+                <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" class="insta-slide-card" aria-label="Watch Carving Ordinary Objects on Instagram Reel">
                   <div class="insta-slide-media">
                     <img src="assets/img/prints/ordinary-objects-1.jpg" alt="Carving linocut block in studio" loading="lazy">
                     <span class="insta-badge insta-badge-reel">
@@ -245,47 +1037,35 @@
                       <div class="insta-play-icon">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="8 5 19 12 8 19 8 5"/></svg>
                       </div>
-                      <span class="insta-audio-tag">♫ Studio sound · Caligo relief ink roll</span>
+                      <span class="insta-audio-tag">♫ Studio sound · Relief ink roll</span>
                     </div>
                   </div>
-                  <div class="insta-slide-meta">
-                    <div class="insta-account-row">
-                      <span class="insta-avatar">✦</span>
-                      <span class="insta-username">printed.painted_</span>
-                      <span class="insta-icon-glyph">↗</span>
-                    </div>
-                    <p class="insta-caption">Carving rhythmic gouge marks for Ordinary Objects I. Exploring the tactile warmth of domestic geometry.</p>
-                    <span class="insta-view-cta">Watch Reel on Instagram ↗</span>
+                  <div class="insta-slide-caption">
+                    <span class="insta-date">Oct 2026</span>
+                    <p class="insta-text">Carving linoleum blocks one stroke at a time. The quiet discipline of relief printmaking.</p>
                   </div>
                 </a>
               </div>
 
-              <!-- Slide 2: Post -->
+              <!-- Slide 2: Post (Moon) -->
               <div class="insta-slide" data-type="post">
-                <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" class="insta-slide-card" aria-label="View Moon print on Khadi paper on Instagram">
+                <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" class="insta-slide-card" aria-label="View Moon print on Instagram">
                   <div class="insta-slide-media">
-                    <img src="assets/img/prints/moon.jpg" alt="Moon crescent print on handmade paper" loading="lazy">
-                    <span class="insta-badge insta-badge-post">
-                      ✦ Post
-                    </span>
+                    <img src="assets/img/prints/moon.jpg" alt="Moon print on archival rag" loading="lazy">
+                    <span class="insta-badge insta-badge-post">Post</span>
                   </div>
-                  <div class="insta-slide-meta">
-                    <div class="insta-account-row">
-                      <span class="insta-avatar">✦</span>
-                      <span class="insta-username">printed.painted_</span>
-                      <span class="insta-icon-glyph">↗</span>
-                    </div>
-                    <p class="insta-caption">Moon on 300gsm Indian Khadi cotton rag. Hand-burnished with traditional bamboo baren under morning light.</p>
-                    <span class="insta-view-cta">View Post on Instagram ↗</span>
+                  <div class="insta-slide-caption">
+                    <span class="insta-date">Oct 2026</span>
+                    <p class="insta-text">This little moon started as a rough idea on a block. The first piece in a series made for Shiva.</p>
                   </div>
                 </a>
               </div>
 
-              <!-- Slide 3: Reel -->
+              <!-- Slide 3: Reel (Studio Process) -->
               <div class="insta-slide" data-type="reel">
-                <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" class="insta-slide-card" aria-label="Watch Inking the Plate Reel on Instagram">
+                <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" class="insta-slide-card" aria-label="Watch inking plate on Instagram Reel">
                   <div class="insta-slide-media">
-                    <img src="assets/img/prints/ordinary-objects-3.jpg" alt="Inking process of linocut edition" loading="lazy">
+                    <img src="assets/img/prints/shelter.jpg" alt="Pulling Shelter linocut impression" loading="lazy">
                     <span class="insta-badge insta-badge-reel">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                       Reel
@@ -294,109 +1074,61 @@
                       <div class="insta-play-icon">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="8 5 19 12 8 19 8 5"/></svg>
                       </div>
-                      <span class="insta-audio-tag">♫ Studio sound · Roller hissing on glass</span>
+                      <span class="insta-audio-tag">♫ Hand burnishing · Edition pull</span>
                     </div>
                   </div>
-                  <div class="insta-slide-meta">
-                    <div class="insta-account-row">
-                      <span class="insta-avatar">✦</span>
-                      <span class="insta-username">printed.painted_</span>
-                      <span class="insta-icon-glyph">↗</span>
-                    </div>
-                    <p class="insta-caption">Inking Ordinary Objects III. Listening for the delicate velvet hiss of oil ink rolled to exact thickness.</p>
-                    <span class="insta-view-cta">Watch Reel on Instagram ↗</span>
+                  <div class="insta-slide-caption">
+                    <span class="insta-date">Sep 2026</span>
+                    <p class="insta-text">Shelter: Thinking about fatherhood through the ordinary things fathers carry.</p>
                   </div>
                 </a>
               </div>
 
-              <!-- Slide 4: Post -->
+              <!-- Slide 4: Post (Cyanotype Series) -->
               <div class="insta-slide" data-type="post">
-                <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" class="insta-slide-card" aria-label="View Shelter print diptych on Instagram">
+                <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" class="insta-slide-card" aria-label="View Cyanotype study on Instagram">
                   <div class="insta-slide-media">
-                    <img src="assets/img/prints/shelter.png" alt="Shelter diptych print edition" loading="lazy">
-                    <span class="insta-badge insta-badge-post">
-                      ✦ Post
-                    </span>
+                    <img src="assets/img/prints/cyanotype-series-1.jpg" alt="Cyanotype sun print" loading="lazy">
+                    <span class="insta-badge insta-badge-post">Post</span>
                   </div>
-                  <div class="insta-slide-meta">
-                    <div class="insta-account-row">
-                      <span class="insta-avatar">✦</span>
-                      <span class="insta-username">printed.painted_</span>
-                      <span class="insta-icon-glyph">↗</span>
-                    </div>
-                    <p class="insta-caption">Shelter — a quiet diptych study in sanctuary. Protection, inner warmth, and tactile stillness.</p>
-                    <span class="insta-view-cta">View Post on Instagram ↗</span>
+                  <div class="insta-slide-caption">
+                    <span class="insta-date">Aug 2026</span>
+                    <p class="insta-text">Natural solar exposure and water development. Prussian blue tones on heavy cotton paper.</p>
                   </div>
                 </a>
               </div>
 
-              <!-- Slide 5: Reel -->
-              <div class="insta-slide" data-type="reel">
-                <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" class="insta-slide-card" aria-label="Watch Paper Reveal Pull Reel on Instagram">
-                  <div class="insta-slide-media">
-                    <img src="assets/img/prints/ordinary-objects-1.jpg" alt="Slow paper peel reveal in print studio" loading="lazy">
-                    <span class="insta-badge insta-badge-reel">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                      Reel
-                    </span>
-                    <div class="insta-reel-play-overlay">
-                      <div class="insta-play-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="8 5 19 12 8 19 8 5"/></svg>
-                      </div>
-                      <span class="insta-audio-tag">♫ The reveal pull · Crisp paper sound</span>
-                    </div>
-                  </div>
-                  <div class="insta-slide-meta">
-                    <div class="insta-account-row">
-                      <span class="insta-avatar">✦</span>
-                      <span class="insta-username">printed.painted_</span>
-                      <span class="insta-icon-glyph">↗</span>
-                    </div>
-                    <p class="insta-caption">The slow reveal: lifting Somerset Velvet cotton paper off the inked plate. Pure tactile satisfaction.</p>
-                    <span class="insta-view-cta">Watch Reel on Instagram ↗</span>
-                  </div>
-                </a>
-              </div>
-
-              <!-- Slide 6: Post -->
+              <!-- Slide 5: Post (Ordinary Objects 3) -->
               <div class="insta-slide" data-type="post">
-                <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" class="insta-slide-card" aria-label="View Studio Practice notes on Instagram">
+                <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" class="insta-slide-card" aria-label="View Ordinary Objects 3 on Instagram">
                   <div class="insta-slide-media">
-                    <img src="assets/img/studio/artist-anisha.svg" alt="Anisha Khanduja studio portrait and workbench" loading="lazy">
-                    <span class="insta-badge insta-badge-post">
-                      ✦ Studio Notes
-                    </span>
+                    <img src="assets/img/prints/ordinary-objects-3.jpg" alt="Ordinary Objects 3 print" loading="lazy">
+                    <span class="insta-badge insta-badge-post">Post</span>
                   </div>
-                  <div class="insta-slide-meta">
-                    <div class="insta-account-row">
-                      <span class="insta-avatar">✦</span>
-                      <span class="insta-username">printed.painted_</span>
-                      <span class="insta-icon-glyph">↗</span>
-                    </div>
-                    <p class="insta-caption">From sketchbook studies to wood blocks and raw linen canvas. Work in progress from the studio.</p>
-                    <span class="insta-view-cta">View Profile on Instagram ↗</span>
+                  <div class="insta-slide-caption">
+                    <span class="insta-date">Aug 2026</span>
+                    <p class="insta-text">Micro Spaces in Macro Environments: The closer you look, the less ordinary it becomes.</p>
                   </div>
                 </a>
               </div>
             </div>
           </div>
 
-          <!-- Pagination Dots -->
-          <div class="insta-carousel-dots" id="insta-dots" aria-label="Slideshow indicators"></div>
-          
-        </div>
+          <!-- Carousel Dots -->
+          <div class="insta-dots-wrap" id="insta-dots"></div>
 
-        <!-- Follow on Instagram Action Card -->
-        <div class="insta-follow-card reveal-on-scroll stagger-2">
-          <div class="insta-follow-content">
-            <span class="insta-handle-pill">@printed.painted_</span>
-            <p class="insta-follow-text">
-              Join <strong>@printed.painted_</strong> on Instagram for behind-the-scenes carve timelapses, new edition announcements, and direct studio messaging.
-            </p>
+          <!-- Direct Instagram Profile CTA -->
+          <div class="insta-profile-cta-row">
+            <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" class="btn btn-secondary btn-sm insta-profile-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+              Follow @printed.painted_ on Instagram ↗
+            </a>
           </div>
-          <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" class="btn btn-secondary insta-follow-btn">
-            Follow on Instagram ↗
-          </a>
+
         </div>
 
       </div>
@@ -404,7 +1136,7 @@
 
   </main>
 
-  <!-- Site Footer -->
+  <!-- Site Footer (Matching Home Page) -->
   <footer class="site-footer" id="contact">
     <div class="container">
       <div class="footer-grid">
@@ -424,10 +1156,10 @@
           <h4 class="footer-col-title">Studio Folio</h4>
           <div class="footer-links">
             <a href="prints.html">Selected Prints</a>
-            <a href="paintings.html">Paintings & Canvas</a>
+            <a href="paintings.html">Paintings &amp; Canvas</a>
             <a href="about.html">About Anisha</a>
             <a href="commissions.html">Custom Commissions</a>
-            <a href="contact.html">Contact & FAQ</a>
+            <a href="contact.html">Contact &amp; FAQ</a>
           </div>
         </div>
 
@@ -465,15 +1197,15 @@
           © <span id="copyright-year">2026</span> Anisha Khanduja. All rights reserved.
         </div>
         <div>
-          Hand-carved with love · Hosted on GitHub Pages · Relative & Zero Build
+          Hand-carved with love · Hosted on GitHub Pages · Relative &amp; Zero Build
         </div>
       </div>
     </div>
   </footer>
 
-
-
-  <!-- Artwork Detail Modal (Lightbox) -->
+  <!-- ================================================================
+       ARTWORK DETAIL MODAL BOX (Lightbox Overlay with Page in Background)
+       ================================================================ -->
   <div class="modal-overlay" id="artwork-modal-overlay" role="dialog" aria-modal="true" aria-label="Artwork Details">
     <div class="modal-dialog" id="artwork-modal-dialog"></div>
   </div>
@@ -486,4 +1218,3 @@
   <script src="js/main.js"></script>
 </body>
 </html>
-
