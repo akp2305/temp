@@ -299,7 +299,13 @@ class StudioGallery {
     this.activeModalProduct = product;
 
     if (updateHash) {
-      history.pushState(null, "", `#${product.slug || product.id}`);
+      try {
+        history.pushState(null, "", `#${product.slug || product.id}`);
+      } catch (e) {
+        try {
+          window.location.hash = `#${product.slug || product.id}`;
+        } catch (err) {}
+      }
     }
 
     const modalOverlay = this.modalOverlay || document.getElementById("artwork-modal-overlay");
@@ -309,12 +315,15 @@ class StudioGallery {
     if (!dialog) return;
 
     const isSold = product.status === "sold";
+    const isPainting = product.category === "paintings";
     const mainImg = product.images[0];
 
-    // Edition badge formatting (no undefined values)
+    // Edition badge formatting (paintings are unique originals, not limited editions)
     let editionBadgeHtml = "";
     if (isSold) {
       editionBadgeHtml = `<div class="modal-edition-badge"><span class="sticker sticker-sold">Sold Out Edition</span></div>`;
+    } else if (isPainting) {
+      editionBadgeHtml = `<div class="modal-edition-badge"><span class="sticker sticker-edition">Original Painting · 1 of 1</span></div>`;
     } else if (product.edition) {
       editionBadgeHtml = `<div class="modal-edition-badge"><span class="sticker sticker-edition">${product.edition}</span></div>`;
     } else if (product.editionSize && product.editionNumberAvailable) {
@@ -366,12 +375,17 @@ class StudioGallery {
                 <span class="spec-val">${product.year}</span>
               </div>
             ` : ''}
-            ${product.edition ? `
+            ${isPainting ? `
+              <div class="modal-spec-item">
+                <span class="spec-label">Work Type</span>
+                <span class="spec-val">Unique Original Work (1 of 1)</span>
+              </div>
+            ` : (product.edition ? `
               <div class="modal-spec-item">
                 <span class="spec-label">Edition</span>
                 <span class="spec-val">${product.edition}</span>
               </div>
-            ` : ''}
+            ` : '')}
             ${product.dimensions ? `
               <div class="modal-spec-item">
                 <span class="spec-label">Dimensions</span>
@@ -399,7 +413,7 @@ class StudioGallery {
               </a>
             ` : `
               <div class="modal-actions-row">
-                <a class="btn btn-whatsapp btn-lg" style="flex:1; justify-content:center;" href="https://wa.me/919897455555?text=${encodeURIComponent(`Hi Anisha! I'd love to inquire about the price and availability of "${product.title}".`)}" target="_blank" rel="noopener">
+                <a class="btn btn-whatsapp btn-lg" style="flex:1; justify-content:center;" href="https://wa.me/919897455555?text=${encodeURIComponent(isPainting ? `Hi Anisha! I'd love to inquire about the price and availability of your original painting "${product.title}".` : `Hi Anisha! I'd love to inquire about the price and availability of "${product.title}".`)}" target="_blank" rel="noopener">
                   DM on WhatsApp for Price 💬
                 </a>
               </div>
@@ -468,7 +482,13 @@ class StudioGallery {
     document.body.style.overflow = "";
 
     if (clearHash && window.location.hash) {
-      history.pushState(null, "", window.location.pathname + window.location.search);
+      try {
+        history.pushState(null, "", window.location.pathname + window.location.search);
+      } catch (e) {
+        try {
+          window.location.hash = "";
+        } catch (err) {}
+      }
     }
   }
 }
@@ -478,9 +498,30 @@ document.addEventListener("click", (e) => {
   const trigger = e.target.closest("[data-artwork-id]");
   if (trigger) {
     const artworkId = trigger.getAttribute("data-artwork-id");
-    if (artworkId && window.studioGallery) {
+    if (artworkId) {
       e.preventDefault();
-      window.studioGallery.openModalById(artworkId);
+      if (window.studioGallery) {
+        window.studioGallery.openModalById(artworkId);
+      } else {
+        const products = window.STUDIO_PRODUCTS || [];
+        const gallery = new StudioGallery(products);
+        window.studioGallery = gallery;
+        gallery.openModalById(artworkId);
+      }
+    }
+  }
+});
+
+// Accessibility: Enter and Space key support for data-artwork-id buttons
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" || e.key === " ") {
+    const trigger = e.target.closest("[data-artwork-id]");
+    if (trigger && !e.target.matches("button, a, input, textarea")) {
+      e.preventDefault();
+      const artworkId = trigger.getAttribute("data-artwork-id");
+      if (artworkId && window.studioGallery) {
+        window.studioGallery.openModalById(artworkId);
+      }
     }
   }
 });

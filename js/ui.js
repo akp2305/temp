@@ -424,13 +424,14 @@ function initPrintsHeroCarousel() {
   carousels.forEach((carousel) => {
     const slides = Array.from(carousel.querySelectorAll(".prints-hero-slide"));
     const dots = Array.from(carousel.querySelectorAll(".prints-hero-dot"));
-    const prevBtn = carousel.querySelector(".prints-hero-prev") || document.getElementById("prints-hero-prev");
-    const nextBtn = carousel.querySelector(".prints-hero-next") || document.getElementById("prints-hero-next");
+    const prevBtn = carousel.querySelector(".prints-hero-prev") || document.getElementById("prints-hero-prev") || document.getElementById("paintings-hero-prev");
+    const nextBtn = carousel.querySelector(".prints-hero-next") || document.getElementById("prints-hero-next") || document.getElementById("paintings-hero-next");
     if (slides.length <= 1) return;
 
     let current = 0;
     let timer = null;
-    const interval = 5000;
+    let hoverResumeTimeout = null;
+    const interval = 3500;
 
     function show(index) {
       if (index < 0) index = slides.length - 1;
@@ -455,30 +456,59 @@ function initPrintsHeroCarousel() {
     }
 
     if (prevBtn) {
-      prevBtn.addEventListener("click", () => {
+      prevBtn.addEventListener("click", (e) => {
+        e.preventDefault();
         show(current - 1);
         startTimer();
       });
     }
 
     if (nextBtn) {
-      nextBtn.addEventListener("click", () => {
+      nextBtn.addEventListener("click", (e) => {
+        e.preventDefault();
         show(current + 1);
         startTimer();
       });
     }
 
     dots.forEach((dot, idx) => {
-      dot.addEventListener("click", () => {
+      dot.addEventListener("click", (e) => {
+        e.preventDefault();
         show(idx);
         startTimer();
       });
-    } );
+    });
 
-    carousel.addEventListener("mouseenter", stopTimer);
-    carousel.addEventListener("mouseleave", startTimer);
-    carousel.addEventListener("touchstart", stopTimer, { passive: true });
-    carousel.addEventListener("touchend", startTimer, { passive: true });
+    // Touch swipe support
+    let touchStartX = 0;
+    carousel.addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      stopTimer();
+    }, { passive: true });
+
+    carousel.addEventListener("touchend", (e) => {
+      const touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) {
+          show(current + 1);
+        } else {
+          show(current - 1);
+        }
+      }
+      startTimer();
+    }, { passive: true });
+
+    // Hover: pause briefly, but auto-resume after 2.5s so slides keep cycling
+    carousel.addEventListener("mouseenter", () => {
+      stopTimer();
+      clearTimeout(hoverResumeTimeout);
+      hoverResumeTimeout = setTimeout(startTimer, 2500);
+    });
+    carousel.addEventListener("mouseleave", () => {
+      clearTimeout(hoverResumeTimeout);
+      startTimer();
+    });
 
     startTimer();
   });
