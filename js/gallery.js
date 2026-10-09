@@ -311,10 +311,17 @@ class StudioGallery {
     const isSold = product.status === "sold";
     const mainImg = product.images[0];
 
-    // Recommendations (excluding this item)
-    const recs = this.products
-      .filter(p => p.id !== product.id && p.status === "available")
-      .slice(0, 3);
+    // Edition badge formatting (no undefined values)
+    let editionBadgeHtml = "";
+    if (isSold) {
+      editionBadgeHtml = `<div class="modal-edition-badge"><span class="sticker sticker-sold">Sold Out Edition</span></div>`;
+    } else if (product.edition) {
+      editionBadgeHtml = `<div class="modal-edition-badge"><span class="sticker sticker-edition">${product.edition}</span></div>`;
+    } else if (product.editionSize && product.editionNumberAvailable) {
+      editionBadgeHtml = `<div class="modal-edition-badge"><span class="sticker sticker-edition">Edition of ${product.editionSize} · ${product.editionNumberAvailable} available</span></div>`;
+    } else if (product.editionSize) {
+      editionBadgeHtml = `<div class="modal-edition-badge"><span class="sticker sticker-edition">Edition of ${product.editionSize}</span></div>`;
+    }
 
     dialog.innerHTML = `
       <button class="modal-close-btn" id="modal-close-btn" aria-label="Close artwork details">&times;</button>
@@ -333,42 +340,26 @@ class StudioGallery {
               `).join("")}
             </div>
           ` : ''}
-          <div class="modal-trust-box">
-            <div>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M12 8V4a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v4"/><path d="M8 8V4a2 2 0 0 0-2-2h0a2 2 0 0 0-2 2v4"/></svg>
-              <span><strong>Plastic-free Packaging:</strong> Shipped flat in rigid heavy-board mailer with archival tissue</span>
-            </div>
-            <div>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              <span><strong>Fast Dispatch:</strong> Hand-packed and dispatched within 48 hours</span>
-            </div>
-            <div>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <span><strong>Certificate of Authenticity:</strong> Numbered and pencil-signed by Anisha Khanduja</span>
-            </div>
-          </div>
         </div>
 
         <!-- Info column -->
         <div class="modal-info-col">
-          <div class="modal-edition-badge">
-            <span class="sticker ${isSold ? 'sticker-sold' : 'sticker-edition'}">
-              ${isSold ? 'Sold Out Edition' : `Edition of ${product.editionSize} · ${product.editionNumberAvailable} available`}
-            </span>
-          </div>
+          ${editionBadgeHtml}
           <h2 class="modal-title">${product.title}</h2>
           <div class="modal-price-row">
             <span class="modal-price">Price on Request</span>
             <span style="font-size:var(--text-xs); color:var(--ink-muted);">Direct studio inquiry via WhatsApp</span>
           </div>
 
-          <p class="modal-story">${product.story}</p>
+          <p class="modal-story">${product.story || ''}</p>
 
           <div class="modal-specs-list">
-            <div class="modal-spec-item">
-              <span class="spec-label">Medium</span>
-              <span class="spec-val">${product.medium}</span>
-            </div>
+            ${product.medium ? `
+              <div class="modal-spec-item">
+                <span class="spec-label">Medium</span>
+                <span class="spec-val">${product.medium}</span>
+              </div>
+            ` : ''}
             ${product.year ? `
               <div class="modal-spec-item">
                 <span class="spec-label">Year</span>
@@ -381,10 +372,12 @@ class StudioGallery {
                 <span class="spec-val">${product.edition}</span>
               </div>
             ` : ''}
-            <div class="modal-spec-item">
-              <span class="spec-label">Dimensions</span>
-              <span class="spec-val">${product.dimensions}</span>
-            </div>
+            ${product.dimensions ? `
+              <div class="modal-spec-item">
+                <span class="spec-label">Dimensions</span>
+                <span class="spec-val">${product.dimensions}</span>
+              </div>
+            ` : ''}
             ${product.theme ? `
               <div class="modal-spec-item">
                 <span class="spec-label">Theme</span>
@@ -415,22 +408,6 @@ class StudioGallery {
               ✕ Close Preview & Return to Gallery
             </button>
           </div>
-
-          <!-- Recommendations in modal -->
-          ${recs.length > 0 ? `
-            <div style="margin-top:1.5rem; padding-top:1.25rem; border-top:var(--border-thin);">
-              <h4 style="font-size:var(--text-sm); margin-bottom:0.75rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-muted);">You Might Also Like</h4>
-              <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:0.5rem;">
-                ${recs.map(r => `
-                  <div class="rec-item" data-rec-id="${r.id}" style="cursor:pointer; border:var(--border-thin); border-radius:var(--radius-xs); overflow:hidden; background:var(--surface-pure); padding:4px;">
-                    <img src="${r.images[0]}" alt="${r.title}" style="aspect-ratio:1; object-fit:cover; border-radius:3px;">
-                    <div style="font-size:0.7rem; font-weight:700; margin-top:3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${r.title}</div>
-                    <div style="font-size:0.65rem; color:var(--forest-medium); font-weight:600;">Price on Request</div>
-                  </div>
-                `).join("")}
-              </div>
-            </div>
-          ` : ''}
         </div>
       </div>
     `;

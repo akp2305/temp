@@ -488,11 +488,31 @@ function initPrintsMediumDrilldown() {
   const panels = Array.from(document.querySelectorAll(".prints-medium-panel"));
   if (profileCards.length === 0 || panels.length === 0) return;
 
-  function activateMedium(mediumName, shouldScroll = false) {
+  function closeAllMediums() {
+    profileCards.forEach(card => {
+      card.classList.remove("active");
+      card.setAttribute("aria-selected", "false");
+      const exp = card.querySelector(".print-profile-explore");
+      if (exp) exp.innerHTML = exp.innerHTML.replace(/↑|&uarr;/, "&darr;");
+    });
+    panels.forEach(panel => {
+      panel.classList.remove("active");
+    });
+  }
+
+  function openMedium(mediumName, shouldScroll = false) {
     profileCards.forEach(card => {
       const match = card.getAttribute("data-medium") === mediumName;
       card.classList.toggle("active", match);
       card.setAttribute("aria-selected", match ? "true" : "false");
+      const exp = card.querySelector(".print-profile-explore");
+      if (exp) {
+        if (match) {
+          exp.innerHTML = exp.innerHTML.replace(/↓|&darr;/, "&uarr;");
+        } else {
+          exp.innerHTML = exp.innerHTML.replace(/↑|&uarr;/, "&darr;");
+        }
+      }
     });
 
     panels.forEach(panel => {
@@ -508,16 +528,29 @@ function initPrintsMediumDrilldown() {
     }
   }
 
+  function toggleMedium(mediumName, shouldScroll = false) {
+    const isCurrentlyActive = profileCards.some(
+      card => card.getAttribute("data-medium") === mediumName && card.classList.contains("active")
+    );
+
+    if (isCurrentlyActive) {
+      closeAllMediums();
+      return;
+    }
+
+    openMedium(mediumName, shouldScroll);
+  }
+
   profileCards.forEach(card => {
     card.addEventListener("click", (e) => {
       e.preventDefault();
       const medium = card.getAttribute("data-medium");
-      activateMedium(medium, true);
+      toggleMedium(medium, true);
     });
   });
 
-  // Default: activate linocut
-  activateMedium("linocut", false);
+  // Default: activate linocut initially with open arrow
+  openMedium("linocut", false);
 }
 
 
