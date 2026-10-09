@@ -111,90 +111,118 @@
   <main id="main-content">
 
     <!-- ================================================================
-         HERO SECTION: Editorial Contemporary Artist Portfolio Spread
+         HERO SECTION: Editorial Featured Artwork & Artist Intro
          ================================================================ -->
     <section class="section hero-portfolio-section" id="hero">
       <div class="container">
         
-        <!-- Subtle Folio Masthead Line -->
-        <div class="portfolio-folio-header">
-          <div class="folio-left">
-            <span class="folio-tag">Selected Works · Monograph</span>
-            <span class="folio-sep">/</span>
-            <span class="folio-series">Still Life & Domestic Architecture</span>
-          </div>
-          <div class="folio-right">
-            <span class="folio-hint">Hover or touch to inspect relief ink texture 🔍</span>
-          </div>
-        </div>
-
         <!-- Prominent Horizontal Artwork Presentation (Object 1 Dominates the Top) -->
         <div class="hero-artwork-spread reveal-on-scroll">
-          <div class="hero-artwork-stage" id="hero-showcase-stage" title="Hover or touch to inspect fine relief ink, gouge cuts, and cotton paper grain">
+          <div class="hero-artwork-stage" id="hero-showcase-stage" title="Inspect relief ink texture">
             <div class="hero-artwork-mat">
-              <img class="hero-showcase-img" id="hero-showcase-img" src="assets/img/prints/ordinary-objects-1.jpg" alt="Ordinary Objects - I — original relief linocut print by Anisha Khanduja" width="1086" height="1448">
+              <img class="hero-showcase-img" id="hero-showcase-img" src="assets/img/prints/ordinary-objects-1.jpg" alt="Ordinary Objects I — artwork by Anisha Khanduja" width="1086" height="1448">
             </div>
             <div class="hero-loupe-lens" id="hero-loupe-lens"></div>
-            <div class="hero-loupe-badge">✦ Hand-Carved Relief Detail (Inspect)</div>
           </div>
         </div>
 
-        <!-- Editorial Metadata & Intimate Artist Statement (Directly Beneath Artwork) -->
-        <div class="hero-portfolio-meta-grid reveal-on-scroll stagger-1">
+        <!-- Quiet Artist Intro (Beneath Featured Artwork, No Heading) -->
+        <div class="hero-artist-intro-wrap reveal-on-scroll stagger-1">
+          <p class="hero-artist-intro">
+            Contemporary artist working with repetition, microspaces within macro environment, symbolism, and a quiet attention to everyday life.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Gallery Architectural Divider -->
+    <div class="gallery-divider" aria-hidden="true">
+      <span class="divider-diamond">✦</span>
+    </div>
+
+    <!-- ================================================================
+         SELECTED WORKS (4 Editorial Images in a Row)
+         ================================================================ -->
+    <section class="section selected-works-section" id="selected-works">
+      <div class="container">
+        
+        <div class="selected-works-grid reveal-on-scroll">
           
-          <!-- Column 1: Intimate Artist Statement / Introduction -->
-          <div class="artist-intro-block">
-            <span class="portfolio-meta-kicker">Artist Statement</span>
-            <blockquote class="artist-statement-text">
-              “Contemporary artist working with repetition, microspaces within macro environment, symbolism, and a quiet attention to everyday life.”
-            </blockquote>
-            <span class="artist-statement-byline">— Anisha Khanduja, New Delhi</span>
+          <!-- 1. SHIVA (Moon print) -->
+          <div class="selected-work-item">
+            <a href="prints.html" class="selected-work-card">
+              <div class="selected-work-media">
+                <img src="assets/img/prints/moon.jpg" alt="SHIVA — Moon print" loading="lazy">
+              </div>
+              <h3 class="selected-work-title">SHIVA</h3>
+            </a>
           </div>
 
-          <!-- Column 2: Featured Plate Monograph Notes -->
-          <div class="featured-plate-details-block">
-            <div class="plate-details-header">
-              <span class="portfolio-meta-kicker">Plate 01 · Featured Edition</span>
-              <span class="hero-plate-price" id="hero-showcase-price">Price on Request</span>
+          <!-- 2. MICRO SPACES IN MACRO ENVIRONMENT (Ordinary Objects 1 & 3) -->
+          <div class="selected-work-item">
+            <a href="prints.html" class="selected-work-card">
+              <div class="selected-work-media selected-work-diptych">
+                <img src="assets/img/prints/ordinary-objects-1.jpg" alt="Ordinary Objects I" loading="lazy">
+                <img src="assets/img/prints/ordinary-objects-3.png" alt="Ordinary Objects III" loading="lazy">
+              </div>
+              <h3 class="selected-work-title">MICRO SPACES IN MACRO ENVIRONMENT</h3>
+            </a>
+          </div>
+
+          <!-- 3. CYANOTYPE (Image coming soon) -->
+          <div class="selected-work-item">
+            <div class="selected-work-card">
+              <div class="selected-work-media selected-work-placeholder cyanotype-placeholder">
+                <div class="placeholder-content">
+                  <span class="placeholder-glyph">✦</span>
+                  <span class="placeholder-status">ARCHIVE</span>
+                </div>
+              </div>
+              <h3 class="selected-work-title">CYANOTYPE</h3>
             </div>
-            <h2 class="hero-plate-title" id="hero-showcase-title">Ordinary Objects – I</h2>
-            <p class="hero-plate-medium" id="hero-showcase-meta-text">
-              Hand-pulled relief linocut on 250gsm Somerset Velvet 100% cotton rag paper · 2024
+          </div>
+
+          <!-- 4. PAINTING (Image coming soon) -->
+          <div class="selected-work-item">
+            <a href="paintings.html" class="selected-work-card">
+              <div class="selected-work-media selected-work-placeholder painting-placeholder">
+                <div class="placeholder-content">
+                  <span class="placeholder-glyph">✦</span>
+                  <span class="placeholder-status">STUDIO CANVASES</span>
+                </div>
+              </div>
+              <h3 class="selected-work-title">PAINTING</h3>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Gallery Architectural Divider -->
+    <div class="gallery-divider" aria-hidden="true">
+      <span class="divider-diamond">✦</span>
+    </div>
+
+    <!-- ================================================================
+         ABOUT THE ARTIST (Short statement & link to about.html)
+         ================================================================ -->
+    <section class="section home-about-section" id="about-intro">
+      <div class="container">
+        <div class="home-about-layout reveal-on-scroll">
+          <div class="home-about-content">
+            <p class="home-about-text">
+              My practice moves between printmaking and painting, exploring memory, symbolism, place and fragments of everyday life. I am drawn to repetition, ritual and the transformation of familiar forms into something slightly unfamiliar. Across different series, I work with images and symbols that carry personal, cultural and architectural memory.
             </p>
-            <p class="hero-plate-dimensions">
-              12 × 16 inches (30.5 × 40.6 cm) · Finite Edition of 8 (Signed & Numbered)
-            </p>
-            <div class="hero-plate-actions">
-              <button class="btn btn-secondary btn-sm" id="hero-view-details-btn" data-open-modal="piece-01" type="button">
-                View Plate Details ↗
-              </button>
-              <a class="btn btn-whatsapp btn-sm" id="hero-inquire-wa-btn" href="https://wa.me/919897455555?text=Hi%20Anisha!%20I'd%20love%20to%20inquire%20about%20the%20price%20of%20Ordinary%20Objects%20–%20I." target="_blank" rel="noopener">
-                DM on WhatsApp for Price 💬
+            <div class="home-about-action">
+              <a href="about.html" class="btn btn-secondary">
+                About Anisha ↗
               </a>
             </div>
           </div>
         </div>
-
-        <!-- Quiet Folio Switcher Tabs (Allows Switching Between the 4 Studio Plates) -->
-        <div class="hero-showcase-pills portfolio-folio-tabs" role="tablist" aria-label="Select artwork plate">
-          <button class="showcase-pill active" data-index="0" type="button">
-            <span class="pill-idx">Pl. 01</span>
-            <span class="pill-title">Ordinary Objects I</span>
-          </button>
-          <button class="showcase-pill" data-index="1" type="button">
-            <span class="pill-idx">Pl. 02</span>
-            <span class="pill-title">Moon</span>
-          </button>
-          <button class="showcase-pill" data-index="2" type="button">
-            <span class="pill-idx">Pl. 03</span>
-            <span class="pill-title">Ordinary Objects III</span>
-          </button>
-          <button class="showcase-pill" data-index="3" type="button">
-            <span class="pill-idx">Pl. 04</span>
-            <span class="pill-title">Shelter</span>
-          </button>
-        </div>
-
       </div>
     </section>
 
@@ -204,76 +232,27 @@
     </div>
 
     <!-- ================================================================
-         STUDIO DISCIPLINES & CURATED PORTALS (Directing to subpages)
+         COMMISSIONS SECTION (Object 3 image parallel to text & button)
          ================================================================ -->
-    <section class="section home-portals-section" id="disciplines">
+    <section class="section home-commissions-section" id="commissions-intro">
       <div class="container">
-        <div class="section-header text-center reveal-on-scroll">
-          <div class="eyebrow">✦ Studio Disciplines</div>
-          <h2 class="section-title">Explore the Folio</h2>
-          <p class="section-subtitle">
-            Two complementary studio practices grounded in tactile repetition, raw surfaces, and mindful observation.
-          </p>
+        <div class="home-commissions-grid reveal-on-scroll">
+          <!-- Parallel Image: Object 3 Art Piece -->
+          <div class="home-commissions-media">
+            <img src="assets/img/prints/ordinary-objects-3.png" alt="Ordinary Objects III linocut print by Anisha Khanduja" loading="lazy">
+          </div>
+          <!-- Parallel Content: Text & CTA -->
+          <div class="home-commissions-content">
+            <p class="home-commissions-text">
+              Selected commissions are available for personal, architectural and bespoke works.
+            </p>
+            <div class="home-commissions-action">
+              <a href="commissions.html" class="btn btn-secondary">
+                Know more ↗
+              </a>
+            </div>
+          </div>
         </div>
-
-        <div class="home-portals-grid reveal-on-scroll stagger-1">
-          <!-- Portal 1: Prints -->
-          <a href="prints.html" class="home-portal-card" aria-label="Explore Limited Edition Relief Prints">
-            <span class="portal-tag">Catalogue Raisonné</span>
-            <h3 class="portal-title">Limited Edition Prints</h3>
-            <p class="portal-desc">
-              Original relief linocut prints hand-carved on battleship linoleum and pressed onto museum-grade 250gsm Somerset Velvet and 300gsm Indian Khadi cotton rag paper in small, signed editions.
-            </p>
-            <span class="portal-link-action">
-              <span>Explore Selected Prints</span>
-              <span aria-hidden="true">↗</span>
-            </span>
-          </a>
-
-          <!-- Portal 2: Paintings -->
-          <a href="paintings.html" class="home-portal-card" aria-label="Explore Paintings & Works on Canvas">
-            <span class="portal-tag">Studio Practice</span>
-            <h3 class="portal-title">Paintings on Raw Linen</h3>
-            <p class="portal-desc">
-              Investigating domestic geometries, light intervals, and quiet microspaces layered with natural earth pigments, mineral powders, and oils across stretched Belgian linen.
-            </p>
-            <span class="portal-link-action">
-              <span>View Works on Canvas</span>
-              <span aria-hidden="true">↗</span>
-            </span>
-          </a>
-        </div>
-
-        <!-- Studio Explorations Strip -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; max-width: 1120px; margin-inline: auto; margin-top: 2rem;" class="reveal-on-scroll stagger-2">
-          <a href="about.html" class="home-portal-card" style="padding: 1.5rem; gap: 0.6rem;">
-            <span class="portal-tag" style="font-size: 0.68rem;">Philosophy</span>
-            <h4 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--forest-ink); margin: 0;">About the Artist</h4>
-            <p style="font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; margin: 0;">
-              Slow craftsmanship, Japanese gouges, and the meditative studio process behind every print.
-            </p>
-            <span class="portal-link-action" style="font-size: 0.78rem;">Read Biography ↗</span>
-          </a>
-
-          <a href="commissions.html" class="home-portal-card" style="padding: 1.5rem; gap: 0.6rem;">
-            <span class="portal-tag" style="font-size: 0.68rem;">Bespoke Works</span>
-            <h4 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--forest-ink); margin: 0;">Custom Commissions</h4>
-            <p style="font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; margin: 0;">
-              Architectural home portraits, ex-libris bookplates, and custom wedding keepsake suites.
-            </p>
-            <span class="portal-link-action" style="font-size: 0.78rem;">Commission Details ↗</span>
-          </a>
-
-          <a href="contact.html" class="home-portal-card" style="padding: 1.5rem; gap: 0.6rem;">
-            <span class="portal-tag" style="font-size: 0.68rem;">Inquiries</span>
-            <h4 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--forest-ink); margin: 0;">Contact & FAQ</h4>
-            <p style="font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; margin: 0;">
-              Direct WhatsApp chat, framing advice, transit packaging guarantees, and studio visits.
-            </p>
-            <span class="portal-link-action" style="font-size: 0.78rem;">Get in Touch ↗</span>
-          </a>
-        </div>
-
       </div>
     </section>
 
@@ -282,7 +261,6 @@
       <span class="divider-diamond">✦</span>
     </div>
 
-    <!-- ================================================================
     <!-- ================================================================
          INSTAGRAM FEEDS & REELS SLIDESHOW
          ================================================================ -->
@@ -499,9 +477,6 @@
             <span class="brand-name">Anisha Khanduja</span>
             <span class="brand-tagline">Contemporary Artist · Printmaker · Painter</span>
           </a>
-          <p class="footer-bio">
-            Studio practice of Anisha Khanduja — Contemporary artist, printmaker, and painter working in New Delhi, India. Dedicated to quiet, tactile relief editions and works on canvas.
-          </p>
         </div>
 
         <!-- Col 2: Navigation -->
@@ -522,7 +497,9 @@
           <div class="footer-links">
             <a href="https://wa.me/919897455555" target="_blank" rel="noopener">WhatsApp: +91 98974 55555 ↗</a>
             <a href="mailto:printmakingpainting@gmail.com">printmakingpainting@gmail.com</a>
-            <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener">Instagram: @printed.painted_</a>
+            <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener">Instagram: @printed.painted_ ↗</a>
+            <a href="https://www.linkedin.com/in/dr-anisha-khanduja-98795b39?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="https://x.com/AnishaKhanduja?s=20" target="_blank" rel="noopener">Twitter / X ↗</a>
             <span style="font-size:var(--text-xs); color:var(--ink-muted); margin-top:0.5rem;">
               Studio visits in New Delhi by prior appointment.
             </span>

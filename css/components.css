@@ -3204,6 +3204,226 @@
   margin: 0;
 }
 
+/* ====================================================================
+   21. EDITORIAL HOMEPAGE REDESIGN (Hero, 4-Row Selected Works, About, Commissions)
+   ==================================================================== */
+.hero-artist-intro-wrap {
+  max-width: 800px;
+  margin: clamp(2rem, 4vw, 3.25rem) auto 0 auto;
+  text-align: center;
+  padding-inline: 1.25rem;
+}
+
+.hero-artist-intro {
+  font-family: var(--font-display);
+  font-size: clamp(1.18rem, 2.3vw, 1.45rem);
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--forest-ink);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+/* Selected Works 4-Column Editorial Row */
+.selected-works-section {
+  padding-block: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.selected-works-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.25rem, 2.2vw, 2rem);
+  align-items: start;
+}
+
+.selected-work-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.selected-work-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+
+.selected-work-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background-color: var(--surface-pure);
+  border: 1px solid rgba(26, 53, 40, 0.1);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(18, 35, 26, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.selected-work-card:hover .selected-work-media {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px -6px rgba(18, 35, 26, 0.12);
+}
+
+.selected-work-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-normal);
+}
+
+.selected-work-card:hover .selected-work-media img {
+  transform: scale(1.03);
+}
+
+/* Diptych for Ordinary Objects 1 & 3 */
+.selected-work-diptych {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+  background-color: rgba(26, 53, 40, 0.08);
+}
+
+.selected-work-diptych img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Minimalist Placeholders for Cyanotype & Painting */
+.selected-work-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.cyanotype-placeholder {
+  background: linear-gradient(145deg, #1C3347 0%, #0F1E29 100%);
+  color: #DDE8F0;
+  border-color: rgba(65, 117, 164, 0.35);
+}
+
+.painting-placeholder {
+  background: linear-gradient(145deg, #F5F1E8 0%, #E9E2D5 100%);
+  color: var(--forest-primary);
+  border-color: rgba(197, 164, 118, 0.35);
+}
+
+.placeholder-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem;
+}
+
+.placeholder-glyph {
+  font-size: 1.25rem;
+  color: var(--gold-primary);
+}
+
+.placeholder-status {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+/* All-Capital Titles */
+.selected-work-title {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--forest-ink);
+  margin-top: 0.85rem;
+  margin-bottom: 0;
+  line-height: 1.4;
+  text-align: left;
+}
+
+/* Home Short About Section */
+.home-about-section {
+  padding-block: clamp(3rem, 5vw, 4.5rem);
+}
+
+.home-about-layout {
+  max-width: 820px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.home-about-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.18rem, 2.3vw, 1.38rem);
+  line-height: 1.7;
+  color: var(--forest-ink);
+  margin-bottom: 2rem;
+  letter-spacing: -0.01em;
+}
+
+.home-about-action {
+  display: flex;
+  justify-content: center;
+}
+
+/* Home Commissions Parallel Section */
+.home-commissions-section {
+  padding-block: clamp(3rem, 5vw, 4.5rem);
+}
+
+.home-commissions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+  max-width: 960px;
+  margin-inline: auto;
+}
+
+.home-commissions-media {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: 0 12px 35px -8px rgba(18, 35, 26, 0.12);
+  border: 1px solid rgba(26, 53, 40, 0.08);
+}
+
+.home-commissions-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.home-commissions-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  align-items: flex-start;
+}
+
+.home-commissions-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.4vw, 1.45rem);
+  line-height: 1.6;
+  color: var(--forest-ink);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.home-commissions-action {
+  display: flex;
+}
+
 
 
 

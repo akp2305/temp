@@ -743,6 +743,26 @@ section[id] {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.65rem;
   }
+  
+  /* Editorial Homepage on Mobile */
+  .selected-works-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+
+  .home-commissions-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    text-align: center !important;
+  }
+
+  .home-commissions-content {
+    align-items: center !important;
+  }
+
+  .home-commissions-media {
+    margin-inline: auto !important;
+  }
 
   /* Site Footer */
   .site-footer {
@@ -874,6 +894,26 @@ section[id] {
   .insta-grid {
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
+  }
+
+  /* Editorial Homepage on Tablet */
+  .selected-works-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+
+  .home-commissions-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    text-align: center !important;
+  }
+
+  .home-commissions-content {
+    align-items: center !important;
+  }
+
+  .home-commissions-media {
+    margin-inline: auto !important;
   }
 
   /* Footer on Tablet (2 columns x 2 rows) */

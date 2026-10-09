@@ -82,103 +82,15 @@ function initHeroShowcase() {
   const stage = document.getElementById("hero-showcase-stage");
   const img = document.getElementById("hero-showcase-img");
   const lens = document.getElementById("hero-loupe-lens");
-  const titleEl = document.getElementById("hero-showcase-title");
-  const metaEl = document.getElementById("hero-showcase-meta-text");
-  const priceEl = document.getElementById("hero-showcase-price");
-  const detailsBtn = document.getElementById("hero-view-details-btn");
-  const pills = document.querySelectorAll(".showcase-pill");
 
   if (!stage || !img) return;
 
-  const artworks = [
-    {
-      id: "piece-01",
-      title: "Ordinary Objects - I",
-      meta: "Hand-pulled relief linocut on 250gsm Somerset Velvet 100% cotton rag paper · 2024",
-      image: "assets/img/prints/ordinary-objects-1.jpg"
-    },
-    {
-      id: "piece-02",
-      title: "Moon",
-      meta: "Original relief print on 300gsm Indian Khadi cotton rag paper · 2024",
-      image: "assets/img/prints/moon.jpg"
-    },
-    {
-      id: "piece-03",
-      title: "Ordinary Objects - III",
-      meta: "Original relief linocut on 280gsm Fabriano Rosaspina archival paper · 2024",
-      image: "assets/img/prints/ordinary-objects-3.png"
-    },
-    {
-      id: "piece-04",
-      title: "Shelter",
-      meta: "Two-plate relief linocut on 250gsm Somerset Satin cotton paper · 2024",
-      image: "assets/img/prints/shelter.png"
-    }
-  ];
-
-  let currentIndex = 0;
-  let isHovered = false;
-
-  function switchArtwork(index) {
-    if (index < 0 || index >= artworks.length) return;
-    currentIndex = index;
-    const art = artworks[currentIndex];
-
-    // Fade transition
-    img.classList.add("fade-out");
-    setTimeout(() => {
-      img.src = art.image;
-      img.alt = `${art.title} — original linocut print by Anisha Khanduja`;
-      if (titleEl) titleEl.textContent = art.title;
-      if (metaEl) metaEl.textContent = art.meta;
-      if (priceEl) priceEl.textContent = "Price on Request";
-      if (detailsBtn) detailsBtn.dataset.openModal = art.id;
-
-      const waInquireBtn = document.getElementById("hero-inquire-wa-btn");
-      if (waInquireBtn) {
-        waInquireBtn.href = `https://wa.me/919897455555?text=${encodeURIComponent(`Hi Anisha! I'd love to inquire about the price and availability of "${art.title}".`)}`;
-      }
-      
-      // Update loupe background if lens exists
-      if (lens) {
-        lens.style.backgroundImage = `url('${art.image}')`;
-      }
-
-      img.classList.remove("fade-out");
-    }, 180);
-
-    // Update active pill
-    pills.forEach((p, idx) => {
-      if (idx === currentIndex) {
-        p.classList.add("active");
-      } else {
-        p.classList.remove("active");
-      }
-    });
-  }
-
-  // Pill click handlers
-  pills.forEach((pill, idx) => {
-    pill.addEventListener("click", () => {
-      switchArtwork(idx);
-    });
-  });
-
-  // Open modal when clicking details button or stage
-  if (detailsBtn) {
-    detailsBtn.addEventListener("click", () => {
-      const art = artworks[currentIndex];
-      if (window.studioGallery) {
-        const prod = window.studioGallery.products.find(p => p.id === art.id);
-        if (prod) window.studioGallery.openModal(prod);
-      }
-    });
-  }
+  const initialSrc = img.getAttribute("src") || "assets/img/prints/ordinary-objects-1.jpg";
 
   // Magnifier Loupe: Craft & Ink Texture Inspector
   if (lens) {
     const zoomFactor = 2.4;
+    lens.style.backgroundImage = `url('${initialSrc}')`;
 
     function moveLoupe(e) {
       const rect = stage.getBoundingClientRect();
@@ -213,19 +125,24 @@ function initHeroShowcase() {
     if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
       stage.addEventListener("mousemove", moveLoupe);
       stage.addEventListener("mouseenter", (e) => {
-        isHovered = true;
-        lens.style.backgroundImage = `url('${artworks[currentIndex].image}')`;
+        lens.style.backgroundImage = `url('${img.currentSrc || img.src || initialSrc}')`;
         moveLoupe(e);
       });
       stage.addEventListener("mouseleave", () => {
-        isHovered = false;
         lens.classList.remove("active");
       });
     }
-  }
 
-  // Initial setup with Object 1
-  switchArtwork(0);
+    // Touch inspection
+    stage.addEventListener("touchstart", (e) => {
+      lens.style.backgroundImage = `url('${img.currentSrc || img.src || initialSrc}')`;
+      moveLoupe(e);
+    }, { passive: true });
+    stage.addEventListener("touchmove", moveLoupe, { passive: true });
+    stage.addEventListener("touchend", () => {
+      lens.classList.remove("active");
+    });
+  }
 }
 
 // 4. Scroll Reveal with IntersectionObserver
