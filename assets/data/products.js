@@ -18,11 +18,8 @@ const STUDIO_PRODUCTS = [
     dimensions: "12 × 16 inches (30.5 × 40.6 cm)",
     editionSize: 8,
     editionNumberAvailable: 2,
-    price: 3400,
-    currency: "₹",
     status: "available",
     dateAdded: "2026-09-01",
-    paymentLink: "",
     images: [
       "assets/img/prints/ordinary-objects-1.jpg"
     ]
@@ -38,11 +35,8 @@ const STUDIO_PRODUCTS = [
     dimensions: "10 × 10 inches (25.4 × 25.4 cm)",
     editionSize: 6,
     editionNumberAvailable: 3,
-    price: 2600,
-    currency: "₹",
     status: "available",
     dateAdded: "2026-09-05",
-    paymentLink: "",
     images: [
       "assets/img/prints/moon.jpg"
     ]
@@ -58,11 +52,8 @@ const STUDIO_PRODUCTS = [
     dimensions: "14 × 18 inches (35.5 × 45.7 cm)",
     editionSize: 7,
     editionNumberAvailable: 1,
-    price: 3800,
-    currency: "₹",
     status: "available",
     dateAdded: "2026-09-08",
-    paymentLink: "",
     images: [
       "assets/img/prints/ordinary-objects-3.png"
     ]
@@ -78,11 +69,8 @@ const STUDIO_PRODUCTS = [
     dimensions: "11 × 15 inches (28 × 38 cm)",
     editionSize: 6,
     editionNumberAvailable: 0,
-    price: 3200,
-    currency: "₹",
     status: "sold",
     dateAdded: "2026-08-20",
-    paymentLink: "",
     images: [
       "assets/img/prints/shelter.png"
     ]

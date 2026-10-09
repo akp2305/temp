@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initStickyHeader();
   initMobileNav();
   initHeroShowcase();
+  initInstaCarousel();
   initScrollReveal();
   initSmoothScroll();
 });
@@ -94,28 +95,24 @@ function initHeroShowcase() {
       id: "piece-01",
       title: "Ordinary Objects - I",
       meta: "Hand-pulled relief linocut on 250gsm Somerset Velvet 100% cotton rag paper · 2024",
-      price: "₹3,400",
       image: "assets/img/prints/ordinary-objects-1.jpg"
     },
     {
       id: "piece-02",
       title: "Moon",
       meta: "Original relief print on 300gsm Indian Khadi cotton rag paper · 2024",
-      price: "₹2,600",
       image: "assets/img/prints/moon.jpg"
     },
     {
       id: "piece-03",
       title: "Ordinary Objects - III",
       meta: "Original relief linocut on 280gsm Fabriano Rosaspina archival paper · 2024",
-      price: "₹3,800",
       image: "assets/img/prints/ordinary-objects-3.png"
     },
     {
       id: "piece-04",
       title: "Shelter",
       meta: "Two-plate relief linocut on 250gsm Somerset Satin cotton paper · 2024",
-      price: "₹3,200",
       image: "assets/img/prints/shelter.png"
     }
   ];
@@ -135,8 +132,13 @@ function initHeroShowcase() {
       img.alt = `${art.title} — original linocut print by Anisha Khanduja`;
       if (titleEl) titleEl.textContent = art.title;
       if (metaEl) metaEl.textContent = art.meta;
-      if (priceEl) priceEl.textContent = art.price;
+      if (priceEl) priceEl.textContent = "Price on Request";
       if (detailsBtn) detailsBtn.dataset.openModal = art.id;
+
+      const waInquireBtn = document.getElementById("hero-inquire-wa-btn");
+      if (waInquireBtn) {
+        waInquireBtn.href = `https://wa.me/919897455555?text=${encodeURIComponent(`Hi Anisha! I'd love to inquire about the price and availability of "${art.title}".`)}`;
+      }
       
       // Update loupe background if lens exists
       if (lens) {
@@ -278,4 +280,177 @@ function initSmoothScroll() {
     });
   });
 }
+
+// 7. Interactive Instagram Posts & Reels Slideshow
+function initInstaCarousel() {
+  const carousel = document.getElementById("insta-carousel");
+  const track = document.getElementById("insta-track");
+  const prevBtn = document.getElementById("insta-prev-btn");
+  const nextBtn = document.getElementById("insta-next-btn");
+  const dotsContainer = document.getElementById("insta-dots");
+
+  if (!carousel || !track) return;
+
+  const slides = Array.from(track.querySelectorAll(".insta-slide"));
+  if (slides.length === 0) return;
+
+  let currentIndex = 0;
+  let autoplayTimer = null;
+  const autoplayDelay = 4500;
+
+  function getVisibleCount() {
+    if (window.innerWidth <= 640) return 1;
+    if (window.innerWidth <= 991) return 2;
+    return 3;
+  }
+
+  function getMaxIndex() {
+    const visible = getVisibleCount();
+    return Math.max(0, slides.length - visible);
+  }
+
+  function renderDots() {
+    if (!dotsContainer) return;
+    dotsContainer.innerHTML = "";
+    const totalSteps = getMaxIndex() + 1;
+    
+    for (let i = 0; i < totalSteps; i++) {
+      const dot = document.createElement("button");
+      dot.className = `insta-dot ${i === currentIndex ? "active" : ""}`;
+      dot.setAttribute("type", "button");
+      dot.setAttribute("aria-label", `Go to Instagram slide ${i + 1}`);
+      dot.addEventListener("click", () => {
+        goToSlide(i);
+        resetAutoplay();
+      });
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function updateDots() {
+    if (!dotsContainer) return;
+    const dots = dotsContainer.querySelectorAll(".insta-dot");
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle("active", idx === currentIndex);
+    });
+  }
+
+  function updateSlidePosition() {
+    const maxIdx = getMaxIndex();
+    if (currentIndex > maxIdx) currentIndex = maxIdx;
+    if (currentIndex < 0) currentIndex = 0;
+
+    const firstSlide = slides[0];
+    const slideWidth = firstSlide.getBoundingClientRect().width;
+    const gap = parseFloat(window.getComputedStyle(track).gap) || 20;
+    const offset = currentIndex * (slideWidth + gap);
+
+    track.style.transform = `translateX(-${offset}px)`;
+    updateDots();
+  }
+
+  function nextSlide() {
+    const maxIdx = getMaxIndex();
+    if (currentIndex >= maxIdx) {
+      currentIndex = 0;
+    } else {
+      currentIndex++;
+    }
+    updateSlidePosition();
+  }
+
+  function prevSlide() {
+    const maxIdx = getMaxIndex();
+    if (currentIndex <= 0) {
+      currentIndex = maxIdx;
+    } else {
+      currentIndex--;
+    }
+    updateSlidePosition();
+  }
+
+  function goToSlide(index) {
+    const maxIdx = getMaxIndex();
+    currentIndex = Math.min(Math.max(0, index), maxIdx);
+    updateSlidePosition();
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      prevSlide();
+      resetAutoplay();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      nextSlide();
+      resetAutoplay();
+    });
+  }
+
+  // Touch Swipe Support
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  track.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    pauseAutoplay();
+  }, { passive: true });
+
+  track.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+    resetAutoplay();
+  }, { passive: true });
+
+  function handleSwipe() {
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayTimer = setInterval(nextSlide, autoplayDelay);
+  }
+
+  function stopAutoplay() {
+    if (autoplayTimer) {
+      clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+  }
+
+  function pauseAutoplay() {
+    stopAutoplay();
+  }
+
+  function resetAutoplay() {
+    stopAutoplay();
+    startAutoplay();
+  }
+
+  carousel.addEventListener("mouseenter", pauseAutoplay);
+  carousel.addEventListener("mouseleave", startAutoplay);
+
+  let resizeTimeout;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      renderDots();
+      updateSlidePosition();
+    }, 100);
+  });
+
+  renderDots();
+  updateSlidePosition();
+  startAutoplay();
+}
+
 

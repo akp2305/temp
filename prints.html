@@ -58,17 +58,14 @@
         <a href="contact.html" class="nav-link">Contact</a>
       </nav>
 
-      <!-- Header Actions (Cart & Mobile Menu) -->
+      <!-- Header Actions (Inquire on WhatsApp & Mobile Menu) -->
       <div class="header-actions">
-        <button class="cart-trigger" id="cart-trigger-btn" aria-label="Open shopping cart drawer">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <path d="M16 10a4 4 0 0 1-8 0"></path>
+        <a href="https://wa.me/919897455555" class="header-wa-btn" target="_blank" rel="noopener" aria-label="Inquire on WhatsApp">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
           </svg>
-          <span>Cart</span>
-          <span class="cart-count" aria-label="0 items in cart">0</span>
-        </button>
+          <span class="header-wa-text">Inquire</span>
+        </a>
 
         <!-- Mobile Hamburger Button -->
         <button class="menu-toggle" id="menu-toggle-btn" aria-label="Toggle navigation menu" aria-expanded="false">
@@ -136,8 +133,7 @@
               <label for="shop-sort-select" class="shop-sort-label">Sort:</label>
               <select id="shop-sort-select" class="shop-sort-select" aria-label="Sort selected works">
                 <option value="newest">Chronological</option>
-                <option value="price-asc">Price: Low to High</option>
-                <option value="price-desc">Price: High to Low</option>
+                <option value="title-asc">Title: A to Z</option>
               </select>
             </div>
           </div>
@@ -197,35 +193,205 @@
       <span class="divider-diamond">✦</span>
     </div>
 
-    <!-- Instagram Feed Strip -->
+    <!-- ================================================================
+         INSTAGRAM FEEDS & REELS SLIDESHOW
+         ================================================================ -->
     <section class="section insta-strip-section" id="instagram">
       <div class="container">
         <div class="section-header text-center reveal-on-scroll">
-          <div class="eyebrow">✦ Follow Along</div>
-          <h2 class="section-title">Behind the Scenes on Instagram</h2>
+          <div class="eyebrow">✦ Follow Along · @printed.painted_</div>
+          <h2 class="section-title">Behind the Scenes: Posts &amp; Reels</h2>
           <p class="section-subtitle">
-            Follow <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" style="font-weight:700; text-decoration:underline;">@printed.painted_</a> for daily carving clips and fresh pulls.
+            Explore daily studio carvings, fresh edition pulls, and mindful process reels from the studio. Follow <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" style="font-weight:700; text-decoration:underline; color:var(--forest-ink);">@printed.painted_</a> on Instagram.
           </p>
         </div>
 
-        <div class="insta-grid reveal-on-scroll stagger-1">
-          <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" class="insta-card" aria-label="View Ordinary Objects I on Instagram">
-            <img src="assets/img/prints/ordinary-objects-1.jpg" alt="Ordinary objects linocut" loading="lazy">
-            <div class="insta-overlay"><span>Instagram ↗</span></div>
-          </a>
-          <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" class="insta-card" aria-label="View Moon print on Instagram">
-            <img src="assets/img/prints/moon.jpg" alt="Moon crescent print" loading="lazy">
-            <div class="insta-overlay"><span>Instagram ↗</span></div>
-          </a>
-          <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" class="insta-card" aria-label="View Ordinary Objects III on Instagram">
-            <img src="assets/img/prints/ordinary-objects-3.png" alt="Ordinary objects 3 print" loading="lazy">
-            <div class="insta-overlay"><span>Instagram ↗</span></div>
-          </a>
-          <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" class="insta-card" aria-label="View Shelter print on Instagram">
-            <img src="assets/img/prints/shelter.png" alt="Shelter diptych print" loading="lazy">
-            <div class="insta-overlay"><span>Instagram ↗</span></div>
+        <!-- Carousel Container -->
+        <div class="insta-carousel-wrap reveal-on-scroll stagger-1" id="insta-carousel" aria-roledescription="carousel" aria-label="Instagram posts and reels">
+          
+          <!-- Prev / Next Controls -->
+          <button class="insta-nav-btn insta-prev-btn" id="insta-prev-btn" aria-label="Previous Instagram slide" type="button">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          
+          <button class="insta-nav-btn insta-next-btn" id="insta-next-btn" aria-label="Next Instagram slide" type="button">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+
+          <!-- Slides Track Window -->
+          <div class="insta-carousel-viewport" id="insta-viewport">
+            <div class="insta-carousel-track" id="insta-track">
+              <!-- Slide 1: Reel -->
+              <div class="insta-slide" data-type="reel">
+                <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" class="insta-slide-card" aria-label="Watch Carving Ordinary Objects I on Instagram Reel">
+                  <div class="insta-slide-media">
+                    <img src="assets/img/prints/ordinary-objects-1.jpg" alt="Carving linocut block in studio" loading="lazy">
+                    <span class="insta-badge insta-badge-reel">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                      Reel
+                    </span>
+                    <div class="insta-reel-play-overlay">
+                      <div class="insta-play-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="8 5 19 12 8 19 8 5"/></svg>
+                      </div>
+                      <span class="insta-audio-tag">♫ Studio sound · Caligo relief ink roll</span>
+                    </div>
+                  </div>
+                  <div class="insta-slide-meta">
+                    <div class="insta-account-row">
+                      <span class="insta-avatar">✦</span>
+                      <span class="insta-username">printed.painted_</span>
+                      <span class="insta-icon-glyph">↗</span>
+                    </div>
+                    <p class="insta-caption">Carving rhythmic gouge marks for Ordinary Objects I. Exploring the tactile warmth of domestic geometry.</p>
+                    <span class="insta-view-cta">Watch Reel on Instagram ↗</span>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Slide 2: Post -->
+              <div class="insta-slide" data-type="post">
+                <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" class="insta-slide-card" aria-label="View Moon print on Khadi paper on Instagram">
+                  <div class="insta-slide-media">
+                    <img src="assets/img/prints/moon.jpg" alt="Moon crescent print on handmade paper" loading="lazy">
+                    <span class="insta-badge insta-badge-post">
+                      ✦ Post
+                    </span>
+                  </div>
+                  <div class="insta-slide-meta">
+                    <div class="insta-account-row">
+                      <span class="insta-avatar">✦</span>
+                      <span class="insta-username">printed.painted_</span>
+                      <span class="insta-icon-glyph">↗</span>
+                    </div>
+                    <p class="insta-caption">Moon on 300gsm Indian Khadi cotton rag. Hand-burnished with traditional bamboo baren under morning light.</p>
+                    <span class="insta-view-cta">View Post on Instagram ↗</span>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Slide 3: Reel -->
+              <div class="insta-slide" data-type="reel">
+                <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" class="insta-slide-card" aria-label="Watch Inking the Plate Reel on Instagram">
+                  <div class="insta-slide-media">
+                    <img src="assets/img/prints/ordinary-objects-3.png" alt="Inking process of linocut edition" loading="lazy">
+                    <span class="insta-badge insta-badge-reel">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                      Reel
+                    </span>
+                    <div class="insta-reel-play-overlay">
+                      <div class="insta-play-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="8 5 19 12 8 19 8 5"/></svg>
+                      </div>
+                      <span class="insta-audio-tag">♫ Studio sound · Roller hissing on glass</span>
+                    </div>
+                  </div>
+                  <div class="insta-slide-meta">
+                    <div class="insta-account-row">
+                      <span class="insta-avatar">✦</span>
+                      <span class="insta-username">printed.painted_</span>
+                      <span class="insta-icon-glyph">↗</span>
+                    </div>
+                    <p class="insta-caption">Inking Ordinary Objects III. Listening for the delicate velvet hiss of oil ink rolled to exact thickness.</p>
+                    <span class="insta-view-cta">Watch Reel on Instagram ↗</span>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Slide 4: Post -->
+              <div class="insta-slide" data-type="post">
+                <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" class="insta-slide-card" aria-label="View Shelter print diptych on Instagram">
+                  <div class="insta-slide-media">
+                    <img src="assets/img/prints/shelter.png" alt="Shelter diptych print edition" loading="lazy">
+                    <span class="insta-badge insta-badge-post">
+                      ✦ Post
+                    </span>
+                  </div>
+                  <div class="insta-slide-meta">
+                    <div class="insta-account-row">
+                      <span class="insta-avatar">✦</span>
+                      <span class="insta-username">printed.painted_</span>
+                      <span class="insta-icon-glyph">↗</span>
+                    </div>
+                    <p class="insta-caption">Shelter — a quiet diptych study in sanctuary. Protection, inner warmth, and tactile stillness.</p>
+                    <span class="insta-view-cta">View Post on Instagram ↗</span>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Slide 5: Reel -->
+              <div class="insta-slide" data-type="reel">
+                <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" class="insta-slide-card" aria-label="Watch Paper Reveal Pull Reel on Instagram">
+                  <div class="insta-slide-media">
+                    <img src="assets/img/prints/ordinary-objects-1.jpg" alt="Slow paper peel reveal in print studio" loading="lazy">
+                    <span class="insta-badge insta-badge-reel">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                      Reel
+                    </span>
+                    <div class="insta-reel-play-overlay">
+                      <div class="insta-play-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="8 5 19 12 8 19 8 5"/></svg>
+                      </div>
+                      <span class="insta-audio-tag">♫ The reveal pull · Crisp paper sound</span>
+                    </div>
+                  </div>
+                  <div class="insta-slide-meta">
+                    <div class="insta-account-row">
+                      <span class="insta-avatar">✦</span>
+                      <span class="insta-username">printed.painted_</span>
+                      <span class="insta-icon-glyph">↗</span>
+                    </div>
+                    <p class="insta-caption">The slow reveal: lifting Somerset Velvet cotton paper off the inked plate. Pure tactile satisfaction.</p>
+                    <span class="insta-view-cta">Watch Reel on Instagram ↗</span>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Slide 6: Post -->
+              <div class="insta-slide" data-type="post">
+                <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" class="insta-slide-card" aria-label="View Studio Practice notes on Instagram">
+                  <div class="insta-slide-media">
+                    <img src="assets/img/studio/artist-anisha.svg" alt="Anisha Khanduja studio portrait and workbench" loading="lazy">
+                    <span class="insta-badge insta-badge-post">
+                      ✦ Studio Notes
+                    </span>
+                  </div>
+                  <div class="insta-slide-meta">
+                    <div class="insta-account-row">
+                      <span class="insta-avatar">✦</span>
+                      <span class="insta-username">printed.painted_</span>
+                      <span class="insta-icon-glyph">↗</span>
+                    </div>
+                    <p class="insta-caption">From sketchbook studies to wood blocks and raw linen canvas. Work in progress from the studio.</p>
+                    <span class="insta-view-cta">View Profile on Instagram ↗</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pagination Dots -->
+          <div class="insta-carousel-dots" id="insta-dots" aria-label="Slideshow indicators"></div>
+          
+        </div>
+
+        <!-- Follow on Instagram Action Card -->
+        <div class="insta-follow-card reveal-on-scroll stagger-2">
+          <div class="insta-follow-content">
+            <span class="insta-handle-pill">@printed.painted_</span>
+            <p class="insta-follow-text">
+              Join <strong>@printed.painted_</strong> on Instagram for behind-the-scenes carve timelapses, new edition announcements, and direct studio messaging.
+            </p>
+          </div>
+          <a href="https://www.instagram.com/printed.painted_/" target="_blank" rel="noopener" class="btn btn-secondary insta-follow-btn">
+            Follow on Instagram ↗
           </a>
         </div>
+
       </div>
     </section>
 
@@ -296,64 +462,7 @@
     </div>
   </footer>
 
-  <!-- Slide-In Cart Drawer & Overlay -->
-  <div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
-  <aside class="cart-drawer" id="cart-drawer" role="dialog" aria-label="Shopping Cart">
-    <div class="cart-drawer-header">
-      <h3 class="cart-drawer-title">
-        <span>Your Print Bag</span>
-        <span class="cart-count">0</span>
-      </h3>
-      <button class="cart-close-btn" id="cart-close-btn" aria-label="Close cart">&times;</button>
-    </div>
 
-    <div class="cart-shipping-banner">
-      <span id="shipping-note-text">Add items for Free Shipping across India!</span>
-      <div class="shipping-progress-track">
-        <div class="shipping-progress-fill" id="shipping-bar-fill" style="width: 0%;"></div>
-      </div>
-    </div>
-
-    <div class="cart-items-list" id="cart-items-container">
-      <!-- Injected by cart.js -->
-    </div>
-
-    <div class="cart-empty-state" id="cart-empty-state">
-      <svg class="cart-empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <circle cx="12" cy="12" r="10"></circle>
-        <path d="M8 12h8"></path>
-      </svg>
-      <h4 class="cart-empty-title">Your bag is empty</h4>
-      <p style="font-size:var(--text-xs); color:var(--ink-muted);">
-        Take your time browsing our hand-carved limited editions.
-      </p>
-      <a href="prints.html" class="btn btn-sm btn-primary" onclick="window.studioCart.close();">
-        Explore Artworks ✦
-      </a>
-    </div>
-
-    <div class="cart-drawer-footer" id="cart-drawer-footer">
-      <div class="cart-subtotal-row">
-        <span>Subtotal</span>
-        <span class="cart-subtotal-val" id="cart-subtotal-val">₹0</span>
-      </div>
-
-      <div class="cart-checkout-actions">
-        <button class="btn btn-whatsapp btn-full btn-lg" id="whatsapp-checkout-btn">
-          <span>Order on WhatsApp 💬</span>
-        </button>
-
-        <button class="btn btn-ink btn-full" id="pay-now-checkout-btn">
-          <span>Pay via Direct UPI / QR ⚡</span>
-        </button>
-      </div>
-
-      <div class="cart-trust-note">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-        <span>Insured flat-pack delivery · Plastic-free packaging</span>
-      </div>
-    </div>
-  </aside>
 
   <!-- Artwork Detail Modal (Lightbox) -->
   <div class="modal-overlay" id="artwork-modal-overlay" role="dialog" aria-modal="true" aria-label="Artwork Details">
@@ -368,3 +477,4 @@
   <script src="js/main.js"></script>
 </body>
 </html>
+

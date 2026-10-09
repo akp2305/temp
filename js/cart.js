@@ -16,7 +16,7 @@ const CART_CONFIG = {
   // UPI ID (e.g. yourname@okaxis, yourname@upi)
   upiId: "anisha@upi",
   
-  // Free shipping threshold in INR (₹)
+  // Free shipping threshold in INR
   freeShippingThreshold: 1999,
   
   // Standard shipping rate if below threshold
@@ -26,7 +26,7 @@ const CART_CONFIG = {
   storageKey: "ak_studio_cart_v1",
 
   // Currency symbol
-  currency: "₹"
+  currency: ""
 };
 
 class StudioCart {
@@ -262,20 +262,13 @@ class StudioCart {
 
     // Update subtotal
     if (this.cartSubtotalEl) {
-      this.cartSubtotalEl.textContent = `${CART_CONFIG.currency}${subtotal.toLocaleString("en-IN")}`;
+      this.cartSubtotalEl.textContent = "Price on Request";
     }
 
     // Free shipping progress bar
     if (this.shippingBarFill && this.shippingNoteEl) {
-      if (subtotal >= CART_CONFIG.freeShippingThreshold) {
-        this.shippingBarFill.style.width = "100%";
-        this.shippingNoteEl.innerHTML = `🎉 <strong>You unlocked Free Shipping across India!</strong>`;
-      } else {
-        const remaining = CART_CONFIG.freeShippingThreshold - subtotal;
-        const percent = Math.min(100, Math.round((subtotal / CART_CONFIG.freeShippingThreshold) * 100));
-        this.shippingBarFill.style.width = `${percent}%`;
-        this.shippingNoteEl.innerHTML = `Add <strong>${CART_CONFIG.currency}${remaining.toLocaleString("en-IN")}</strong> more for Free Shipping!`;
-      }
+      this.shippingBarFill.style.width = "100%";
+      this.shippingNoteEl.innerHTML = `🎉 <strong>Free Shipping across India on all studio editions!</strong>`;
     }
 
     // Render items list or empty state
@@ -299,7 +292,7 @@ class StudioCart {
         <div class="cart-item-details">
           <h4 class="cart-item-title">${item.title}</h4>
           <span class="cart-item-specs">${item.dimensions || "Limited Edition"}</span>
-          <span class="cart-item-price">${CART_CONFIG.currency}${(item.price * item.quantity).toLocaleString("en-IN")}</span>
+          <span class="cart-item-price">Price on Request</span>
         </div>
         <div class="cart-item-controls">
           <div class="qty-control" role="group" aria-label="Quantity for ${item.title}">
@@ -341,24 +334,17 @@ class StudioCart {
   checkoutViaWhatsApp() {
     if (this.items.length === 0) return;
 
-    const subtotal = this.getSubtotal();
-    const isFreeShipping = subtotal >= CART_CONFIG.freeShippingThreshold;
-    const shippingAmount = isFreeShipping ? "FREE" : `${CART_CONFIG.currency}${CART_CONFIG.standardShippingFee}`;
-    const total = isFreeShipping ? subtotal : subtotal + CART_CONFIG.standardShippingFee;
-
-    let text = `Hello Anisha! 👋\n\nI would love to purchase original linocut prints from your studio:\n\n`;
+    let text = `Hello Anisha! 👋\n\nI would love to inquire about pricing and acquiring original prints from your studio:\n\n`;
 
     this.items.forEach((item, idx) => {
       text += `${idx + 1}. *${item.title}*\n`;
-      text += `   Qty: ${item.quantity} × ${CART_CONFIG.currency}${item.price.toLocaleString("en-IN")} = ${CART_CONFIG.currency}${(item.price * item.quantity).toLocaleString("en-IN")}\n`;
+      text += `   Qty: ${item.quantity} · Price on Request\n`;
       text += `   Size: ${item.dimensions || "Standard"}\n\n`;
     });
 
     text += `──────────────\n`;
-    text += `*Subtotal:* ${CART_CONFIG.currency}${subtotal.toLocaleString("en-IN")}\n`;
-    text += `*Shipping:* ${shippingAmount} (Delivery across India)\n`;
-    text += `*Estimated Total:* ${CART_CONFIG.currency}${total.toLocaleString("en-IN")}\n\n`;
-    text += `Please share payment details (UPI/Account) and delivery timeframe. Thank you!`;
+    text += `*Delivery:* Free Shipping across India\n`;
+    text += `Please share current price, edition numbers available, and framing options. Thank you!`;
 
     const encodedText = encodeURIComponent(text);
     const whatsappUrl = `https://wa.me/${CART_CONFIG.whatsappNumber}?text=${encodedText}`;

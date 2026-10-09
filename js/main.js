@@ -56,17 +56,15 @@ function injectStructuredData() {
         }
       },
       ...products.map(p => ({
-        "@type": "Product",
+        "@type": "VisualArtwork",
         "name": p.title,
         "description": p.story,
         "image": p.images[0],
-        "offers": {
-          "@type": "Offer",
-          "price": p.price,
-          "priceCurrency": "INR",
-          "availability": p.status === "available" 
-            ? "https://schema.org/InStock" 
-            : "https://schema.org/OutOfStock"
+        "artMedium": p.medium,
+        "artform": "Printmaking",
+        "creator": {
+          "@type": "Person",
+          "name": "Anisha Khanduja"
         }
       }))
     ]

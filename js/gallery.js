@@ -146,11 +146,10 @@ class StudioGallery {
     }
 
     // Sort
-    if (this.currentSort === "price-asc") {
-      list.sort((a, b) => a.price - b.price);
-    } else if (this.currentSort === "price-desc") {
-      list.sort((a, b) => b.price - a.price);
-    } else if (this.currentSort === "newest") {
+    if (this.currentSort === "title-asc") {
+      list.sort((a, b) => a.title.localeCompare(b.title));
+    } else {
+      // Default to newest
       list.sort((a, b) => new Date(b.dateAdded || 0) - new Date(a.dateAdded || 0));
     }
 
@@ -187,17 +186,19 @@ class StudioGallery {
           <p class="plate-medium-year">${mediumText} · 2024</p>
           <p class="plate-dimensions">${product.dimensions}</p>
           <div class="plate-footer-row">
-            <span class="plate-price">${product.currency}${product.price.toLocaleString("en-IN")}</span>
+            <span class="plate-price-tag">Price on Request</span>
             <div class="plate-actions">
               <button class="plate-text-btn" data-open-modal="${product.id}">
                 View Details ↗
               </button>
               ${isSold ? `
-                <button class="plate-subtle-btn" data-ask-reprint="${product.id}">Inquire</button>
+                <a class="plate-subtle-btn plate-wa-btn" href="https://wa.me/919897455555?text=${encodeURIComponent(`Hi Anisha! I saw that "${product.title}" is archived/sold out. Could you please let me know if a reprint or custom commission is possible?`)}" target="_blank" rel="noopener">
+                  Inquire 💬
+                </a>
               ` : `
-                <button class="plate-subtle-btn add-to-cart-btn" data-id="${product.id}">
-                  Acquire ✦
-                </button>
+                <a class="plate-subtle-btn plate-wa-btn" href="https://wa.me/919897455555?text=${encodeURIComponent(`Hi Anisha! I'd love to inquire about the price and availability of "${product.title}".`)}" target="_blank" rel="noopener">
+                  DM for Price 💬
+                </a>
               `}
             </div>
           </div>
@@ -357,8 +358,8 @@ class StudioGallery {
           </div>
           <h2 class="modal-title">${product.title}</h2>
           <div class="modal-price-row">
-            <span class="modal-price">${product.currency}${product.price.toLocaleString("en-IN")}</span>
-            <span style="font-size:var(--text-xs); color:var(--ink-muted);">Includes taxes & complimentary studio stickers</span>
+            <span class="modal-price">Price on Request</span>
+            <span style="font-size:var(--text-xs); color:var(--ink-muted);">Direct studio inquiry via WhatsApp</span>
           </div>
 
           <p class="modal-story">${product.story}</p>
@@ -384,22 +385,16 @@ class StudioGallery {
 
           <div class="modal-actions">
             ${isSold ? `
-              <button class="btn btn-whatsapp btn-lg" id="modal-wa-reprint-btn">
-                Ask About a Custom Reprint on WhatsApp
-              </button>
+              <a class="btn btn-whatsapp btn-lg" style="width:100%; justify-content:center;" href="https://wa.me/919897455555?text=${encodeURIComponent(`Hi Anisha! I saw that "${product.title}" is archived/sold out. Could you please let me know if a reprint or custom commission is possible?`)}" target="_blank" rel="noopener">
+                Ask About Reprint / Commission on WhatsApp 💬
+              </a>
             ` : `
               <div class="modal-actions-row">
-                <button class="btn btn-primary btn-lg" style="flex:1;" id="modal-add-cart-btn">
-                  Add to Cart ✦
-                </button>
-                <button class="btn btn-ink btn-lg" id="modal-buy-now-btn">
-                  Buy Now
-                </button>
+                <a class="btn btn-whatsapp btn-lg" style="flex:1; justify-content:center;" href="https://wa.me/919897455555?text=${encodeURIComponent(`Hi Anisha! I'd love to inquire about the price and availability of "${product.title}".`)}" target="_blank" rel="noopener">
+                  DM on WhatsApp for Price 💬
+                </a>
               </div>
             `}
-            <button class="btn btn-secondary btn-sm" id="modal-ask-btn" style="margin-top:0.25rem;">
-              💬 Ask a Question About This Print
-            </button>
             <button class="btn btn-secondary btn-sm" id="modal-bottom-close-btn" style="margin-top:0.25rem;">
               ✕ Close Preview & Return to Gallery
             </button>
@@ -414,7 +409,7 @@ class StudioGallery {
                   <div class="rec-item" data-rec-id="${r.id}" style="cursor:pointer; border:var(--border-thin); border-radius:var(--radius-xs); overflow:hidden; background:var(--surface-pure); padding:4px;">
                     <img src="${r.images[0]}" alt="${r.title}" style="aspect-ratio:1; object-fit:cover; border-radius:3px;">
                     <div style="font-size:0.7rem; font-weight:700; margin-top:3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${r.title}</div>
-                    <div style="font-size:0.65rem; color:var(--ink-muted);">${r.currency}${r.price.toLocaleString("en-IN")}</div>
+                    <div style="font-size:0.65rem; color:var(--forest-medium); font-weight:600;">Price on Request</div>
                   </div>
                 `).join("")}
               </div>
@@ -443,43 +438,11 @@ class StudioGallery {
       });
     });
 
-    // Add to cart
-    const addBtn = dialog.querySelector("#modal-add-cart-btn");
-    if (addBtn) {
-      addBtn.addEventListener("click", () => {
-        if (window.studioCart) {
-          window.studioCart.addItem(product, 1);
-        }
-      });
-    }
-
-    // Buy now
-    const buyBtn = dialog.querySelector("#modal-buy-now-btn");
-    if (buyBtn) {
-      buyBtn.addEventListener("click", () => {
-        if (product.paymentLink) {
-          window.open(product.paymentLink, "_blank");
-        } else if (window.studioCart) {
-          window.studioCart.addItem(product, 1);
-          window.studioCart.open();
-        }
-      });
-    }
-
-    // Ask on WhatsApp
+    // Ask on WhatsApp (if present)
     const askBtn = dialog.querySelector("#modal-ask-btn");
     if (askBtn) {
       askBtn.addEventListener("click", () => {
-        const msg = encodeURIComponent(`Hi Anisha! I'm looking at your print "${product.title}" (${product.currency}${product.price}) and had a quick question: `);
-        window.open(`https://wa.me/919897455555?text=${msg}`, "_blank");
-      });
-    }
-
-    // Ask reprint (if sold)
-    const reprintBtn = dialog.querySelector("#modal-wa-reprint-btn");
-    if (reprintBtn) {
-      reprintBtn.addEventListener("click", () => {
-        const msg = encodeURIComponent(`Hi Anisha! I saw that "${product.title}" is sold out. Could you please let me know if a reprint, new edition, or commission is possible?`);
+        const msg = encodeURIComponent(`Hi Anisha! I'm looking at your print "${product.title}" and had a quick question about price and framing: `);
         window.open(`https://wa.me/919897455555?text=${msg}`, "_blank");
       });
     }
