@@ -28,7 +28,12 @@ Designed with a high-end, luxury fine art atelier aesthetic. Refined, tactile, a
 
 ```
 .
-├── index.html                  # Main studio website
+├── index.html                  # Main editorial monograph entrance
+├── prints.html                 # Selected Works & Prints catalogue
+├── paintings.html              # Paintings & Works on Canvas
+├── about.html                  # About the Artist & Slow Craftsmanship
+├── commissions.html            # Custom Carving Commissions
+├── contact.html                # Studio Inquiries & FAQ
 ├── 404.html                    # Whimsical 404 error page
 ├── README.md                   # This maintenance and deployment guide
 ├── favicon.svg                 # Handcrafted studio favicon

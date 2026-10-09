@@ -3,25 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Primary Meta Tags -->
-  <title>Anisha Khanduja — Contemporary Artist · Printmaker · Painter</title>
-  <meta name="title" content="Anisha Khanduja — Contemporary Artist · Printmaker · Painter">
-  <meta name="description" content="Contemporary artist working with repetition, microspaces within macro environment, symbolism, and a quiet attention to everyday life. Original relief prints and paintings by Anisha Khanduja.">
-  <meta name="keywords" content="contemporary artist, printmaker, painter, linocut prints, original paintings, relief printing, art monograph, Indian contemporary art">
+  <title>Selected Works & Prints — Anisha Khanduja | Contemporary Artist · Printmaker · Painter</title>
+  <meta name="description" content="Catalogue Raisonné of original limited-edition relief linocut prints by contemporary artist Anisha Khanduja. Hand-pulled on archival cotton rag paper in New Delhi, India.">
   <meta name="author" content="Anisha Khanduja">
+  <link rel="canonical" href="https://anishakhanduja.com/prints.html">
 
-  <!-- Open Graph / Facebook / Instagram / WhatsApp -->
+  <!-- Open Graph / Meta -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Anisha Khanduja — Contemporary Artist · Printmaker · Painter">
-  <meta property="og:description" content="Contemporary artist working with repetition, microspaces within macro environment, symbolism, and a quiet attention to everyday life.">
+  <meta property="og:title" content="Selected Works & Prints — Anisha Khanduja">
+  <meta property="og:description" content="Explore hand-carved limited-edition relief linocut prints on archival cotton rag paper.">
   <meta property="og:image" content="assets/img/prints/ordinary-objects-1.jpg">
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:title" content="Anisha Khanduja — Contemporary Artist · Printmaker · Painter">
-  <meta property="twitter:description" content="Contemporary artist working with repetition, microspaces within macro environment, symbolism, and a quiet attention to everyday life.">
-  <meta property="twitter:image" content="assets/img/prints/ordinary-objects-1.jpg">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -29,19 +20,27 @@
   <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
-  <!-- Stylesheet (Relative Path for GitHub Pages) -->
-  <link rel="stylesheet" href="css/style.css">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/utilities.css">
+  <link rel="stylesheet" href="css/atmospheric.css">
 </head>
 <body>
+  <!-- Atmospheric Film Grain Overlay -->
+  <div class="film-grain" aria-hidden="true"></div>
 
   <!-- Announcement Bar -->
   <div class="announcement-bar" role="region" aria-label="Announcement">
-    <span>Free shipping across India · Hand-made and Hand packed with love</span>
+    <div class="container announcement-inner">
+      <span>Free shipping across India · Hand-made and Hand packed with love</span>
+    </div>
   </div>
 
-  <!-- Sticky Site Header -->
+  <!-- Site Header -->
   <header class="site-header" id="header">
     <div class="container header-inner">
       <!-- Brand Wordmark -->
@@ -52,7 +51,7 @@
 
       <!-- Desktop Navigation -->
       <nav class="site-nav" aria-label="Main Navigation">
-        <a href="prints.html" class="nav-link">Prints</a>
+        <a href="prints.html" class="nav-link active">Prints</a>
         <a href="paintings.html" class="nav-link">Paintings</a>
         <a href="about.html" class="nav-link">About</a>
         <a href="commissions.html" class="nav-link">Commissions</a>
@@ -92,8 +91,8 @@
       <button class="modal-close-btn" id="mobile-nav-close" aria-label="Close menu">&times;</button>
     </div>
     <nav class="mobile-nav-links">
-      <a href="index.html" class="mobile-nav-link active">Home</a>
-      <a href="prints.html" class="mobile-nav-link">Prints</a>
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="prints.html" class="mobile-nav-link active">Prints</a>
       <a href="paintings.html" class="mobile-nav-link">Paintings</a>
       <a href="about.html" class="mobile-nav-link">About</a>
       <a href="commissions.html" class="mobile-nav-link">Commissions</a>
@@ -112,91 +111,84 @@
   <!-- Main Page Content -->
   <main id="main-content">
 
-    <!-- ================================================================
-         HERO SECTION: Editorial Contemporary Artist Portfolio Spread
-         ================================================================ -->
-    <section class="section hero-portfolio-section" id="hero">
+    <!-- Subpage Chapter Header -->
+    <section class="page-header-section">
       <div class="container">
-        
-        <!-- Subtle Folio Masthead Line -->
-        <div class="portfolio-folio-header">
-          <div class="folio-left">
-            <span class="folio-tag">Selected Works · Monograph</span>
-            <span class="folio-sep">/</span>
-            <span class="folio-series">Still Life & Domestic Architecture</span>
-          </div>
-          <div class="folio-right">
-            <span class="folio-hint">Hover or touch to inspect relief ink texture 🔍</span>
+        <div class="eyebrow">✦ Catalogue Raisonné</div>
+        <h1 class="page-header-title">Selected Works & Prints</h1>
+        <p class="page-header-subtitle">
+          Limited-edition relief linocut prints hand-carved in battleship linoleum and hand-pulled on archival 250gsm Somerset Velvet and 300gsm Indian Khadi cotton rag paper.
+        </p>
+      </div>
+    </section>
+
+    <!-- Selected Works Gallery & Filter Controls -->
+    <section class="section selected-works-section" id="prints-gallery" style="padding-top: 1.5rem;">
+      <div class="container">
+
+        <!-- Understated Filter & Sort Controls -->
+        <div class="shop-controls-bar">
+          <div class="container shop-controls-inner">
+            <div class="filter-chips-track" id="filter-chips-track" role="tablist" aria-label="Filter selected works">
+              <!-- Dynamically populated from products.js -->
+            </div>
+            <div class="shop-sort-wrap">
+              <label for="shop-sort-select" class="shop-sort-label">Sort:</label>
+              <select id="shop-sort-select" class="shop-sort-select" aria-label="Sort selected works">
+                <option value="newest">Chronological</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+              </select>
+            </div>
           </div>
         </div>
 
-        <!-- Prominent Horizontal Artwork Presentation (Object 1 Dominates the Top) -->
-        <div class="hero-artwork-spread reveal-on-scroll">
-          <div class="hero-artwork-stage" id="hero-showcase-stage" title="Hover or touch to inspect fine relief ink, gouge cuts, and cotton paper grain">
-            <div class="hero-artwork-mat">
-              <img class="hero-showcase-img" id="hero-showcase-img" src="assets/img/prints/ordinary-objects-1.jpg" alt="Ordinary Objects - I — original relief linocut print by Anisha Khanduja" width="1086" height="1448">
-            </div>
-            <div class="hero-loupe-lens" id="hero-loupe-lens"></div>
-            <div class="hero-loupe-badge">✦ Hand-Carved Relief Detail (Inspect)</div>
-          </div>
+        <!-- Editorial Grid: Artworks with small captions underneath -->
+        <div class="portfolio-grid" id="shop-artwork-grid">
+          <!-- Rendered as .portfolio-plate from products.js via gallery.js -->
         </div>
 
-        <!-- Editorial Metadata & Intimate Artist Statement (Directly Beneath Artwork) -->
-        <div class="hero-portfolio-meta-grid reveal-on-scroll stagger-1">
-          
-          <!-- Column 1: Intimate Artist Statement / Introduction -->
-          <div class="artist-intro-block">
-            <span class="portfolio-meta-kicker">Artist Statement</span>
-            <blockquote class="artist-statement-text">
-              “Contemporary artist working with repetition, microspaces within macro environment, symbolism, and a quiet attention to everyday life.”
-            </blockquote>
-            <span class="artist-statement-byline">— Anisha Khanduja, New Delhi</span>
-          </div>
+      </div>
+    </section>
 
-          <!-- Column 2: Featured Plate Monograph Notes -->
-          <div class="featured-plate-details-block">
-            <div class="plate-details-header">
-              <span class="portfolio-meta-kicker">Plate 01 · Featured Edition</span>
-              <span class="hero-plate-price" id="hero-showcase-price">₹3,400</span>
-            </div>
-            <h2 class="hero-plate-title" id="hero-showcase-title">Ordinary Objects – I</h2>
-            <p class="hero-plate-medium" id="hero-showcase-meta-text">
-              Hand-pulled relief linocut on 250gsm Somerset Velvet 100% cotton rag paper · 2024
+    <!-- Studio Editioning Standards / Archival Reassurance -->
+    <section class="section" style="background-color: var(--surface-canvas); border-top: 1px solid rgba(26, 53, 40, 0.08); padding-block: clamp(2.5rem, 4vw, 4rem);">
+      <div class="container">
+        <div class="section-header text-center reveal-on-scroll" style="margin-bottom: 2rem;">
+          <div class="eyebrow">✦ Studio Standards</div>
+          <h2 class="section-title">Archival Craftsmanship</h2>
+          <p class="section-subtitle">Every impression is treated with the highest museum-grade respect.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; max-width: 1040px; margin-inline: auto;">
+          <div style="background: var(--surface-pure); border: 1px solid rgba(26, 53, 40, 0.1); border-radius: var(--radius-sm); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.4rem;">
+            <span style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--forest-ink);">100% Cotton Rag</span>
+            <p style="font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; margin: 0;">
+              Acid-free Somerset Velvet (UK) and handmade Indian Khadi rag. Deckled natural paper edges with rich tactile tooth.
             </p>
-            <p class="hero-plate-dimensions">
-              12 × 16 inches (30.5 × 40.6 cm) · Finite Edition of 8 (Signed & Numbered)
+          </div>
+
+          <div style="background: var(--surface-pure); border: 1px solid rgba(26, 53, 40, 0.1); border-radius: var(--radius-sm); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.4rem;">
+            <span style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--forest-ink);">Lightfast Oil Inks</span>
+            <p style="font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; margin: 0;">
+              Artist-grade Charbonnel & Cranfield Caligo relief inks. Deep, non-fading pigments formulated to endure for generations.
             </p>
-            <div class="hero-plate-actions">
-              <button class="btn btn-secondary btn-sm" id="hero-view-details-btn" data-open-modal="piece-01" type="button">
-                View Plate Details ↗
-              </button>
-              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="piece-01" type="button">
-                Acquire Print ✦
-              </button>
-            </div>
+          </div>
+
+          <div style="background: var(--surface-pure); border: 1px solid rgba(26, 53, 40, 0.1); border-radius: var(--radius-sm); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.4rem;">
+            <span style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--forest-ink);">Finite Editions</span>
+            <p style="font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; margin: 0;">
+              Strict small runs of 6 to 8 impressions. Each print is hand-titled, numbered, and signed in archival graphite pencil.
+            </p>
+          </div>
+
+          <div style="background: var(--surface-pure); border: 1px solid rgba(26, 53, 40, 0.1); border-radius: var(--radius-sm); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.4rem;">
+            <span style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--forest-ink);">Plastic-Free Transit</span>
+            <p style="font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; margin: 0;">
+              Acid-free glassine wrapping and heavy corrugated backing boards. Insured safe delivery across all states in India.
+            </p>
           </div>
         </div>
-
-        <!-- Quiet Folio Switcher Tabs (Allows Switching Between the 4 Studio Plates) -->
-        <div class="hero-showcase-pills portfolio-folio-tabs" role="tablist" aria-label="Select artwork plate">
-          <button class="showcase-pill active" data-index="0" type="button">
-            <span class="pill-idx">Pl. 01</span>
-            <span class="pill-title">Ordinary Objects I</span>
-          </button>
-          <button class="showcase-pill" data-index="1" type="button">
-            <span class="pill-idx">Pl. 02</span>
-            <span class="pill-title">Moon</span>
-          </button>
-          <button class="showcase-pill" data-index="2" type="button">
-            <span class="pill-idx">Pl. 03</span>
-            <span class="pill-title">Ordinary Objects III</span>
-          </button>
-          <button class="showcase-pill" data-index="3" type="button">
-            <span class="pill-idx">Pl. 04</span>
-            <span class="pill-title">Shelter</span>
-          </button>
-        </div>
-
       </div>
     </section>
 
@@ -205,88 +197,7 @@
       <span class="divider-diamond">✦</span>
     </div>
 
-    <!-- ================================================================
-         STUDIO DISCIPLINES & CURATED PORTALS (Directing to subpages)
-         ================================================================ -->
-    <section class="section home-portals-section" id="disciplines">
-      <div class="container">
-        <div class="section-header text-center reveal-on-scroll">
-          <div class="eyebrow">✦ Studio Disciplines</div>
-          <h2 class="section-title">Explore the Folio</h2>
-          <p class="section-subtitle">
-            Two complementary studio practices grounded in tactile repetition, raw surfaces, and mindful observation.
-          </p>
-        </div>
-
-        <div class="home-portals-grid reveal-on-scroll stagger-1">
-          <!-- Portal 1: Prints -->
-          <a href="prints.html" class="home-portal-card" aria-label="Explore Limited Edition Relief Prints">
-            <span class="portal-tag">Catalogue Raisonné</span>
-            <h3 class="portal-title">Limited Edition Prints</h3>
-            <p class="portal-desc">
-              Original relief linocut prints hand-carved on battleship linoleum and pressed onto museum-grade 250gsm Somerset Velvet and 300gsm Indian Khadi cotton rag paper in small, signed editions.
-            </p>
-            <span class="portal-link-action">
-              <span>Explore Selected Prints</span>
-              <span aria-hidden="true">↗</span>
-            </span>
-          </a>
-
-          <!-- Portal 2: Paintings -->
-          <a href="paintings.html" class="home-portal-card" aria-label="Explore Paintings & Works on Canvas">
-            <span class="portal-tag">Studio Practice</span>
-            <h3 class="portal-title">Paintings on Raw Linen</h3>
-            <p class="portal-desc">
-              Investigating domestic geometries, light intervals, and quiet microspaces layered with natural earth pigments, mineral powders, and oils across stretched Belgian linen.
-            </p>
-            <span class="portal-link-action">
-              <span>View Works on Canvas</span>
-              <span aria-hidden="true">↗</span>
-            </span>
-          </a>
-        </div>
-
-        <!-- Studio Explorations Strip -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; max-width: 1120px; margin-inline: auto; margin-top: 2rem;" class="reveal-on-scroll stagger-2">
-          <a href="about.html" class="home-portal-card" style="padding: 1.5rem; gap: 0.6rem;">
-            <span class="portal-tag" style="font-size: 0.68rem;">Philosophy</span>
-            <h4 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--forest-ink); margin: 0;">About the Artist</h4>
-            <p style="font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; margin: 0;">
-              Slow craftsmanship, Japanese gouges, and the meditative studio process behind every print.
-            </p>
-            <span class="portal-link-action" style="font-size: 0.78rem;">Read Biography ↗</span>
-          </a>
-
-          <a href="commissions.html" class="home-portal-card" style="padding: 1.5rem; gap: 0.6rem;">
-            <span class="portal-tag" style="font-size: 0.68rem;">Bespoke Works</span>
-            <h4 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--forest-ink); margin: 0;">Custom Commissions</h4>
-            <p style="font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; margin: 0;">
-              Architectural home portraits, ex-libris bookplates, and custom wedding keepsake suites.
-            </p>
-            <span class="portal-link-action" style="font-size: 0.78rem;">Commission Details ↗</span>
-          </a>
-
-          <a href="contact.html" class="home-portal-card" style="padding: 1.5rem; gap: 0.6rem;">
-            <span class="portal-tag" style="font-size: 0.68rem;">Inquiries</span>
-            <h4 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--forest-ink); margin: 0;">Contact & FAQ</h4>
-            <p style="font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; margin: 0;">
-              Direct WhatsApp chat, framing advice, transit packaging guarantees, and studio visits.
-            </p>
-            <span class="portal-link-action" style="font-size: 0.78rem;">Get in Touch ↗</span>
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Gallery Architectural Divider -->
-    <div class="gallery-divider" aria-hidden="true">
-      <span class="divider-diamond">✦</span>
-    </div>
-
-    <!-- ================================================================
-         INSTAGRAM FEED STRIP
-         ================================================================ -->
+    <!-- Instagram Feed Strip -->
     <section class="section insta-strip-section" id="instagram">
       <div class="container">
         <div class="section-header text-center reveal-on-scroll">
@@ -320,9 +231,7 @@
 
   </main>
 
-  <!-- ====================================================================
-       SITE FOOTER
-       ==================================================================== -->
+  <!-- Site Footer -->
   <footer class="site-footer" id="contact">
     <div class="container">
       <div class="footer-grid">
@@ -387,12 +296,9 @@
     </div>
   </footer>
 
-  <!-- ====================================================================
-       SLIDE-IN CART DRAWER & OVERLAY
-       ==================================================================== -->
+  <!-- Slide-In Cart Drawer & Overlay -->
   <div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
   <aside class="cart-drawer" id="cart-drawer" role="dialog" aria-label="Shopping Cart">
-    <!-- Drawer Header -->
     <div class="cart-drawer-header">
       <h3 class="cart-drawer-title">
         <span>Your Print Bag</span>
@@ -401,7 +307,6 @@
       <button class="cart-close-btn" id="cart-close-btn" aria-label="Close cart">&times;</button>
     </div>
 
-    <!-- Free Shipping Progress Tracker -->
     <div class="cart-shipping-banner">
       <span id="shipping-note-text">Add items for Free Shipping across India!</span>
       <div class="shipping-progress-track">
@@ -409,12 +314,10 @@
       </div>
     </div>
 
-    <!-- Cart Line Items -->
     <div class="cart-items-list" id="cart-items-container">
       <!-- Injected by cart.js -->
     </div>
 
-    <!-- Empty State -->
     <div class="cart-empty-state" id="cart-empty-state">
       <svg class="cart-empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
         <circle cx="12" cy="12" r="10"></circle>
@@ -425,11 +328,10 @@
         Take your time browsing our hand-carved limited editions.
       </p>
       <a href="prints.html" class="btn btn-sm btn-primary" onclick="window.studioCart.close();">
-        Explore Prints ✦
+        Explore Artworks ✦
       </a>
     </div>
 
-    <!-- Drawer Footer / Checkout -->
     <div class="cart-drawer-footer" id="cart-drawer-footer">
       <div class="cart-subtotal-row">
         <span>Subtotal</span>
@@ -437,12 +339,10 @@
       </div>
 
       <div class="cart-checkout-actions">
-        <!-- Option A: WhatsApp Instant Order -->
         <button class="btn btn-whatsapp btn-full btn-lg" id="whatsapp-checkout-btn">
           <span>Order on WhatsApp 💬</span>
         </button>
 
-        <!-- Option B: Direct Pay / UPI -->
         <button class="btn btn-ink btn-full" id="pay-now-checkout-btn">
           <span>Pay via Direct UPI / QR ⚡</span>
         </button>
@@ -455,16 +355,12 @@
     </div>
   </aside>
 
-  <!-- ====================================================================
-       ARTWORK DETAIL MODAL (LIGHTBOX)
-       ==================================================================== -->
+  <!-- Artwork Detail Modal (Lightbox) -->
   <div class="modal-overlay" id="artwork-modal-overlay" role="dialog" aria-modal="true" aria-label="Artwork Details">
     <div class="modal-dialog" id="artwork-modal-dialog"></div>
   </div>
 
-  <!-- ====================================================================
-       SCRIPTS (Plain Vanilla JS, Zero Build Step, Zero CORS Issues)
-       ==================================================================== -->
+  <!-- Scripts -->
   <script src="assets/data/products.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/gallery.js"></script>
