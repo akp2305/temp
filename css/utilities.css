@@ -227,96 +227,96 @@ section[id] {
     height: 16px;
   }
 
-  /* Featured Work Showcase on Mobile */
-  .hero-showcase-wrap {
-    width: 100%;
-    max-width: 100%;
-    margin-inline: 0;
+  /* Editorial Hero & Featured Work Showcase on Mobile */
+  .hero-portfolio-section {
+    padding-top: 1.25rem;
+    padding-bottom: 2rem;
   }
 
-  .hero-showcase-frame {
-    padding: 0.85rem;
-    border-radius: var(--radius-sm);
-    box-shadow: 0 8px 24px rgba(18, 35, 26, 0.1);
+  .portfolio-folio-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    padding-bottom: 0.65rem;
+    margin-bottom: 1rem;
   }
 
-  .hero-showcase-stage {
-    aspect-ratio: 1 / 1;
-    max-height: 320px;
-    width: 100%;
-    background-color: var(--surface-canvas);
-    border-radius: var(--radius-xs);
-    border: 1px solid rgba(197, 164, 118, 0.25);
-    touch-action: pan-y;
+  .portfolio-folio-header .folio-right {
+    display: none; /* Hide hover hint on mobile touch devices */
+  }
+
+  .hero-artwork-spread {
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-artwork-stage {
+    min-height: 280px;
+    max-height: 50vh;
+    padding: 0.65rem;
+    aspect-ratio: auto;
   }
 
   .hero-showcase-img {
+    max-height: 46vh;
     width: 100%;
-    height: 100%;
     object-fit: contain;
-    padding: 0.45rem;
+    padding: 0;
   }
 
   .hero-loupe-badge {
-    display: none !important; /* Hide badge on touchscreens for clean image view */
+    bottom: 8px;
+    left: 8px;
+    font-size: 0.62rem;
+    padding: 0.25rem 0.65rem;
   }
 
-  .hero-showcase-caption {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.65rem;
-    margin-top: 0.85rem;
+  .hero-portfolio-meta-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding-block: 1rem 1.25rem;
   }
 
-  .hero-meta-top {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
+  .artist-statement-text {
+    font-size: clamp(1.15rem, 4.5vw, 1.35rem);
+    line-height: 1.45;
+    margin-bottom: 0.5rem;
+  }
+
+  .featured-plate-details-block {
+    padding: 1.15rem 1rem;
+  }
+
+  .hero-plate-title {
+    font-size: 1.35rem;
+  }
+
+  .hero-plate-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 0.5rem;
     width: 100%;
   }
 
-  .hero-showcase-meta h3 {
-    font-family: var(--font-display);
-    font-size: 1.22rem;
-    line-height: 1.2;
-    margin-bottom: 0;
-  }
-
-  .hero-showcase-price {
-    font-family: var(--font-display);
-    font-size: 1.18rem;
-    font-weight: 600;
-    color: var(--gold-dark);
-    white-space: nowrap;
-  }
-
-  .hero-showcase-specs {
-    font-family: var(--font-body);
-    font-size: 0.74rem;
-    color: var(--text-muted);
-    font-weight: 400;
-    margin-top: 2px;
-  }
-
-  .hero-details-btn {
+  .hero-plate-actions .btn {
     width: 100%;
     min-height: 44px;
-    font-size: 0.82rem;
-    padding: 0.75rem 1rem;
+    padding: 0.65rem 0.5rem;
+    font-size: 0.75rem;
     justify-content: center;
+    text-align: center;
   }
 
-  /* 4-segment clean mobile switcher fitting 100% of the screen */
+  .portfolio-folio-tabs,
   .hero-showcase-pills {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0.35rem;
     width: 100%;
-    margin-top: 0.65rem;
+    margin-top: 0.85rem;
     padding: 0;
   }
 
+  .portfolio-folio-tabs .showcase-pill,
   .showcase-pill {
     display: flex;
     flex-direction: column;
@@ -356,6 +356,7 @@ section[id] {
   .showcase-pill.active .pill-idx {
     color: var(--gold-light);
   }
+
 
   /* Shop Controls Bar (NON-STICKY on mobile so screen is 100% visible) */
   .shop-controls-bar {
@@ -408,10 +409,51 @@ section[id] {
     max-width: 220px;
   }
 
-  /* Artwork Grid & Cards */
+  /* Artwork Grid & Cards / Editorial Portfolio Plates */
+  .portfolio-grid,
   .artwork-grid {
     grid-template-columns: 1fr;
     gap: 1.35rem;
+  }
+
+  .portfolio-plate {
+    border-radius: var(--radius-xs);
+  }
+
+  .plate-media-frame {
+    aspect-ratio: 1 / 1.05;
+    padding: 1rem;
+  }
+
+  .plate-caption {
+    padding: 1.15rem 0.95rem;
+  }
+
+  .plate-title {
+    font-size: 1.3rem;
+  }
+
+  .plate-footer-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding-top: 0.75rem;
+  }
+
+  .plate-price {
+    font-size: 1.18rem;
+  }
+
+  .plate-actions {
+    gap: 0.5rem;
+  }
+
+  .plate-subtle-btn {
+    min-height: 40px;
+    padding: 0.45rem 0.85rem;
+    font-size: 0.74rem;
   }
 
   .artwork-card {
@@ -581,6 +623,38 @@ section[id] {
     padding: 0.85rem 1rem;
   }
 
+  /* Paintings Section on Mobile */
+  .paintings-card-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .paintings-editorial-card {
+    padding: 1.35rem 1rem;
+  }
+
+  .paintings-card-title {
+    font-size: 1.45rem;
+  }
+
+  .paintings-cta-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    width: 100%;
+  }
+
+  .paintings-cta-wrap .btn {
+    width: 100%;
+    min-height: 44px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .paintings-preview-frame {
+    padding: 1.25rem 1rem;
+  }
+
   /* About the Artist */
   .about-grid {
     grid-template-columns: 1fr;
@@ -724,29 +798,28 @@ section[id] {
     min-height: 44px;
   }
 
-  /* Hero Section on Tablet */
-  .hero-grid {
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
+  /* Editorial Hero on Tablet */
+  .hero-artwork-stage {
+    min-height: 380px;
+    max-height: 56vh;
+  }
+
+  .hero-portfolio-meta-grid {
+    grid-template-columns: 1.1fr 0.9fr;
     gap: 2rem;
   }
 
-  .hero-title {
-    font-size: clamp(2.4rem, 4.5vw, 3.2rem);
-  }
-
-  .hero-desc {
-    font-size: var(--text-sm);
-  }
-
-  .hero-actions .btn {
-    padding: 0.85rem 1.5rem;
-  }
-
   /* 2x2 Artwork Grid for the 4 Authentic Editions */
+  .portfolio-grid,
   .artwork-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.75rem;
+  }
+
+  /* Paintings Section on Tablet */
+  .paintings-card-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
   /* Modal on Tablet */
@@ -824,9 +897,10 @@ section[id] {
     align-items: center;
   }
 
+  .portfolio-grid,
   .artwork-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2rem;
+    gap: 2.25rem;
   }
 
   .process-grid {
@@ -858,6 +932,12 @@ section[id] {
     grid-template-columns: 1.15fr 0.85fr;
     gap: 4.5rem;
     align-items: center;
+  }
+
+  /* Editorial Selected Works 2-column monograph layout */
+  .portfolio-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3.5rem;
   }
 
   /* All 4 authentic artworks lined up in an exhibition row */
@@ -920,14 +1000,14 @@ section[id] {
     font-size: 2rem;
   }
 
-  .hero-showcase-frame {
-    padding: 0.65rem;
-  }
-
+  .hero-artwork-stage,
   .hero-showcase-stage {
-    max-height: 280px;
+    min-height: 240px;
+    max-height: 44vh;
+    padding: 0.5rem;
   }
 
+  .portfolio-folio-tabs .showcase-pill,
   .showcase-pill {
     padding: 0.35rem 0.15rem;
     min-height: 40px;
@@ -939,6 +1019,14 @@ section[id] {
 
   .showcase-pill .pill-title {
     font-size: 0.58rem;
+  }
+
+  .plate-caption {
+    padding: 1rem 0.75rem;
+  }
+
+  .plate-title {
+    font-size: 1.18rem;
   }
 
   .card-body {

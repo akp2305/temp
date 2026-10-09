@@ -47,12 +47,12 @@ function injectStructuredData() {
       {
         "@type": "VisualArtwork",
         "@id": "https://anishakhanduja.com/#studio",
-        "name": "Anisha Khanduja Printmaking Studio",
-        "description": "Original, handcrafted limited-edition linocut prints hand-pulled on archival cotton rag paper.",
+        "name": "Anisha Khanduja Studio",
+        "description": "Contemporary Artist · Printmaker · Painter. Limited-edition relief linocut prints and paintings on canvas.",
         "artist": {
           "@type": "Person",
           "name": "Anisha Khanduja",
-          "jobTitle": "Printmaker & Visual Artist"
+          "jobTitle": "Contemporary Artist · Printmaker · Painter"
         }
       },
       ...products.map(p => ({

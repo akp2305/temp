@@ -93,35 +93,34 @@ function initHeroShowcase() {
     {
       id: "piece-01",
       title: "Ordinary Objects - I",
-      meta: "A/P Edition of 8 · Somerset Velvet Paper",
+      meta: "Hand-pulled relief linocut on 250gsm Somerset Velvet 100% cotton rag paper · 2024",
       price: "₹3,400",
       image: "assets/img/prints/ordinary-objects-1.jpg"
     },
     {
       id: "piece-02",
       title: "Moon",
-      meta: "A/P Edition of 6 · Indian Khadi Cotton Rag",
+      meta: "Original relief print on 300gsm Indian Khadi cotton rag paper · 2024",
       price: "₹2,600",
       image: "assets/img/prints/moon.jpg"
     },
     {
       id: "piece-03",
       title: "Ordinary Objects - III",
-      meta: "A/P Edition of 7 · Fabriano Rosaspina Paper",
+      meta: "Original relief linocut on 280gsm Fabriano Rosaspina archival paper · 2024",
       price: "₹3,800",
       image: "assets/img/prints/ordinary-objects-3.png"
     },
     {
       id: "piece-04",
       title: "Shelter",
-      meta: "A/P Edition of 6 · Somerset Satin Paper",
+      meta: "Two-plate relief linocut on 250gsm Somerset Satin cotton paper · 2024",
       price: "₹3,200",
       image: "assets/img/prints/shelter.png"
     }
   ];
 
   let currentIndex = 0;
-  let autoTimer = null;
   let isHovered = false;
 
   function switchArtwork(index) {
@@ -133,7 +132,7 @@ function initHeroShowcase() {
     img.classList.add("fade-out");
     setTimeout(() => {
       img.src = art.image;
-      img.alt = `${art.title} - original linocut print`;
+      img.alt = `${art.title} — original linocut print by Anisha Khanduja`;
       if (titleEl) titleEl.textContent = art.title;
       if (metaEl) metaEl.textContent = art.meta;
       if (priceEl) priceEl.textContent = art.price;
@@ -161,7 +160,6 @@ function initHeroShowcase() {
   pills.forEach((pill, idx) => {
     pill.addEventListener("click", () => {
       switchArtwork(idx);
-      resetAutoPlay();
     });
   });
 
@@ -224,23 +222,7 @@ function initHeroShowcase() {
     }
   }
 
-  // Gentle auto-rotation every 6s
-  function startAutoPlay() {
-    autoTimer = setInterval(() => {
-      if (!isHovered && !document.hidden) {
-        const next = (currentIndex + 1) % artworks.length;
-        switchArtwork(next);
-      }
-    }, 6000);
-  }
-
-  function resetAutoPlay() {
-    if (autoTimer) clearInterval(autoTimer);
-    startAutoPlay();
-  }
-
-  startAutoPlay();
-  // Initial setup
+  // Initial setup with Object 1
   switchArtwork(0);
 }
 

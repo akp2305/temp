@@ -9,7 +9,7 @@ Designed with a high-end, luxury fine art atelier aesthetic. Refined, tactile, a
 ## 🎨 Brand & Design System
 
 - **Brand Name:** Anisha Khanduja
-- **Tagline:** *"Original, Handcrafted."*
+- **Tagline:** *"Contemporary Artist · Printmaker · Painter"*
 - **Aesthetic:** Prestigious fine art atelier, tactile archival elegance, gallery-grade craftsmanship.
 - **Color Palette (defined in `css/tokens.css`):**
   - Heritage Dark Forest Green (Dominant Brand): `#14281D` / `#1A3528` / `#264C39`

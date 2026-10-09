@@ -157,50 +157,46 @@ class StudioGallery {
     return list;
   }
 
+  getMediumSummary(product) {
+    if (product.id === "piece-01") return "Relief linocut on 250gsm Somerset Velvet cotton rag";
+    if (product.id === "piece-02") return "Relief print on 300gsm Indian Khadi handmade rag";
+    if (product.id === "piece-03") return "Relief linocut on 280gsm Fabriano Rosaspina paper";
+    if (product.id === "piece-04") return "Two-plate relief linocut on Somerset Satin paper";
+    return "Original relief linocut on archival cotton rag";
+  }
+
   renderCardHtml(product, isFeatured = false) {
     const isSold = product.status === "sold";
-    const isFav = this.favorites.includes(product.id);
-
-    // Dynamic sticker badge
-    let badgeHtml = "";
-    if (isSold) {
-      badgeHtml = `<span class="sticker sticker-sold sticker-rotate-left">Sold Out</span>`;
-    } else if (product.editionNumberAvailable === 1) {
-      badgeHtml = `<span class="sticker sticker-limited sticker-rotate-right">Last 1 Left!</span>`;
-    } else if (product.featured) {
-      badgeHtml = `<span class="sticker sticker-edition sticker-rotate-alt">Ed. of ${product.editionSize}</span>`;
-    } else {
-      badgeHtml = `<span class="sticker sticker-new sticker-rotate-left">Limited Ed.</span>`;
-    }
+    const mediumText = this.getMediumSummary(product);
+    const plateIndex = product.id.replace("piece-0", "Plate ");
 
     return `
-      <article class="artwork-card ${isSold ? 'is-sold' : ''}" data-id="${product.id}">
-        <div class="card-media-wrap" data-open-modal="${product.id}">
-          <img class="card-img" src="${product.images[0]}" alt="${product.title} - original linocut print" loading="lazy" width="400" height="420">
-          <div class="card-badges">
-            ${badgeHtml}
+      <article class="portfolio-plate ${isSold ? 'is-archived' : ''}" data-id="${product.id}">
+        <div class="plate-media-frame" data-open-modal="${product.id}" title="Click to view artwork details and full plate">
+          <div class="plate-mat">
+            <img class="plate-img" src="${product.images[0]}" alt="${product.title} — original linocut print by Anisha Khanduja" loading="lazy" width="480" height="520">
           </div>
-          <button class="fav-btn ${isFav ? 'active' : ''}" data-id="${product.id}" aria-label="${isFav ? 'Remove from favorites' : 'Save to favorites'}">
-            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-          </button>
+          <div class="plate-inspect-hint">Inspect Plate ↗</div>
         </div>
-        <div class="card-body">
-          <span class="card-collection">${product.collection}</span>
-          <h3 class="card-title" data-open-modal="${product.id}" style="cursor:pointer;">${product.title}</h3>
-          <p class="card-specs">${product.dimensions} · Relief Print</p>
-          <div class="card-footer">
-            <div class="card-price-block">
-              <span class="card-price">${product.currency}${product.price.toLocaleString("en-IN")}</span>
-              <span class="card-edition-note">
-                ${isSold ? 'Archived (Edition Sold)' : `${product.editionNumberAvailable} of ${product.editionSize} available`}
-              </span>
-            </div>
-            <div class="card-actions">
+        <div class="plate-caption">
+          <div class="plate-caption-header">
+            <span class="plate-num">${plateIndex}</span>
+            <span class="plate-edition-tag">${isSold ? 'Archived · Sold Out' : `Edition of ${product.editionSize}`}</span>
+          </div>
+          <h3 class="plate-title" data-open-modal="${product.id}">${product.title}</h3>
+          <p class="plate-medium-year">${mediumText} · 2024</p>
+          <p class="plate-dimensions">${product.dimensions}</p>
+          <div class="plate-footer-row">
+            <span class="plate-price">${product.currency}${product.price.toLocaleString("en-IN")}</span>
+            <div class="plate-actions">
+              <button class="plate-text-btn" data-open-modal="${product.id}">
+                View Details ↗
+              </button>
               ${isSold ? `
-                <button class="btn btn-sm btn-secondary" data-ask-reprint="${product.id}">Inquire</button>
+                <button class="plate-subtle-btn" data-ask-reprint="${product.id}">Inquire</button>
               ` : `
-                <button class="btn btn-sm btn-primary add-to-cart-btn" data-id="${product.id}">
-                  Add to Cart
+                <button class="plate-subtle-btn add-to-cart-btn" data-id="${product.id}">
+                  Acquire ✦
                 </button>
               `}
             </div>
@@ -241,7 +237,7 @@ class StudioGallery {
     // Open modal triggers
     container.querySelectorAll("[data-open-modal]").forEach(el => {
       el.addEventListener("click", () => {
-        const id = el.dataset.openModal || el.closest(".artwork-card").dataset.id;
+        const id = el.dataset.openModal || (el.closest(".portfolio-plate, .artwork-card") && el.closest(".portfolio-plate, .artwork-card").dataset.id);
         const product = this.products.find(p => p.id === id);
         if (product) this.openModal(product);
       });
