@@ -890,7 +890,7 @@ section[id] {
 @media (min-width: 992px) and (max-width: 1199px) {
   .site-nav {
     display: flex !important;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
   .menu-toggle {
