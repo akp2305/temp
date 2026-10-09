@@ -113,10 +113,11 @@ function initHeroShowcase() {
       lens.style.top = `${Math.max(20, Math.min(rect.height - 20, y))}px`;
 
       // Position zoomed image inside lens
+      const halfLens = (lens.offsetWidth ? lens.offsetWidth / 2 : 80);
       const bgW = rect.width * zoomFactor;
       const bgH = rect.height * zoomFactor;
-      const bgX = -(x * zoomFactor - 75);
-      const bgY = -(y * zoomFactor - 75);
+      const bgX = -(x * zoomFactor - halfLens);
+      const bgY = -(y * zoomFactor - halfLens);
 
       lens.style.backgroundSize = `${bgW}px ${bgH}px`;
       lens.style.backgroundPosition = `${bgX}px ${bgY}px`;

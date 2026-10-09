@@ -309,7 +309,9 @@
   box-shadow: -8px 0 24px rgba(43, 37, 48, 0.15);
   z-index: calc(var(--drawer-z) + 1);
   transform: translateX(100%);
-  transition: transform var(--transition-smooth);
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform var(--transition-smooth), visibility var(--transition-smooth);
   display: flex;
   flex-direction: column;
   padding: 2rem 1.5rem;
@@ -320,6 +322,8 @@
 
 .mobile-nav-panel.open {
   transform: translateX(0);
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .mobile-nav-header {
@@ -681,6 +685,7 @@
   width: 100%;
   max-width: 100%;
   margin: 0;
+  padding: 0;
   overflow: hidden;
 }
 
@@ -690,32 +695,30 @@
   max-width: 100%;
   margin: 0;
   background-color: var(--surface-canvas);
-  border-bottom: 1px solid rgba(26, 53, 40, 0.08);
   overflow: hidden;
   cursor: crosshair;
   touch-action: pan-y;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   padding: 0;
 }
 
 .hero-artwork-mat {
   position: relative;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
+  margin: 0;
+  padding: 0;
 }
 
 .hero-showcase-img {
   width: 100%;
   height: auto;
-  max-height: 86vh;
-  object-fit: cover;
+  aspect-ratio: 1086 / 841;
+  object-fit: contain;
   object-position: center;
   display: block;
   margin: 0;
+  padding: 0;
   box-shadow: none;
   transition: opacity 0.28s ease, transform 0.35s ease;
 }
@@ -1892,7 +1895,9 @@
   box-shadow: -15px 0 45px rgba(14, 26, 20, 0.25);
   z-index: calc(var(--drawer-z) + 1);
   transform: translateX(100%);
-  transition: transform var(--transition-smooth);
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform var(--transition-smooth), visibility var(--transition-smooth);
   display: flex;
   flex-direction: column;
   overscroll-behavior: contain;
@@ -1900,6 +1905,8 @@
 
 .cart-drawer.open {
   transform: translateX(0);
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .cart-drawer-header {
