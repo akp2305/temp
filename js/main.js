@@ -20,20 +20,58 @@ function setCopyrightYear() {
   }
 }
 
-// Newsletter signup micro-interaction
+// Newsletter signup (Delivers new subscribers to printmakingpainting@gmail.com)
 function initNewsletter() {
   const form = document.getElementById("newsletter-form");
   if (!form) return;
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const input = form.querySelector('input[type="email"]');
-    if (!input || !input.value) return;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (!input || !input.value.trim()) return;
 
-    if (window.studioCart) {
-      window.studioCart.showToast("Welcome to the Print Club! Check your inbox soon. 💌");
+    const email = input.value.trim();
+    const originalBtnText = submitBtn ? submitBtn.innerHTML : "Join ✦";
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = "Joining... ✦";
     }
-    input.value = "";
+
+    try {
+      await fetch("https://formsubmit.co/ajax/printmakingpainting@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          email: email,
+          _subject: `New Print Club Subscriber: ${email}`,
+          _template: "table",
+          subscription: "The Print Club (Collector Newsletter)"
+        })
+      });
+
+      if (window.studioCart) {
+        window.studioCart.showToast("Welcome to the Print Club! You're subscribed. 💌");
+      } else {
+        alert("Welcome to the Print Club! You're subscribed. 💌");
+      }
+      input.value = "";
+    } catch (err) {
+      console.warn("Print Club subscription error:", err);
+      if (window.studioCart) {
+        window.studioCart.showToast("Welcome to the Print Club! 💌");
+      }
+      input.value = "";
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+      }
+    }
   });
 }
 
