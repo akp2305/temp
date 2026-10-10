@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initSmoothScroll();
   initPrintsHeroCarousel();
   initPrintsMediumDrilldown();
+  initEnquiryForm();
 });
 
 // 1. Sticky Header
@@ -584,5 +585,66 @@ function initPrintsMediumDrilldown() {
   // Default: activate linocut initially with open arrow
   openMedium("linocut", false);
 }
+
+// 10. Contact Enquiry Form Handler
+function initEnquiryForm() {
+  const form = document.getElementById("enquiry-form");
+  const statusEl = document.getElementById("enquiry-status");
+  if (!form) return;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const nameInput = form.querySelector("#enquiry-name");
+    const emailInput = form.querySelector("#enquiry-email");
+    const typeInput = form.querySelector("#enquiry-type");
+    const messageInput = form.querySelector("#enquiry-message");
+
+    const name = nameInput ? nameInput.value.trim() : "";
+    const email = emailInput ? emailInput.value.trim() : "";
+    const type = typeInput ? typeInput.value.trim() : "";
+    const message = messageInput ? messageInput.value.trim() : "";
+
+    if (!name || !email || !message) {
+      if (statusEl) {
+        statusEl.className = "form-status-msg";
+        statusEl.style.display = "block";
+        statusEl.style.backgroundColor = "rgba(180, 50, 50, 0.1)";
+        statusEl.style.color = "#8b2020";
+        statusEl.style.border = "1px solid rgba(180, 50, 50, 0.25)";
+        statusEl.textContent = "Please fill in all required fields (Name, Email, and Message).";
+      }
+      return;
+    }
+
+    // Success response
+    if (statusEl) {
+      statusEl.className = "form-status-msg success";
+      statusEl.style.display = "block";
+      statusEl.style.backgroundColor = "";
+      statusEl.style.color = "";
+      statusEl.style.border = "";
+      statusEl.innerHTML = `
+        <strong>Thank you, ${escapeHtml(name)}! ✦</strong><br>
+        Your enquiry regarding <em>${escapeHtml(type || "artworks")}</em> has been received. Anisha will get back to you shortly at <em>${escapeHtml(email)}</em>.<br>
+        <span style="display: inline-block; margin-top: 0.65rem; font-size: 0.88rem;">
+          Need an immediate response? <a href="https://wa.me/919897455555?text=${encodeURIComponent(`Hi Anisha, I submitted an enquiry for ${type || 'artworks'}: ${message}`)}" target="_blank" rel="noopener" style="color: var(--forest-ink); font-weight: 600; text-decoration: underline;">Continue on WhatsApp Studio &rarr;</a>
+        </span>
+      `;
+    }
+
+    form.reset();
+  });
+}
+
+function escapeHtml(str) {
+  return str.replace(/[&<>"']/g, (m) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  }[m]));
+}
+
 
 
