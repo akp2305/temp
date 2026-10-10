@@ -107,6 +107,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: var(--leading-tight);
   color: var(--forest-ink);
   letter-spacing: -0.01em;
+  text-wrap: balance;
 }
 
 h1 {
@@ -134,12 +135,14 @@ h4 {
 p {
   color: var(--text-muted);
   line-height: var(--leading-normal);
+  text-wrap: pretty;
 }
 
 p.lead {
   font-size: var(--text-md);
   color: var(--text-muted);
   line-height: var(--leading-relaxed);
+  text-wrap: pretty;
 }
 
 /* Elegant editorial note accent in Cormorant Garamond italic */
@@ -224,11 +227,16 @@ section[id] {
 
 .section-title {
   margin-bottom: 0.85rem;
+  text-wrap: balance;
 }
 
 .section-subtitle {
   font-size: var(--text-md);
   color: var(--text-muted);
+  text-wrap: pretty;
+  max-width: 640px;
+  margin-inline: auto;
+  line-height: var(--leading-relaxed);
 }
 
 /* Architectural Gallery Divider */
