@@ -586,13 +586,14 @@ function initPrintsMediumDrilldown() {
   openMedium("linocut", false);
 }
 
-// 10. Contact Enquiry Form Handler
+// 10. Contact Enquiry Form Handler (Delivers directly to printmakingpainting@gmail.com)
 function initEnquiryForm() {
   const form = document.getElementById("enquiry-form");
   const statusEl = document.getElementById("enquiry-status");
+  const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
   if (!form) return;
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const nameInput = form.querySelector("#enquiry-name");
     const emailInput = form.querySelector("#enquiry-email");
@@ -616,23 +617,80 @@ function initEnquiryForm() {
       return;
     }
 
-    // Success response
-    if (statusEl) {
-      statusEl.className = "form-status-msg success";
-      statusEl.style.display = "block";
-      statusEl.style.backgroundColor = "";
-      statusEl.style.color = "";
-      statusEl.style.border = "";
-      statusEl.innerHTML = `
-        <strong>Thank you, ${escapeHtml(name)}! ✦</strong><br>
-        Your enquiry regarding <em>${escapeHtml(type || "artworks")}</em> has been received. Anisha will get back to you shortly at <em>${escapeHtml(email)}</em>.<br>
-        <span style="display: inline-block; margin-top: 0.65rem; font-size: 0.88rem;">
-          Need an immediate response? <a href="https://wa.me/919897455555?text=${encodeURIComponent(`Hi Anisha, I submitted an enquiry for ${type || 'artworks'}: ${message}`)}" target="_blank" rel="noopener" style="color: var(--forest-ink); font-weight: 600; text-decoration: underline;">Continue on WhatsApp Studio &rarr;</a>
-        </span>
-      `;
+    // Set loading state on button
+    const originalBtnText = submitBtn ? submitBtn.innerHTML : "Send Enquiry ✦";
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = "Sending enquiry... ✦";
     }
 
-    form.reset();
+    if (statusEl) {
+      statusEl.style.display = "none";
+    }
+
+    const payload = {
+      name: name,
+      email: email,
+      enquiry_type: type || "Artwork / General Enquiry",
+      message: message,
+      _subject: `New Enquiry from ${name} [${type || 'Studio Artwork'}]`,
+      _template: "table"
+    };
+
+    try {
+      // POST directly to FormSubmit endpoint configured for printmakingpainting@gmail.com
+      const response = await fetch("https://formsubmit.co/ajax/printmakingpainting@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (statusEl) {
+        statusEl.className = "form-status-msg success";
+        statusEl.style.display = "block";
+        statusEl.style.backgroundColor = "";
+        statusEl.style.color = "";
+        statusEl.style.border = "";
+
+        const isActivationNotice = result && result.message && result.message.toLowerCase().includes("activation");
+
+        statusEl.innerHTML = `
+          <strong>Thank you, ${escapeHtml(name)}! ✦</strong><br>
+          Your enquiry regarding <em>${escapeHtml(type || "artworks")}</em> has been sent to <strong>printmakingpainting@gmail.com</strong>. Anisha will get back to you shortly.<br>
+          ${isActivationNotice ? '<p style="margin: 0.5rem 0 0; font-size: 0.82rem; color: var(--forest-primary);"><em>Notice: If this is your first submission, FormSubmit has sent a 1-click activation link to printmakingpainting@gmail.com.</em></p>' : ''}
+          <span style="display: inline-block; margin-top: 0.65rem; font-size: 0.88rem;">
+            Need an immediate response? <a href="https://wa.me/919897455555?text=${encodeURIComponent(`Hi Anisha, I sent an enquiry regarding ${type || 'artworks'}: ${message}`)}" target="_blank" rel="noopener" style="color: var(--forest-ink); font-weight: 600; text-decoration: underline;">Continue on WhatsApp Studio &rarr;</a>
+          </span>
+        `;
+      }
+
+      form.reset();
+
+    } catch (err) {
+      console.warn("FormSubmit fetch error:", err);
+      // Fallback: Show friendly confirmation with direct mailto fallback
+      if (statusEl) {
+        statusEl.className = "form-status-msg success";
+        statusEl.style.display = "block";
+        statusEl.innerHTML = `
+          <strong>Thank you, ${escapeHtml(name)}! ✦</strong><br>
+          Your message is prepared. You can also send directly via email:<br>
+          <a href="mailto:printmakingpainting@gmail.com?subject=${encodeURIComponent(`Enquiry: ${type || 'Artwork'} - ${name}`)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\nEnquiry Type: ${type}\n\nMessage:\n${message}`)}" class="btn btn-secondary btn-sm" style="margin-top: 0.65rem; display: inline-flex;">
+            Open in Gmail / Mail App ↗
+          </a>
+        `;
+      }
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+      }
+    }
   });
 }
 

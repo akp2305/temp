@@ -159,7 +159,13 @@
             </p>
           </div>
 
-          <form class="enquiry-form" id="enquiry-form" novalidate>
+          <form class="enquiry-form" id="enquiry-form" action="https://formsubmit.co/printmakingpainting@gmail.com" method="POST" novalidate>
+            <!-- FormSubmit Email Delivery Configuration -->
+            <input type="hidden" name="_subject" id="enquiry-hidden-subject" value="New Artwork Enquiry — Anisha Khanduja Studio">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
             <div class="form-group">
               <label for="enquiry-name" class="form-label">Your Name</label>
               <input type="text" id="enquiry-name" name="name" class="form-input" placeholder="e.g. Priyanshu Sharma" required autocomplete="name">
@@ -172,7 +178,7 @@
 
             <div class="form-group">
               <label for="enquiry-type" class="form-label">Enquiry Type</label>
-              <select id="enquiry-type" name="type" class="form-select" required>
+              <select id="enquiry-type" name="enquiry_type" class="form-select" required>
                 <option value="" disabled selected>Select an enquiry type...</option>
                 <option value="Artwork Acquisition">Artwork Acquisition &amp; Available Editions</option>
                 <option value="Commissions & Bespoke Projects">Commissions &amp; Bespoke Projects</option>
@@ -188,7 +194,7 @@
               <textarea id="enquiry-message" name="message" class="form-textarea" rows="5" placeholder="Tell me about your project, wall space, or artwork enquiry..." required></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 0.95rem 1.5rem; font-size: 0.95rem;">
+            <button type="submit" id="enquiry-submit-btn" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 0.95rem 1.5rem; font-size: 0.95rem;">
               Send Enquiry ✦
             </button>
 
