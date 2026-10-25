@@ -207,12 +207,12 @@ section[id] {
 }
 
 .section {
-  padding-block: clamp(3.5rem, 7vw, 7rem);
+  padding-block: clamp(1.75rem, 3.2vw, 3rem);
   position: relative;
 }
 
 .section-header {
-  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: clamp(1.25rem, 2.2vw, 2rem);
   max-width: 680px;
 }
 
@@ -247,7 +247,7 @@ section[id] {
   width: 100%;
   max-width: var(--container-max);
   margin: 0 auto;
-  padding-block: clamp(1.25rem, 2.5vw, 2rem);
+  padding-block: clamp(0.4rem, 0.8vw, 0.75rem);
   position: relative;
 }
 

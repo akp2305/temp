@@ -80,7 +80,7 @@ section[id] {
 
   /* Compact section vertical rhythm */
   .section {
-    padding-block: clamp(2.5rem, 5vw, 3.5rem);
+    padding-block: clamp(1.5rem, 3.5vw, 2.25rem);
   }
 
   /* Announcement Bar */
@@ -864,9 +864,11 @@ section[id] {
     gap: 0.75rem;
   }
 
-  /* Prints Page Mobile Layout */
+  /* Prints & Paintings Page Mobile Layout (Full Bleed) */
   .prints-hero-carousel {
-    height: clamp(280px, 68vw, 420px);
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1086 / 841;
   }
 
   .prints-hero-nav-btn {
@@ -885,6 +887,8 @@ section[id] {
   .selected-editions-grid,
   .all-prints-profiles-grid {
     grid-template-columns: 1fr !important;
+    max-width: 440px;
+    margin-inline: auto;
     gap: 1.25rem !important;
   }
 

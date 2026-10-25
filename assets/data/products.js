@@ -269,30 +269,6 @@ const STUDIO_PRODUCTS = [
     ]
   },
 
-  // --------------------------------------------------------------------
-  // SCREEN PRINTING EDITIONS
-  // --------------------------------------------------------------------
-  {
-    id: "screen-printing",
-    slug: "screen-printing",
-    title: "Screen Printing",
-    category: "screenprinting",
-    theme: "Architectural color planes",
-    year: "2026",
-    medium: "Screen Printing on Archival Art Paper",
-    paper: "300gsm Heavyweight Archival Cotton Stock",
-    dimensions: "Frame: 45 × 35 cm · Print: 30 × 20 cm",
-    frameDimensions: "45 × 35 cm",
-    printDimensions: "30 × 20 cm",
-    edition: "Limited Edition of 10",
-    editionSize: 10,
-    timeTaken: "~20 hours registration & multi-pull printing",
-    story: "Multi-layered serigraph impression exploring flat color planes, hand-pulled register precision, and the interaction of translucent artist pigments on heavy archival cotton rag paper. (Draft edition — series details to be finalized).",
-    status: "available",
-    images: [
-      "assets/img/prints/screenprint-draft.jpg"
-    ]
-  },
   {
     id: "fish-painting",
     slug: "fish-painting",

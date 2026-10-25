@@ -681,7 +681,7 @@
 /* Full Horizontal Hero Artwork Presentation (Object 1 Covers Full Horizontal Width) */
 .hero-portfolio-section {
   padding-top: 0;
-  padding-bottom: clamp(2rem, 4vw, 3.5rem);
+  padding-bottom: clamp(1.25rem, 2vw, 1.85rem);
 }
 
 .hero-fullwidth-spread {
@@ -2502,15 +2502,15 @@
    15. INSTAGRAM STRIP & INTERACTIVE POSTS / REELS SLIDESHOW
    ==================================================================== */
 .insta-strip-section {
-  padding-top: 2.5rem;
-  padding-bottom: 5rem;
+  padding-top: clamp(1.5rem, 2.5vw, 2.25rem);
+  padding-bottom: clamp(1.75rem, 3vw, 2.75rem);
   background-color: var(--surface-canvas);
 }
 
 .insta-carousel-wrap {
   position: relative;
   max-width: 1180px;
-  margin: 2.25rem auto 0;
+  margin: 1.5rem auto 0;
   padding: 0 0.5rem;
 }
 
@@ -3014,8 +3014,8 @@
    17. SUBPAGE CHAPTER HEADERS & BREADCRUMBS
    ==================================================================== */
 .page-header-section {
-  padding-top: clamp(2.5rem, 5vw, 4.5rem);
-  padding-bottom: clamp(2rem, 3.5vw, 3rem);
+  padding-top: clamp(1.75rem, 3vw, 2.5rem);
+  padding-bottom: clamp(1.25rem, 2vw, 1.75rem);
   background-color: var(--surface-canvas);
   border-bottom: 1px solid rgba(26, 53, 40, 0.10);
   text-align: center;
@@ -3051,7 +3051,7 @@
    18. HOMEPAGE CURATED PORTALS (Directing to subpages)
    ==================================================================== */
 .home-portals-section {
-  padding-block: clamp(3rem, 5vw, 5rem);
+  padding-block: clamp(1.75rem, 3vw, 2.75rem);
   background-color: var(--surface-pure);
   border-block: 1px solid rgba(26, 53, 40, 0.08);
 }
@@ -3253,7 +3253,7 @@
    ==================================================================== */
 .hero-artist-intro-wrap {
   max-width: 700px;
-  margin: clamp(2rem, 4vw, 3.25rem) auto 0 auto;
+  margin: clamp(1rem, 1.8vw, 1.5rem) auto 0 auto;
   text-align: center;
   padding-inline: 1.25rem;
 }
@@ -3271,7 +3271,7 @@
 
 /* Selected Works 4-Column Editorial Row */
 .selected-works-section {
-  padding-block: clamp(2.5rem, 5vw, 4.5rem);
+  padding-block: clamp(1.75rem, 3vw, 2.75rem);
 }
 
 .selected-works-grid {
@@ -3342,13 +3342,13 @@
   object-fit: contain;
   opacity: 0;
   transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s ease;
-  transform: scale(1);
+  transform: none;
   pointer-events: none;
 }
 
 .mini-slideshow .mini-slide.active {
   opacity: 1;
-  transform: scale(1);
+  transform: none;
   pointer-events: auto;
 }
 
@@ -3398,7 +3398,7 @@
 
 /* Home Short About Section (Parallel Layout with Anisha Khanduja Photograph) */
 .home-about-section {
-  padding-block: clamp(3rem, 5vw, 4.75rem);
+  padding-block: clamp(1.75rem, 3vw, 2.75rem);
 }
 
 .home-about-parallel-grid {
@@ -3459,7 +3459,7 @@
 
 /* Home Commissions Section (Reduced Image Size, Adjacent in Same Horizon) */
 .home-commissions-section {
-  padding-block: clamp(2.5rem, 4.5vw, 4rem);
+  padding-block: clamp(1.75rem, 3vw, 2.75rem);
 }
 
 .home-commissions-horizon-wrap {
@@ -3521,7 +3521,7 @@
    ==================================================================== */
 .prints-hero-section {
   padding-top: 0;
-  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  padding-bottom: clamp(1.25rem, 2vw, 1.85rem);
 }
 
 .prints-hero-fullwidth-spread {
@@ -3538,8 +3538,9 @@
 .prints-hero-carousel {
   position: relative;
   width: 100%;
-  height: clamp(340px, 60vw, 680px);
-  max-height: 84vh;
+  aspect-ratio: 1086 / 841;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -3554,8 +3555,9 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.65s cubic-bezier(0.25, 1, 0.5, 1), transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
-  transform: scale(0.985);
+  transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  margin: 0;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3566,7 +3568,7 @@
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: scale(1);
+  transform: none;
   z-index: 2;
 }
 
@@ -3577,19 +3579,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(0.75rem, 2vw, 1.5rem);
+  padding: 0;
+  margin: 0;
 }
 
 .prints-hero-img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
+  object-position: center;
   display: block;
-  margin: 0 auto;
-  box-shadow: 0 16px 40px -10px rgba(18, 35, 26, 0.12);
-  transition: transform var(--transition-normal);
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  transition: opacity 0.28s ease;
 }
 
 /* Hero Carousel Controls */
@@ -3655,7 +3658,7 @@
 
 /* Statement beneath hero slideshow */
 .prints-hero-statement-wrap {
-  margin-top: clamp(2rem, 4vw, 3.25rem);
+  margin-top: clamp(1rem, 1.8vw, 1.5rem);
   text-align: center;
   max-width: 720px;
   margin-inline: auto;
@@ -3677,14 +3680,16 @@
    22. SELECTED EDITIONS (3 Cards with Box Modal Details)
    ==================================================================== */
 .selected-editions-section {
-  padding-block: clamp(3rem, 5vw, 4.5rem);
+  padding-block: clamp(1.75rem, 3vw, 2.75rem);
   background-color: var(--surface-canvas);
   border-top: 1px solid rgba(26, 53, 40, 0.08);
 }
 
 .selected-editions-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 920px;
+  margin-inline: auto;
   gap: clamp(1.25rem, 2.5vw, 2.25rem);
 }
 
@@ -3788,14 +3793,16 @@
    23. ALL PRINT WORK (3 Profiles + Interactive Drilldown Galleries)
    ==================================================================== */
 .all-prints-section {
-  padding-block: clamp(3.5rem, 6vw, 5.5rem);
+  padding-block: clamp(1.75rem, 3vw, 2.75rem);
 }
 
 .all-prints-profiles-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 920px;
+  margin-inline: auto;
   gap: clamp(1.25rem, 2.5vw, 2.25rem);
-  margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+  margin-bottom: clamp(1.5rem, 2.5vw, 2rem);
 }
 
 .print-profile-card {
@@ -3932,7 +3939,7 @@
   font-weight: 500;
 }
 
-/* Medium Process Feature (Linocut, Cyanotype, Screen Printing) */
+/* Medium Process Feature (Linocut, Cyanotype) */
 .medium-process-feature {
   display: grid;
   grid-template-columns: 1fr 1.25fr;
@@ -4161,7 +4168,7 @@
    25. INTERIORS SECTION (Works on Canvas in Architectural Settings)
    ==================================================================== */
 .interiors-section {
-  padding-block: clamp(3.5rem, 6vw, 5.5rem);
+  padding-block: clamp(1.75rem, 3vw, 2.75rem);
   background-color: var(--surface-canvas);
 }
 
@@ -4290,13 +4297,13 @@
    26. COMMISSIONS PAGE REDESIGN
    ==================================================================== */
 .commissions-hero-section {
-  padding-block: clamp(2rem, 4vw, 3.5rem) clamp(3rem, 5vw, 4.5rem);
+  padding-block: clamp(1.5rem, 2.5vw, 2.25rem);
   text-align: center;
 }
 
 .commissions-hero-stage {
   max-width: 640px;
-  margin: 1.75rem auto 2.5rem auto;
+  margin: 1.25rem auto 1.5rem auto;
   border-radius: var(--radius-sm);
   overflow: hidden;
   box-shadow: 0 20px 48px -12px rgba(18, 35, 26, 0.16);
@@ -4568,7 +4575,7 @@
 
 /* Contact Hero (Two-Column Parallel / Adjacent Split) */
 .contact-hero-section {
-  padding-block: clamp(2.5rem, 5vw, 4rem) clamp(3rem, 5vw, 4.5rem);
+  padding-block: clamp(1.5rem, 2.5vw, 2.25rem);
 }
 
 .contact-hero-split {
@@ -4649,7 +4656,7 @@
 /* Send an Enquiry Form */
 .enquiry-section {
   background-color: var(--surface-canvas);
-  padding-block: clamp(3.5rem, 6vw, 5.5rem);
+  padding-block: clamp(1.75rem, 3vw, 2.75rem);
 }
 
 .enquiry-form-card {
@@ -4730,7 +4737,7 @@
 
 /* Commissions & Collaborations Section (Split Layout) */
 .contact-commissions-section {
-  padding-block: clamp(3.5rem, 6vw, 5.5rem);
+  padding-block: clamp(1.75rem, 3vw, 2.75rem);
 }
 
 .contact-commissions-split {
@@ -4786,7 +4793,7 @@
 /* Other Enquiries (3 Parts: Artwork, Exhibition, Studio Visits) */
 .other-enquiries-section {
   background-color: var(--surface-canvas);
-  padding-block: clamp(3.5rem, 6vw, 5.5rem);
+  padding-block: clamp(1.75rem, 3vw, 2.75rem);
 }
 
 .other-enquiries-grid {
@@ -4864,3 +4871,17 @@
 }
 
 
+
+
+.insta-title-link {
+  color: var(--gold-primary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(197, 164, 118, 0.4);
+  transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+}
+
+.insta-title-link:hover {
+  color: var(--forest-primary);
+  text-decoration-color: var(--forest-primary);
+}
