@@ -115,26 +115,26 @@
   <main id="main-content">
 
     <!-- ================================================================
-         1. COMMISSIONS HERO SECTION
+         1. COMMISSIONS HERO SECTION (Full Bleed)
          ================================================================ -->
-    <section class="section commissions-hero-section">
-      <div class="container">
-        <!-- Header above the image -->
-        <div class="section-header text-center reveal-on-scroll">
-          <h1 class="page-header-title">Custom Commissions</h1>
-        </div>
-
-        <!-- Hero Stage Image with Magnifying Loupe -->
-        <div class="commissions-hero-stage reveal-on-scroll" data-loupe title="Inspect studio detail">
-          <img src="../assets/img/commissions/commission-hero.jpg" alt="Anisha Khanduja Custom Artwork Commission" class="commissions-hero-img" fetchpriority="high" decoding="async">
+    <section class="section commissions-hero-section" style="padding-top: 0; padding-inline: 0;">
+      <!-- Full Horizontal Spread: Object covers entire horizontal space -->
+      <div class="hero-fullwidth-spread reveal-on-scroll">
+        <div class="hero-artwork-stage" id="commissions-hero-stage" data-loupe title="Inspect artwork texture & detail">
+          <div class="hero-artwork-mat">
+            <img class="hero-showcase-img" id="commissions-hero-img" src="../assets/img/commissions/comission-page-full-bleed.jpeg" alt="Bespoke commissions by contemporary artist Anisha Khanduja" width="1280" height="853" fetchpriority="high" decoding="async">
+          </div>
           <div class="hero-loupe-lens" id="commissions-hero-loupe"></div>
         </div>
+      </div>
 
-        <!-- Headline & Description below the image -->
-        <div class="commissions-hero-headline-wrap reveal-on-scroll">
-          <h2 class="commissions-hero-title">Art Made For People, Places &amp; Ideas</h2>
+      <div class="container" style="margin-top: clamp(1.5rem, 2.5vw, 2.25rem);">
+        <!-- Headline & Description below the full bleed image -->
+        <div class="commissions-hero-headline-wrap text-center reveal-on-scroll">
+          <h1 class="page-header-title">Custom Commissions</h1>
+          <h2 class="commissions-hero-title" style="margin-top: 0.5rem;">Art Made For People, Places &amp; Ideas</h2>
           <p class="commissions-hero-desc">
-            I work with individuals, designers, architects, brands and spaces to develop origional artworks and print-based projects that are created specifically for a context.
+            I work with individuals, designers, architects, brands and spaces to develop original artworks and bespoke projects that are created specifically for a context.
           </p>
           <p class="commissions-hero-desc" style="color: var(--text-muted); font-size: 0.98rem;">
             From a painting for a private residence to a site specific installation, a bespoke print series or a creative collaboration, each commission begins with a conversation and evolves through research, sketches and experimentation.
@@ -216,7 +216,7 @@
           <!-- Part 4: Brand & Space Collaborations -->
           <div class="create-card reveal-on-scroll">
             <div class="create-card-media">
-              <img src="../assets/img/commissions/comission.jpeg" alt="Brand & Space Collaborations" loading="lazy">
+              <img src="../assets/img/commissions/brand-and-space-collaboration.jpeg" alt="Brand & Space Collaborations" loading="lazy">
             </div>
             <div class="create-card-body">
               <h3 class="create-card-title">Brand &amp; Space Collaborations</h3>
@@ -302,38 +302,32 @@
     <!-- ================================================================
          4. WORKING WITH BRANDS & SPACES
          ================================================================ -->
-    <section class="section" id="brands-and-spaces" style="background-color: var(--surface-canvas); padding-inline: 0;">
+    <section class="section" id="brands-and-spaces" style="background-color: var(--surface-canvas);">
       <div class="container">
         <div class="section-header text-center reveal-on-scroll">
           <h2 class="section-title">Working With Brands &amp; Spaces</h2>
           <p class="section-subtitle">I am open to collaborations that bring art and visual storytelling into new contexts.</p>
         </div>
-      </div>
 
-      <!-- Full-bleed Spread with Magnifying Loupe -->
-      <div class="hero-fullwidth-spread reveal-on-scroll">
-        <div class="hero-artwork-stage" id="commissions-bleed-stage" data-loupe title="Inspect texture and architectural detail">
-          <div class="hero-artwork-mat">
-            <img class="hero-showcase-img" id="commissions-bleed-img" src="../assets/img/commissions/comission-page-full-bleed.jpeg" alt="Architectural collaboration commission by Anisha Khanduja" width="1280" height="853" loading="lazy">
+        <div class="brand-space-split reveal-on-scroll">
+          <div class="brand-space-media">
+            <img src="../assets/img/commissions/comission.jpeg" alt="Working with brands and spaces by Anisha Khanduja" loading="lazy">
           </div>
-          <div class="hero-loupe-lens" id="commissions-bleed-loupe"></div>
-        </div>
-      </div>
 
-      <div class="container" style="margin-top: clamp(2rem, 3.5vw, 3rem);">
-        <div class="brand-space-content text-center reveal-on-scroll" style="max-width: 780px; margin-inline: auto;">
-          <span class="brand-space-kicker">Site-Responsive Practice</span>
-          <h3 class="brand-space-title">Made For The Space</h3>
-          <p class="brand-space-text">
-            Commissions can begin with an artwork or with the space itself. Architecture, light, proportions, materials and the atmosphere of a room all inform the creative journey.
-          </p>
-          <p class="brand-space-text">
-            For residences, hospitality projects, and bespoke environments, I collaborate closely with collectors, architects, and interior designers to create artwork that resonates harmoniously with its surroundings.
-          </p>
-          <div style="margin-top: 1.5rem;">
-            <a href="../contact/" class="btn btn-secondary">
-              Discuss an Architectural Project ↗
-            </a>
+          <div class="brand-space-content">
+            <span class="brand-space-kicker">Site-Responsive Practice</span>
+            <h3 class="brand-space-title">Made For The Space</h3>
+            <p class="brand-space-text">
+              Commissions can begin with an artwork or with the place itself. Architecture, light, proportions, materials and the character of a space all become part of the creative process.
+            </p>
+            <p class="brand-space-text">
+              For interiors, hospitality projects and larger commissions, I can work alongside architects, interior designers and creative teams to develop artwork that feels considered within its environment.
+            </p>
+            <div style="margin-top: 0.5rem;">
+              <a href="../contact/" class="btn btn-secondary">
+                Discuss an Architectural Project ↗
+              </a>
+            </div>
           </div>
         </div>
       </div>
