@@ -3303,7 +3303,9 @@
 
 .selected-works-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1040px;
+  margin-inline: auto;
   gap: clamp(1.25rem, 2.2vw, 2rem);
   align-items: start;
 }

@@ -171,25 +171,25 @@ class StudioGallery {
   }
 
   getMediumSummary(product) {
-    if (product.id === "piece-01") return "Relief linocut on 250gsm Somerset Velvet cotton rag";
-    if (product.id === "piece-02") return "Relief print on 300gsm Indian Khadi handmade rag";
-    if (product.id === "piece-03") return "Relief linocut on 280gsm Fabriano Rosaspina paper";
-    if (product.id === "piece-04") return "Two-plate relief linocut on Somerset Satin paper";
-    return "Original relief linocut on fine art paper";
+    if (product.id === "piece-01") return "Relief linocut on paper";
+    if (product.id === "piece-02") return "Relief print on handmade paper";
+    if (product.id === "piece-03") return "Relief linocut on paper";
+    if (product.id === "piece-04") return "Two-color relief linocut on paper";
+    return "Original relief linocut on paper";
   }
 
   renderCardHtml(product, isFeatured = false) {
     const isSold = product.status === "sold";
     const mediumText = this.getMediumSummary(product);
-    const plateIndex = product.id.replace("piece-0", "Plate ");
+    const plateIndex = product.id.replace("piece-0", "Work ");
 
     return `
       <article class="portfolio-plate ${isSold ? 'is-archived' : ''}" data-id="${product.id}">
-        <div class="plate-media-frame" data-open-modal="${product.id}" title="Click to view artwork details and full plate">
+        <div class="plate-media-frame" data-open-modal="${product.id}" title="Click to see full artwork details">
           <div class="plate-mat">
             <img class="plate-img" src="${resolveAssetUrl(product.images[0])}" alt="${product.title} — original linocut print by Anisha Khanduja" loading="lazy" width="480" height="520">
           </div>
-          <div class="plate-inspect-hint">Inspect Plate ↗</div>
+          <div class="plate-inspect-hint">See Full Artwork ↗</div>
         </div>
         <div class="plate-caption">
           <div class="plate-caption-header">

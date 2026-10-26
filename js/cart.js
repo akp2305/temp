@@ -282,7 +282,7 @@ class StudioCart {
     // Free shipping progress bar
     if (this.shippingBarFill && this.shippingNoteEl) {
       this.shippingBarFill.style.width = "100%";
-      this.shippingNoteEl.innerHTML = `🎉 <strong>Free Shipping across India on all studio editions!</strong>`;
+      this.shippingNoteEl.innerHTML = `🎉 <strong>Free Shipping across India on all artworks!</strong>`;
     }
 
     // Render items list or empty state
