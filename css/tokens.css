@@ -33,6 +33,7 @@
 
   /* Editorial Typography Tones */
   --text-primary: var(--forest-ink);
+  --text-dark: var(--forest-ink);     /* Deep forest ink fallback */
   --text-muted: #58685E;          /* Slate botanical grey for specs, descriptions, captions */
   --text-faint: #8E9B93;          /* Subtle silver-sage for copyright, secondary metadata */
   --text-inverse: #FAF8F5;        /* Warm ivory text on dark green surfaces */
@@ -56,10 +57,21 @@
   --sky: var(--surface-sage);
   --terracotta: var(--accent-terracotta);
 
-  /* --- TYPOGRAPHY (Google Fonts) --- */
-  --font-display: 'Cormorant Garamond', Georgia, serif;
+
+  /* --- UNIFIED TYPOGRAPHIC SYSTEM (4 Specialized Font Roles) --- */
+  /* Role 1: Headings & Main Titles — Classical Fine Art Serif */
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-display: var(--font-heading); /* compatibility alias */
+
+  /* Role 2: Subheadings, Quotes & Artistic Accents — Literary Serif with Italic Flair */
+  --font-subheading: 'Cormorant Garamond', Georgia, serif;
+  --font-accent: var(--font-subheading);
+  --font-hand: var(--font-subheading);
+  /* Role 3: Body Text & Narrative Prose — Clean Modernist Sans */
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-hand: 'Cormorant Garamond', Georgia, serif;
+  /* Role 4: UI, Eyebrows, Badges, Labels & Navigation — Architectural Semi-Bold Sans */
+  --font-ui: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-meta: var(--font-ui);
 
   /* Fluid typography scale via clamp() */
   --text-xs: clamp(0.72rem, 0.7rem + 0.12vw, 0.8rem);

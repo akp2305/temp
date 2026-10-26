@@ -3295,23 +3295,36 @@
 }
 
 .page-header-title {
-  font-family: var(--font-display);
-  font-size: clamp(2.3rem, 1.8rem + 1.8vw, 3.8rem);
-  font-weight: 500;
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+  font-weight: 600;
   color: var(--forest-ink);
-  letter-spacing: -0.01em;
-  line-height: 1.15;
-  margin-bottom: 0.85rem;
+  letter-spacing: -0.015em;
+  line-height: 1.12;
+  margin-bottom: 0.65rem;
   text-wrap: balance;
 }
 
 .page-header-subtitle {
+  font-family: var(--font-subheading);
+  font-style: italic;
+  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+  font-weight: 400;
+  color: var(--gold-dark);
+  max-width: 680px;
+  margin-inline: auto;
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+.page-header-desc {
   font-family: var(--font-body);
-  font-size: clamp(0.92rem, 0.88rem + 0.2vw, 1.08rem);
+  font-size: clamp(0.96rem, 1.1vw, 1.05rem);
   color: var(--text-muted);
   max-width: 660px;
   margin-inline: auto;
-  line-height: 1.65;
+  margin-top: 0.75rem;
+  line-height: 1.72;
   text-wrap: pretty;
 }
 
@@ -3494,25 +3507,26 @@
 }
 
 .commission-step-idx {
-  font-family: var(--font-display);
-  font-size: 1.75rem;
+  font-family: var(--font-heading);
+  font-size: 1.85rem;
   font-weight: 600;
   color: var(--gold-primary);
   line-height: 1;
 }
 
 .commission-step-title {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--forest-ink);
   margin: 0;
+  line-height: 1.25;
 }
 
 .commission-step-desc {
   font-family: var(--font-body);
-  font-size: 0.82rem;
-  line-height: 1.55;
+  font-size: 0.92rem;
+  line-height: 1.7;
   color: var(--text-muted);
   margin: 0;
 }
@@ -4596,7 +4610,7 @@
 }
 
 .commissions-hero-title {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: clamp(2rem, 3.8vw, 3rem);
   font-weight: 600;
   color: var(--forest-ink);
@@ -4607,9 +4621,10 @@
 }
 
 .commissions-hero-desc {
-  font-size: clamp(1.02rem, 1.35vw, 1.15rem);
-  line-height: 1.75;
-  color: var(--text-dark);
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.2vw, 1.08rem);
+  line-height: 1.78;
+  color: var(--text-muted);
   margin: 0 0 1.15rem 0;
   text-wrap: pretty;
   max-width: 680px;
@@ -4669,7 +4684,7 @@
 }
 
 .create-card-title {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: clamp(1.35rem, 2vw, 1.65rem);
   font-weight: 600;
   color: var(--forest-ink);
@@ -4679,9 +4694,10 @@
 }
 
 .create-card-desc {
-  font-size: 0.92rem;
-  line-height: 1.68;
-  color: var(--ink-light);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.72;
+  color: var(--text-muted);
   margin: 0;
   flex-grow: 1;
   text-wrap: pretty;
@@ -4767,15 +4783,16 @@
 }
 
 .brand-space-kicker {
+  font-family: var(--font-ui);
   font-size: 0.76rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   color: var(--gold-dark);
   font-weight: 600;
 }
 
 .brand-space-title {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: clamp(1.6rem, 2.4vw, 2.2rem);
   font-weight: 600;
   color: var(--forest-ink);
@@ -4785,9 +4802,10 @@
 }
 
 .brand-space-text {
-  font-size: 0.96rem;
-  line-height: 1.75;
-  color: var(--text-dark);
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  line-height: 1.78;
+  color: var(--text-muted);
   margin: 0;
   text-wrap: pretty;
 }
@@ -4882,20 +4900,31 @@
 }
 
 .contact-hero-title {
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem, 4.5vw, 4rem);
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 4.2vw, 3.8rem);
   font-weight: 600;
   color: var(--forest-ink);
-  line-height: 1.1;
+  line-height: 1.12;
   margin: 0;
   letter-spacing: -0.015em;
   text-wrap: balance;
 }
 
+.contact-hero-subtitle {
+  font-family: var(--font-subheading);
+  font-style: italic;
+  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+  font-weight: 400;
+  color: var(--gold-dark);
+  margin: 0;
+  line-height: 1.45;
+}
+
 .contact-hero-lead {
-  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
-  line-height: 1.7;
-  color: var(--text-dark);
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.25vw, 1.12rem);
+  line-height: 1.78;
+  color: var(--text-muted);
   margin: 0;
   text-wrap: pretty;
 }
@@ -4955,12 +4984,12 @@
 }
 
 .form-label {
-  font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-family: var(--font-ui);
+  font-size: 0.76rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--forest-ink);
+  color: var(--forest-primary);
 }
 
 .form-input,
@@ -5044,7 +5073,7 @@
 }
 
 .contact-commissions-title {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: clamp(1.85rem, 2.8vw, 2.5rem);
   font-weight: 600;
   color: var(--forest-ink);
@@ -5054,9 +5083,10 @@
 }
 
 .contact-commissions-desc {
-  font-size: 0.98rem;
-  line-height: 1.75;
-  color: var(--text-dark);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.78;
+  color: var(--text-muted);
   margin: 0;
   text-wrap: pretty;
 }
@@ -5094,7 +5124,7 @@
 }
 
 .other-enquiry-title {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: clamp(1.35rem, 2vw, 1.6rem);
   font-weight: 600;
   color: var(--forest-ink);
@@ -5104,8 +5134,9 @@
 }
 
 .other-enquiry-desc {
-  font-size: 0.92rem;
-  line-height: 1.65;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.7;
   color: var(--text-muted);
   margin: 0;
   text-wrap: pretty;
