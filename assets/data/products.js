@@ -180,7 +180,7 @@ const STUDIO_PRODUCTS = [
     story: "Natural botanical specimens pressed in sunlight, revealing intricate organic silhouettes and delicate leaf textures in Prussian blue.",
     status: "available",
     images: [
-      "assets/img/prints/cyanotype-series-1.jpg"
+      "assets/img/prints/cyanotype-series-1.png"
     ]
   },
   {
@@ -201,7 +201,7 @@ const STUDIO_PRODUCTS = [
     story: "Sun-exposed botanical composition on heavyweight fine art paper, exploring the rhythm of natural foliage against sunlight.",
     status: "available",
     images: [
-      "assets/img/prints/cyanotype-series-2.jpg"
+      "assets/img/prints/cyanotype-series-2.png"
     ]
   },
   {
@@ -222,7 +222,7 @@ const STUDIO_PRODUCTS = [
     story: "Exploration of translucent leaf structures and rich Prussian blue gradients captured during midday solar exposure.",
     status: "available",
     images: [
-      "assets/img/prints/cyanotype-series-3.jpg"
+      "assets/img/prints/cyanotype-series-3.png"
     ]
   },
   {
@@ -243,7 +243,7 @@ const STUDIO_PRODUCTS = [
     story: "Direct contact solar photogram capturing fleeting botanical memory with delicate feathering and edge contrast.",
     status: "available",
     images: [
-      "assets/img/prints/cyanotype-series-4.jpg"
+      "assets/img/prints/cyanotype-series-4.png"
     ]
   },
   {
@@ -264,7 +264,7 @@ const STUDIO_PRODUCTS = [
     story: "Concluding plate in the five-part botanical sun series, embodying the quiet transformation of light into deep indigo tone.",
     status: "available",
     images: [
-      "assets/img/prints/cyanotype-series-5.jpg"
+      "assets/img/prints/cyanotype-series-5.png"
     ]
   },
 
