@@ -175,7 +175,7 @@ class StudioGallery {
     if (product.id === "piece-02") return "Relief print on 300gsm Indian Khadi handmade rag";
     if (product.id === "piece-03") return "Relief linocut on 280gsm Fabriano Rosaspina paper";
     if (product.id === "piece-04") return "Two-plate relief linocut on Somerset Satin paper";
-    return "Original relief linocut on archival cotton rag";
+    return "Original relief linocut on fine art paper";
   }
 
   renderCardHtml(product, isFeatured = false) {

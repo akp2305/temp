@@ -81,73 +81,149 @@ function initMobileNav() {
   });
 }
 
-// 3. Interactive Hero Artwork Spotlight & Craft Loupe Inspector
-function initHeroShowcase() {
-  const stage = document.getElementById("hero-showcase-stage");
-  const img = document.getElementById("hero-showcase-img");
-  const lens = document.getElementById("hero-loupe-lens");
+// 3. Interactive Magnifier Loupe (Across All Pages & Bleed Artwork Stages)
+function setupStageLoupe(stage) {
+  if (!stage) return;
+  let lens = stage.querySelector(".hero-loupe-lens");
+  if (!lens) {
+    lens = document.createElement("div");
+    lens.className = "hero-loupe-lens";
+    stage.appendChild(lens);
+  }
+  const zoomFactor = 2.4;
+  function getImg() {
+    return stage.querySelector("img");
+  }
 
-  if (!stage || !img) return;
+  function moveLoupe(e) {
+    const img = getImg();
+    if (!img) return;
+    const rect = stage.getBoundingClientRect();
+    const isTouch = !!e.touches;
+    const clientX = isTouch ? e.touches[0].clientX : e.clientX;
+    const clientY = isTouch ? e.touches[0].clientY : e.clientY;
 
-  const initialSrc = img.getAttribute("src") || "assets/img/prints/ordinary-objects-1.jpg";
+    const x = clientX - rect.left;
+    const y = isTouch ? (clientY - rect.top - 70) : (clientY - rect.top);
 
-  // Magnifier Loupe: Craft & Ink Texture Inspector
-  if (lens) {
-    const zoomFactor = 2.4;
-    lens.style.backgroundImage = `url('${initialSrc}')`;
+    if (x < 0 || x > rect.width || y < -40 || y > rect.height + 40) {
+      lens.classList.remove("active");
+      return;
+    }
 
-    function moveLoupe(e) {
-      const rect = stage.getBoundingClientRect();
-      const isTouch = !!e.touches;
-      const clientX = isTouch ? e.touches[0].clientX : e.clientX;
-      const clientY = isTouch ? e.touches[0].clientY : e.clientY;
+    lens.classList.add("active");
+    lens.style.left = `${Math.max(20, Math.min(rect.width - 20, x))}px`;
+    lens.style.top = `${Math.max(20, Math.min(rect.height - 20, y))}px`;
 
-      const x = clientX - rect.left;
-      // On touch devices, position lens slightly above finger so thumb doesn't obstruct view
-      const y = isTouch ? (clientY - rect.top - 70) : (clientY - rect.top);
+    const halfLens = (lens.offsetWidth ? lens.offsetWidth / 2 : 80);
+    const bgW = rect.width * zoomFactor;
+    const bgH = rect.height * zoomFactor;
+    const bgX = -(x * zoomFactor - halfLens);
+    const bgY = -(y * zoomFactor - halfLens);
 
-      if (x < 0 || x > rect.width || y < -40 || y > rect.height + 40) {
-        lens.classList.remove("active");
-        return;
-      }
+    lens.style.backgroundSize = `${bgW}px ${bgH}px`;
+    lens.style.backgroundPosition = `${bgX}px ${bgY}px`;
+  }
 
+  if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    stage.addEventListener("mousemove", moveLoupe);
+    stage.addEventListener("mouseenter", () => {
+      const img = getImg();
+      if (img) lens.style.backgroundImage = `url('${img.currentSrc || img.src}')`;
       lens.classList.add("active");
-      lens.style.left = `${Math.max(20, Math.min(rect.width - 20, x))}px`;
-      lens.style.top = `${Math.max(20, Math.min(rect.height - 20, y))}px`;
-
-      // Position zoomed image inside lens
-      const halfLens = (lens.offsetWidth ? lens.offsetWidth / 2 : 80);
-      const bgW = rect.width * zoomFactor;
-      const bgH = rect.height * zoomFactor;
-      const bgX = -(x * zoomFactor - halfLens);
-      const bgY = -(y * zoomFactor - halfLens);
-
-      lens.style.backgroundSize = `${bgW}px ${bgH}px`;
-      lens.style.backgroundPosition = `${bgX}px ${bgY}px`;
-    }
-
-    // Desktop hover inspection (only on devices with a mouse/pointer)
-    if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-      stage.addEventListener("mousemove", moveLoupe);
-      stage.addEventListener("mouseenter", (e) => {
-        lens.style.backgroundImage = `url('${img.currentSrc || img.src || initialSrc}')`;
-        moveLoupe(e);
-      });
-      stage.addEventListener("mouseleave", () => {
-        lens.classList.remove("active");
-      });
-    }
-
-    // Touch inspection
-    stage.addEventListener("touchstart", (e) => {
-      lens.style.backgroundImage = `url('${img.currentSrc || img.src || initialSrc}')`;
-      moveLoupe(e);
-    }, { passive: true });
-    stage.addEventListener("touchmove", moveLoupe, { passive: true });
-    stage.addEventListener("touchend", () => {
+    });
+    stage.addEventListener("mouseleave", () => {
       lens.classList.remove("active");
     });
   }
+
+  stage.addEventListener("touchstart", (e) => {
+    const img = getImg();
+    if (img) lens.style.backgroundImage = `url('${img.currentSrc || img.src}')`;
+    moveLoupe(e);
+  }, { passive: true });
+  stage.addEventListener("touchmove", moveLoupe, { passive: true });
+  stage.addEventListener("touchend", () => {
+    lens.classList.remove("active");
+  });
+}
+
+function setupCarouselLoupe(carousel) {
+  if (!carousel) return;
+  let lens = carousel.querySelector(".hero-loupe-lens");
+  if (!lens) {
+    lens = document.createElement("div");
+    lens.className = "hero-loupe-lens";
+    carousel.appendChild(lens);
+  }
+  const zoomFactor = 2.4;
+
+  function getActiveImg() {
+    const activeSlide = carousel.querySelector(".prints-hero-slide.active") || carousel.querySelector(".prints-hero-slide");
+    return activeSlide ? activeSlide.querySelector("img") : null;
+  }
+
+  function moveLoupe(e) {
+    const img = getActiveImg();
+    if (!img) return;
+    const rect = carousel.getBoundingClientRect();
+    const isTouch = !!e.touches;
+    const clientX = isTouch ? e.touches[0].clientX : e.clientX;
+    const clientY = isTouch ? e.touches[0].clientY : e.clientY;
+
+    const x = clientX - rect.left;
+    const y = isTouch ? (clientY - rect.top - 70) : (clientY - rect.top);
+
+    if (x < 0 || x > rect.width || y < -40 || y > rect.height + 40) {
+      lens.classList.remove("active");
+      return;
+    }
+
+    lens.classList.add("active");
+    lens.style.left = `${Math.max(20, Math.min(rect.width - 20, x))}px`;
+    lens.style.top = `${Math.max(20, Math.min(rect.height - 20, y))}px`;
+
+    const halfLens = (lens.offsetWidth ? lens.offsetWidth / 2 : 80);
+    const bgW = rect.width * zoomFactor;
+    const bgH = rect.height * zoomFactor;
+    const bgX = -(x * zoomFactor - halfLens);
+    const bgY = -(y * zoomFactor - halfLens);
+
+    lens.style.backgroundSize = `${bgW}px ${bgH}px`;
+    lens.style.backgroundPosition = `${bgX}px ${bgY}px`;
+  }
+
+  if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    carousel.addEventListener("mousemove", moveLoupe);
+    carousel.addEventListener("mouseenter", () => {
+      const img = getActiveImg();
+      if (img) lens.style.backgroundImage = `url('${img.currentSrc || img.src}')`;
+      lens.classList.add("active");
+    });
+    carousel.addEventListener("mouseleave", () => {
+      lens.classList.remove("active");
+    });
+  }
+
+  carousel.addEventListener("touchstart", (e) => {
+    const img = getActiveImg();
+    if (img) lens.style.backgroundImage = `url('${img.currentSrc || img.src}')`;
+    moveLoupe(e);
+  }, { passive: true });
+  carousel.addEventListener("touchmove", moveLoupe, { passive: true });
+  carousel.addEventListener("touchend", () => {
+    lens.classList.remove("active");
+  });
+}
+
+function initHeroShowcase() {
+  // 1. Single artwork & bleed stages (Home, Commissions, About, Contact)
+  const stages = document.querySelectorAll(".hero-artwork-stage, .commissions-hero-stage, .about-frame[data-loupe], .contact-hero-media[data-loupe], [data-loupe]");
+  stages.forEach(setupStageLoupe);
+
+  // 2. Full-bleed slideshow carousels (Prints, Paintings)
+  const carousels = document.querySelectorAll(".prints-hero-carousel");
+  carousels.forEach(setupCarouselLoupe);
 }
 
 // 4. Scroll Reveal with IntersectionObserver
@@ -440,6 +516,15 @@ function initPrintsHeroCarousel() {
       slides.forEach((s, idx) => s.classList.toggle("active", idx === index));
       dots.forEach((d, idx) => d.classList.toggle("active", idx === index));
       current = index;
+
+      // Update loupe lens image to active slide if lens exists
+      const lens = carousel.querySelector(".hero-loupe-lens");
+      if (lens) {
+        const activeImg = slides[index].querySelector("img");
+        if (activeImg) {
+          lens.style.backgroundImage = `url('${activeImg.currentSrc || activeImg.src}')`;
+        }
+      }
     }
 
     function startTimer() {
