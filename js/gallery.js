@@ -6,6 +6,20 @@
  * sorting, favorites (localStorage), and deep-linkable detail modals (#piece-id).
  */
 
+function resolveAssetUrl(url) {
+  if (!url) return "";
+  if (url.startsWith("http://") || url.startsWith("https://") || url.startsWith("//") || url.startsWith("data:") || url.startsWith("/")) {
+    return url;
+  }
+  const isSubfolder = typeof window.SITE_ROOT === "string"
+    ? (window.SITE_ROOT === "../")
+    : (!!document.querySelector('link[rel="stylesheet"][href^="../"]'));
+  const prefix = isSubfolder ? "../" : "";
+  if (prefix && url.startsWith(prefix)) return url;
+  return prefix + url;
+}
+window.resolveAssetUrl = window.resolveAssetUrl || resolveAssetUrl;
+
 class StudioGallery {
   constructor(products = []) {
     this.products = products;
@@ -173,7 +187,7 @@ class StudioGallery {
       <article class="portfolio-plate ${isSold ? 'is-archived' : ''}" data-id="${product.id}">
         <div class="plate-media-frame" data-open-modal="${product.id}" title="Click to view artwork details and full plate">
           <div class="plate-mat">
-            <img class="plate-img" src="${product.images[0]}" alt="${product.title} — original linocut print by Anisha Khanduja" loading="lazy" width="480" height="520">
+            <img class="plate-img" src="${resolveAssetUrl(product.images[0])}" alt="${product.title} — original linocut print by Anisha Khanduja" loading="lazy" width="480" height="520">
           </div>
           <div class="plate-inspect-hint">Inspect Plate ↗</div>
         </div>
@@ -316,7 +330,7 @@ class StudioGallery {
 
     const isSold = product.status === "sold";
     const isPainting = product.category === "paintings";
-    const mainImg = product.images[0];
+    const mainImg = resolveAssetUrl(product.images[0]);
 
     // Edition badge formatting (paintings are unique originals, not limited editions)
     let editionBadgeHtml = "";
@@ -343,8 +357,8 @@ class StudioGallery {
           ${product.images.length > 1 ? `
             <div class="modal-thumbnails">
               ${product.images.map((img, idx) => `
-                <div class="modal-thumb ${idx === 0 ? 'active' : ''}" data-thumb-src="${img}">
-                  <img src="${img}" alt="Thumbnail ${idx + 1}">
+                <div class="modal-thumb ${idx === 0 ? 'active' : ''}" data-thumb-src="${resolveAssetUrl(img)}">
+                  <img src="${resolveAssetUrl(img)}" alt="Thumbnail ${idx + 1}">
                 </div>
               `).join("")}
             </div>

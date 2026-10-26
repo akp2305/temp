@@ -2,6 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <script>
+    (function() {
+      var p = window.location.pathname;
+      if (p.endsWith('.html')) {
+        var clean = p.replace(/\.html$/, '/');
+        window.location.replace(clean + window.location.search + window.location.hash);
+      }
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page Not Found — Anisha Khanduja Studio</title>
   <link rel="icon" type="image/jpeg" href="assets/img/branding/logo.png">
@@ -49,10 +58,10 @@
         The page you are looking for might have been retired, moved, or never pressed onto paper.
       </p>
       <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-        <a href="index.html" class="btn btn-primary btn-lg">
+        <a href="./" class="btn btn-primary btn-lg">
           ← Back to Studio Gallery
         </a>
-        <a href="about.html" class="btn btn-secondary btn-lg">
+        <a href="about/" class="btn btn-secondary btn-lg">
           Meet Anisha
         </a>
       </div>

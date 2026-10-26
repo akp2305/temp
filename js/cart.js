@@ -9,6 +9,20 @@
  * Change the WhatsApp number, UPI ID, or free shipping threshold below!
  */
 
+function resolveAssetUrl(url) {
+  if (!url) return "";
+  if (url.startsWith("http://") || url.startsWith("https://") || url.startsWith("//") || url.startsWith("data:") || url.startsWith("/")) {
+    return url;
+  }
+  const isSubfolder = typeof window.SITE_ROOT === "string"
+    ? (window.SITE_ROOT === "../")
+    : (!!document.querySelector('link[rel="stylesheet"][href^="../"]'));
+  const prefix = isSubfolder ? "../" : "";
+  if (prefix && url.startsWith(prefix)) return url;
+  return prefix + url;
+}
+window.resolveAssetUrl = window.resolveAssetUrl || resolveAssetUrl;
+
 const CART_CONFIG = {
   // Studio WhatsApp contact
   whatsappNumber: "919897455555",
@@ -287,7 +301,7 @@ class StudioCart {
     this.cartItemsContainer.innerHTML = this.items.map(item => `
       <div class="cart-item" data-id="${item.id}">
         <div class="cart-item-thumb">
-          <img src="${item.image}" alt="${item.title}" loading="lazy">
+          <img src="${resolveAssetUrl(item.image)}" alt="${item.title}" loading="lazy">
         </div>
         <div class="cart-item-details">
           <h4 class="cart-item-title">${item.title}</h4>
