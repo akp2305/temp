@@ -2313,9 +2313,9 @@
 
 .about-grid {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  align-items: center;
-  gap: clamp(2rem, 5vw, 4.5rem);
+  grid-template-columns: 0.85fr 1.15fr;
+  align-items: start;
+  gap: clamp(2.25rem, 5vw, 4.5rem);
 }
 
 .about-image-wrap {
@@ -2326,9 +2326,9 @@
   position: relative;
   border: 1px solid rgba(26, 53, 40, 0.12);
   border-radius: var(--radius-sm);
-  box-shadow: 0 20px 40px -10px rgba(18, 35, 26, 0.15);
+  box-shadow: 0 16px 36px -10px rgba(18, 35, 26, 0.14);
   overflow: hidden;
-  background-color: #f7f5f0;
+  background-color: var(--surface-pure);
   transition: transform var(--transition-normal);
 }
 
@@ -2338,8 +2338,10 @@
 
 .about-frame img {
   width: 100%;
-  aspect-ratio: 4 / 4.8;
+  aspect-ratio: 3.5 / 4.2;
   object-fit: cover;
+  object-position: top center;
+  display: block;
 }
 
 .about-sticker-note {
@@ -2361,7 +2363,21 @@
 .about-bio {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.35rem;
+}
+
+.about-bio .section-title {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.about-bio p {
+  font-family: var(--font-body);
+  font-size: 1.04rem;
+  line-height: 1.82;
+  color: var(--ink-light);
+  margin: 0;
+  text-align: left;
 }
 
 .about-signature {
@@ -2396,8 +2412,8 @@
 .about-practice-grid {
   display: grid;
   grid-template-columns: 1fr 1.15fr;
-  gap: clamp(2rem, 5vw, 4.5rem);
-  align-items: center;
+  gap: clamp(2.5rem, 5vw, 4.5rem);
+  align-items: start;
   max-width: 1120px;
   margin-inline: auto;
 }
@@ -2406,7 +2422,8 @@
   grid-template-columns: 1.15fr 1fr;
 }
 
-.about-practice-grid.reverse .about-practice-media {
+.about-practice-grid.reverse .about-practice-media,
+.about-practice-grid.reverse .about-practice-media-stack {
   order: 2;
 }
 
@@ -2420,7 +2437,8 @@
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  .about-practice-grid.reverse .about-practice-media {
+  .about-practice-grid.reverse .about-practice-media,
+  .about-practice-grid.reverse .about-practice-media-stack {
     order: 1;
   }
   .about-practice-grid.reverse .about-practice-content {
@@ -2450,6 +2468,53 @@
   transform: scale(1.03);
 }
 
+/* Two-image stack to balance long printmaking text */
+.about-practice-media-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.about-practice-frame {
+  position: relative;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(18, 35, 26, 0.09);
+  border: 1px solid rgba(26, 53, 40, 0.12);
+  background-color: var(--surface-pure);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.about-practice-frame:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 36px rgba(18, 35, 26, 0.13);
+}
+
+.about-practice-frame img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.about-practice-frame:hover img {
+  transform: scale(1.02);
+}
+
+.about-practice-label {
+  display: block;
+  padding: 0.65rem 1rem;
+  background-color: var(--surface-pure);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--forest-ink);
+  border-top: 1px solid rgba(26, 53, 40, 0.08);
+}
+
 .about-practice-content {
   display: flex;
   flex-direction: column;
@@ -2463,9 +2528,10 @@
 .about-practice-content p {
   font-family: var(--font-body);
   font-size: 1.02rem;
-  line-height: 1.78;
+  line-height: 1.82;
   color: var(--ink-light);
   margin: 0;
+  text-align: left;
 }
 
 /* Essay Sections (Shiva & In the Studio) */
@@ -2483,7 +2549,7 @@
   padding: clamp(2rem, 4.5vw, 3.5rem);
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.35rem;
 }
 
 .about-essay-card .section-title {
@@ -2492,10 +2558,11 @@
 
 .about-essay-card p {
   font-family: var(--font-body);
-  font-size: 1.02rem;
-  line-height: 1.78;
+  font-size: 1.04rem;
+  line-height: 1.82;
   color: var(--ink-light);
   margin: 0;
+  text-align: left;
 }
 
 /* Collect Callout on About Page */
@@ -2893,13 +2960,13 @@
 
 .insta-caption {
   font-family: var(--font-body);
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   line-height: 1.55;
   color: var(--ink-light);
   margin-bottom: 0.85rem;
-  min-height: 2.6rem;
+  min-height: 3.9rem;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
