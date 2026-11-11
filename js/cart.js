@@ -298,26 +298,31 @@ class StudioCart {
     if (this.cartEmptyState) this.cartEmptyState.style.display = "none";
     if (this.cartFooter) this.cartFooter.style.display = "flex";
 
-    this.cartItemsContainer.innerHTML = this.items.map(item => `
-      <div class="cart-item" data-id="${item.id}">
+    this.cartItemsContainer.innerHTML = this.items.map(item => {
+      const safeId = escapeHtml(String(item.id || ""));
+      const safeTitle = escapeHtml(String(item.title || ""));
+      const safeSpecs = escapeHtml(String(item.dimensions || "Limited Edition"));
+      return `
+      <div class="cart-item" data-id="${safeId}">
         <div class="cart-item-thumb">
-          <img src="${resolveAssetUrl(item.image)}" alt="${item.title}" loading="lazy">
+          <img src="${resolveAssetUrl(item.image)}" alt="${safeTitle}" loading="lazy">
         </div>
         <div class="cart-item-details">
-          <h4 class="cart-item-title">${item.title}</h4>
-          <span class="cart-item-specs">${item.dimensions || "Limited Edition"}</span>
+          <h4 class="cart-item-title">${safeTitle}</h4>
+          <span class="cart-item-specs">${safeSpecs}</span>
           <span class="cart-item-price">Price on Request</span>
         </div>
         <div class="cart-item-controls">
-          <div class="qty-control" role="group" aria-label="Quantity for ${item.title}">
-            <button class="qty-btn qty-minus" data-id="${item.id}" aria-label="Decrease quantity">−</button>
+          <div class="qty-control" role="group" aria-label="Quantity for ${safeTitle}">
+            <button class="qty-btn qty-minus" data-id="${safeId}" aria-label="Decrease quantity">−</button>
             <span class="qty-val">${item.quantity}</span>
-            <button class="qty-btn qty-plus" data-id="${item.id}" aria-label="Increase quantity" ${item.quantity >= item.maxAvailable ? 'disabled title="Max available reached"' : ''}>+</button>
+            <button class="qty-btn qty-plus" data-id="${safeId}" aria-label="Increase quantity" ${item.quantity >= item.maxAvailable ? 'disabled title="Max available reached"' : ''}>+</button>
           </div>
-          <button class="remove-item-btn" data-id="${item.id}">Remove</button>
+          <button class="remove-item-btn" data-id="${safeId}">Remove</button>
         </div>
       </div>
-    `).join("");
+    `;
+    }).join("");
 
     // Attach listeners for line items
     this.cartItemsContainer.querySelectorAll(".qty-minus").forEach(btn => {
@@ -458,4 +463,14 @@ document.addEventListener("DOMContentLoaded", () => {
   studioCart = new StudioCart();
   window.studioCart = studioCart;
 });
+
+function escapeHtml(str) {
+  return String(str).replace(/[&<>"']/g, (m) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  }[m]));
+}
 

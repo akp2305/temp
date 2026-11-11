@@ -14,3 +14,7 @@ desktop.ini
 *.sw?
 # Raw upload source photos (optimized versions placed in assets/img/)
 Photos/
+
+# Internal working documents & editor workspaces
+*.docx
+*.code-workspace
