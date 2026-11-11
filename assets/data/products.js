@@ -46,7 +46,7 @@ const STUDIO_PRODUCTS = [
     edition: "Limited Edition of 8",
     editionSize: 8,
     timeTaken: "45 hours · Hand carving and printing",
-    story: "Ordinary Objects 1 is a linocut that grew out of the Covid period, when being homebound changed the way familiar surroundings were seen. Objects passed countless times began to occupy the small spaces of home, micro spaces within a macro environment. The piece observes a lamp and a few mismatched mugs closely, and honours the printmaking process itself, where the final image comes through adjustments and unsuccessful impressions rather than one perfect attempt.",
+    story: "Ordinary Objects is a linocut that grew out of the covid period, when being homebound changed the way familiar surroundings were seen. Objects often overlooked countless times began to get noticed and became the whole world around me.\n\nThis piece observe a lamp, a tea set, umbrella, the most familiar object found around us. We tend to notice spaces when something changes. This series began noticing what was already there. Some of these objects are just things I’ve grown up around. These are small things which occupy the micro spaces in macroenvironment.",
     status: "available",
     images: [
       "assets/img/prints/ordinary-objects-1.jpg"
@@ -67,7 +67,7 @@ const STUDIO_PRODUCTS = [
     edition: "Limited Edition of 7",
     editionSize: 7,
     timeTaken: "44 hours · Hand carving and printing",
-    story: "Ordinary Objects 3 continues the Micro Spaces in Macro Environment series, looking closely at the familiar spaces and objects that usually pass unnoticed: a candle, a flower, a few bottles on a shelf, a checkered floor. Documenting them reveals the ordinary things that make a home a home. Every texture, line of hatching and shade was carved by hand, one cut at a time, with no undo once the block is cut. The closer you look, the less ordinary it becomes.",
+    story: "Ordinary Objects 3 continues the Micro Spaces in Macroenviornment series, looking closely at the familiar spaces and objects that usually pass unnoticed: a candle, a flower, a few bottles on a shelf, a checkered floor.\n\nDocumenting them reveals the ordinary things that make a home a home. Every texture, line of hatching and shade was carved by hand, one cut at a time, with no undo once the block is cut. The closer you look, the less ordinary it becomes.",
     status: "available",
     images: [
       "assets/img/prints/ordinary-objects-3.jpg"
@@ -88,7 +88,7 @@ const STUDIO_PRODUCTS = [
     edition: "Edition of 6",
     editionSize: 6,
     timeTaken: "10 hours · Hand carving and printing",
-    story: "Shelter looks at fatherhood through the ordinary things fathers carry: a shirt pocket, always full, and an umbrella held over. Brought together in one print, these two forms speak of protection, provision and the quiet things that often go unnoticed. It is also an expression of gratitude for everything received while standing under someone's shelter. Each print is given a name before it leaves the studio, and the edition was made in six.",
+    story: "Shelter looks at fatherhood through the ordinary things: a shirt pocket, always full, and an umbrella. Brought together in one print, these two forms speak of protection, provision and the quiet things that often go unnoticed. It is also an expression of gratitude for everything received while standing under someones’s shelter.",
     status: "available",
     images: [
       "assets/img/prints/shelter.jpg"
@@ -280,7 +280,7 @@ const STUDIO_PRODUCTS = [
     edition: "Original Work",
     editionSize: 1,
     timeTaken: "35 hours",
-    story: "Fish Painting treats contemporary art as a way of using different techniques to bring a subject to life, rather than following a single style. Traditional pattern-making meets bold, unapologetic colour across the body of the fish, with a tiny painting within the larger one waiting for those who zoom in. It is a celebration of Indian maximalism, patterns and colour, and of Indian contemporary art's ability to hold the old and the new at once.",
+    story: "Traditional pattern-making meets bold, unapologetic colour across the body of the fish, with a tiny painting within the larger one waiting for those who zoom in.\n\nIt is a celebration of Indian maximalism, patterns and colour, and of Indian contemporary art’s ability to hold the old and the new at once.",
     status: "available",
     images: [
       "assets/img/paintings/marking-the-fish.png"
@@ -298,7 +298,7 @@ const STUDIO_PRODUCTS = [
     edition: "Original Work",
     editionSize: 1,
     timeTaken: "75 hours",
-    story: "Forest Painting is less about painting nature and more about painting light moving through it. Hours of work went into discovering that nature has its own unique shades and knows how to balance itself perfectly-imperfectly. Look closely and the greens split into entirely different shades, tones and textures.",
+    story: "This work is about light moving through nature. Hours went into discovering that nature has its own unique shades and knows how to balance itself perfectly-imperfectly.",
     status: "available",
     images: [
       "assets/img/paintings/forest-painting.jpg"

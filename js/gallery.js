@@ -374,7 +374,7 @@ class StudioGallery {
             <span style="font-size:var(--text-xs); color:var(--ink-muted);">Direct studio inquiry via WhatsApp</span>
           </div>
 
-          <p class="modal-story">${product.story || ''}</p>
+          <p class="modal-story">${product.story ? product.story.replace(/\n\n/g, '<br><br>') : ''}</p>
 
           <div class="modal-specs-list">
             ${product.medium ? `
